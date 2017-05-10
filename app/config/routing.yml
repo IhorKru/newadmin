@@ -1,0 +1,9 @@
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+logout:
+    path: /logout
+admin:
+    path: /{slug}
+    defaults:
+        _controller: AppBundle:AdminController:index

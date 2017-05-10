@@ -1,0 +1,575 @@
+{% extends "base.html.twig" %}
+
+{% block customejs1 %}
+    <script src="{{ asset('resources/vendors_new/pace_js/pace.js')}}"></script>
+{% endblock %}
+
+{% block custcss %}
+    <!-- Page load progress Bar -->
+    <link href="{{ asset('resources/vendors_new/pace_js/pace.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div class="x_panel" style="text-align: center; margin-bottom: 15px;">
+        <div class="btn-group" role="group" aria-label="First group">
+            <a href="{{ path('index', {'slug': 1}) }}" class="btn btn-info btn-md">Day</a>
+            <a href="{{ path('index', {'slug': 2}) }}" class="btn btn-info btn-md">Week</a>    
+            <a href="{{ path('index', {'slug': 3}) }}" class="btn btn-info btn-md">Month</a>
+            <a href="{{ path('index', {'slug': 4}) }}" class="btn btn-info btn-md">Year</a>
+        </div>
+    </div>
+
+    <!-- top tiles -->
+    <div class="row tile_count" style="text-align: center">
+        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-user"></i> Total Subscribers</span>
+            <div class="count">{{ countsubscr|number_format(0, '.', ',') }}</div>
+            <span class="count_bottom">
+                <i class="green">
+                    <i class="fa fa-sort-asc"></i>
+                    {{ weeklyratiototalsubsc|number_format(1, '.', ',') }}
+                </i> From
+                        {% if period == 'daily' %} 
+                            Yesterday
+                        {% elseif period == 'weekly' %}
+                            Last Week
+                        {% elseif period == 'monthly' %}
+                            Last Month
+                        {% elseif period == 'annually' %}
+                            Last Year
+                        {% endif %}
+            </span>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-clock-o">
+                </i> Subscribed
+                        {% if period == 'daily' %}
+                            Today
+                        {% elseif period == 'weekly' %}
+                            WTD
+                        {% elseif period == 'monthly' %}
+                            MTD
+                        {% elseif period == 'annually' %}
+                            YTD
+                        {% endif %}
+            </span>
+            <div class="count">{{ subscribedwtd|number_format(0, '.', ',') }}</div>
+            <span class="count_bottom">
+                <i class="green">
+                    <i class="fa fa-sort-asc"></i>
+                    {{ weeklyratiosubscr|number_format(1, '.', ',') }}%
+                </i> From 
+                        {% if period == 'daily' %} 
+                            Yesterday
+                        {% elseif period == 'weekly' %}
+                            Last Week
+                        {% elseif period == 'monthly' %}
+                            Last Month
+                        {% elseif period == 'annually' %}
+                            Last Year
+                        {% endif %}
+            </span>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-user">
+                </i> Unsubscribed
+                        {% if period == 'daily' %}
+                            Today
+                        {% elseif period == 'weekly' %}
+                            WTD
+                        {% elseif period == 'monthly' %}
+                            MTD
+                        {% elseif period == 'annually' %}
+                            YTD
+                        {% endif %}
+            </span>
+            <div class="count green">{{ unsubscribedwtd|number_format(0, '.', ',') }}</div>
+            <span class="count_bottom">
+                <i class="green">
+                    <i class="fa fa-sort-asc">
+                        </i>{{ weeklyratiounsubscr|number_format(1, '.', ',') }}%
+                </i> From
+                        {% if period == 'daily' %} 
+                            Yesterday
+                        {% elseif period == 'weekly' %}
+                            Last Week
+                        {% elseif period == 'monthly' %}
+                            Last Month
+                        {% elseif period == 'annually' %}
+                            Last Year
+                        {% endif %}
+                </span>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-user">
+                </i> Emails sent
+                        {% if period == 'daily' %}
+                            Today
+                        {% elseif period == 'weekly' %}
+                            WTD
+                        {% elseif period == 'monthly' %}
+                            MTD
+                        {% elseif period == 'annually' %}
+                            YTD
+                        {% endif %}
+                </span>
+            <div class="count">{{ emailssentwtd|number_format(0, '.', ',') }}</div>
+            <span class="count_bottom">
+                <i class="green">
+                    <i class="fa fa-sort-desc">
+                    </i> {{ weeklyratioemails|number_format(1, '.', ',') }}%
+                </i> From 
+                        {% if period == 'daily' %} 
+                            Yesterday
+                        {% elseif period == 'weekly' %}
+                            Last Week
+                        {% elseif period == 'monthly' %}
+                            Last Month
+                        {% elseif period == 'annually' %}
+                            Last Year
+                        {% endif %}
+            </span>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-user">
+                </i> Paid Clicks
+                    {% if period == 'daily' %}
+                        Today
+                    {% elseif period == 'weekly' %}
+                        WTD
+                    {% elseif period == 'monthly' %}
+                        MTD
+                    {% elseif period == 'annually' %}
+                        YTD
+                    {% endif %}
+            </span>
+            <div class="count">{{ paidclickswtd|number_format(0, '.', ',') }}</div>
+            <span class="count_bottom">
+                <i class="green">
+                    <i class="fa fa-sort-asc"></i>
+                    {{ weeklyratiopaidclicks|number_format(1, '.', ',')  }}% 
+                </i> From 
+                        {% if period == 'daily' %} 
+                            Yesterday
+                        {% elseif period == 'weekly' %}
+                            Last Week
+                        {% elseif period == 'monthly' %}
+                            Last Month
+                        {% elseif period == 'annually' %}
+                            Last Year
+                        {% endif %}
+            </span>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-user">
+                </i> USD
+                    {% if period == 'daily' %}
+                        Today
+                    {% elseif period == 'weekly' %}
+                        WTD
+                    {% elseif period == 'monthly' %}
+                        MTD
+                    {% elseif period == 'annually' %}
+                        YTD
+                    {% endif %}
+            </span>
+            <div class="count">{{ revenuewtd|number_format(2, '.', ',') }}</div>
+            <span class="count_bottom">
+                <i class="green">
+                    <i class="fa fa-sort-asc"></i>
+                    {{ weeklyratiorevenue|number_format(1, '.', ',') }}% 
+                </i> From 
+                        {% if period == 'daily' %} 
+                            Yesterday
+                        {% elseif period == 'weekly' %}
+                            Last Week
+                        {% elseif period == 'monthly' %}
+                            Last Month
+                        {% elseif period == 'annually' %}
+                            Last Year
+                        {% endif %}
+            </span>
+        </div>
+    </div>
+    <!-- /top tiles -->
+    <!-- first set -->
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>KPIs</h2>
+                    <!--<div class="col-md-6">
+                      <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+                        <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                        <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
+                      </div>
+                    </div>-->
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <div id="echart_line" style="height:350px;"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /first set done -->
+    {% block custjs %}
+        <!-- ECharts -->
+        <script src="{{ asset('resources/vendors_new/echarts/build/dist/echarts-all.js')}}"></script>
+        
+        <!-- customer js calculation on the page-->
+        <script type="text/javascript">
+
+            //Updating arrows and colour of the top bar
+            var x = document.getElementsByClassName("count_bottom");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                var shift = x[i].getElementsByTagName("i")[0].innerText;
+                var shift = shift.replace('%',"");
+
+                if(i != 2) {
+                    if(shift > 0) {
+                        x[i].getElementsByTagName("i")[0].className = "green";
+                        x[i].getElementsByTagName("i")[1].className = "fa fa-caret-up";
+                    } else if(shift < 0) {
+                        x[i].getElementsByTagName("i")[0].className = "red";
+                        x[i].getElementsByTagName("i")[1].className = "fa fa-caret-down";
+                    } else {
+                        x[i].getElementsByTagName("i")[0].className = "";
+                        x[i].getElementsByTagName("i")[1].className = "fa fa-caret-right";
+                    }
+                } else {
+                    if(shift < 0) {
+                        x[i].getElementsByTagName("i")[0].className = "green";
+                        x[i].getElementsByTagName("i")[1].className = "fa fa-caret-down";
+                    } else if(shift < 0) {
+                        x[i].getElementsByTagName("i")[0].className = "red";
+                        x[i].getElementsByTagName("i")[1].className = "fa fa-caret-up";
+                    } else {
+                        x[i].getElementsByTagName("i")[0].className = "";
+                        x[i].getElementsByTagName("i")[1].className = "fa fa-caret-right";
+                    }
+                }
+            }
+        </script>
+        
+        <!-- setting up E-charts -->
+        <script>
+            /*setting up general theme */
+            var theme = {
+                color: [
+                    '#26B99A', '#34495E', '#BDC3C7', '#3498DB',
+                    '#9B59B6', '#8abb6f', '#759c6a', '#bfd3b7'
+                ],
+                title: {
+                    itemGap: 8,
+                    textStyle: {
+                        fontWeight: 'normal',
+                        color: '#408829'
+                    }
+                },
+                dataRange: {
+                    color: ['#1f610a', '#97b58d']
+                },
+                toolbox: {
+                    color: ['#408829', '#408829', '#408829', '#408829']
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(0,0,0,0.5)',
+                    axisPointer: {
+                        type: 'line',
+                        lineStyle: {
+                            color: '#408829',
+                            type: 'dashed'
+                        },
+                        crossStyle: {
+                            color: '#408829'
+                        },
+                        shadowStyle: {
+                            color: 'rgba(200,200,200,0.3)'
+                        }
+                    }
+                },
+                dataZoom: {
+                    dataBackgroundColor: '#eee',
+                    fillerColor: 'rgba(64,136,41,0.2)',
+                    handleColor: '#408829'
+                },
+                grid: {
+                    borderWidth: 0
+                },
+                categoryAxis: {
+                    axisLine: {
+                        lineStyle: {
+                            color: '#408829'
+                        }
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            color: ['#eee']
+                        }
+                    }
+                },
+                valueAxis: {
+                    axisLine: {
+                        lineStyle: {
+                            color: '#408829'
+                        }
+                    },
+                    splitArea: {
+                        show: true,
+                        areaStyle: {
+                            color: ['rgba(250,250,250,0.1)', 'rgba(200,200,200,0.1)']
+                        }
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            color: ['#eee']
+                        }
+                    }
+                },
+                timeline: {
+                    lineStyle: {
+                        color: '#408829'
+                    },
+                    controlStyle: {
+                        normal: {color: '#408829'},
+                        emphasis: {color: '#408829'}
+                    }
+                },
+                k: {
+                    itemStyle: {
+                        normal: {
+                            color: '#68a54a',
+                            color0: '#a9cba2',
+                            lineStyle: {
+                                width: 1,
+                                color: '#408829',
+                                color0: '#86b379'
+                            }
+                        }
+                    }
+                },
+                map: {
+                    itemStyle: {
+                        normal: {
+                            areaStyle: {
+                                color: '#ddd'
+                            },
+                            label: {
+                                textStyle: {
+                                    color: '#c12e34'
+                                }
+                            }
+                        },
+                        emphasis: {
+                            areaStyle: {
+                                color: '#99d2dd'
+                            },
+                            label: {
+                                textStyle: {
+                                    color: '#c12e34'
+                                }
+                            }
+                        }
+                    }
+                },
+                force: {
+                    itemStyle: {
+                        normal: {
+                            linkStyle: {
+                                strokeColor: '#408829'
+                            }
+                        }
+                    }
+                },
+                chord: {
+                    padding: 4,
+                    itemStyle: {
+                        normal: {
+                            lineStyle: {
+                                width: 1,
+                                color: 'rgba(128, 128, 128, 0.5)'
+                            },
+                            chordStyle: {
+                                lineStyle: {
+                                    width: 1,
+                                    color: 'rgba(128, 128, 128, 0.5)'
+                                }
+                            }
+                        },
+                        emphasis: {
+                            lineStyle: {
+                                width: 1,
+                                color: 'rgba(128, 128, 128, 0.5)'
+                            },
+                            chordStyle: {
+                                lineStyle: {
+                                    width: 1,
+                                    color: 'rgba(128, 128, 128, 0.5)'
+                                }
+                            }
+                        }
+                    }
+                },
+                gauge: {
+                    startAngle: 225,
+                    endAngle: -45,
+                    axisLine: {
+                        show: true,
+                        lineStyle: {
+                            color: [[0.2, '#86b379'], [0.8, '#68a54a'], [1, '#408829']],
+                            width: 8
+                        }
+                    },
+                    axisTick: {
+                        splitNumber: 10,
+                        length: 12,
+                        lineStyle: {
+                            color: 'auto'
+                        }
+                    },
+                    axisLabel: {
+                        textStyle: {
+                            color: 'auto'
+                        }
+                    },
+                    splitLine: {
+                        length: 18,
+                        lineStyle: {
+                            color: 'auto'
+                        }
+                    },
+                    pointer: {
+                        length: '90%',
+                        color: 'auto'
+                    },
+                    title: {
+                        textStyle: {
+                            color: '#333'
+                        }
+                    },
+                    detail: {
+                        textStyle: {
+                            color: 'auto'
+                        }
+                    }
+                },
+                textStyle: {
+                    fontFamily: 'Arial, Verdana, sans-serif'
+                }
+            };
+            
+            <!-- KPI chart -->
+            var echartLine = echarts.init(document.getElementById('echart_line'), theme);
+                echartLine.setOption({
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        x: 220,
+                        y: 40,
+                        data: ['Emails', 'Clicks', 'Revenue', 'Stats']
+                    },
+                    toolbox: {
+                        show: true,
+                        feature: {
+                            magicType: {
+                              show: true,
+                              title: {
+                                line: 'Line',
+                                bar: 'Bar',
+                                stack: 'Stack',
+                                tiled: 'Tiled'
+                              },
+                              type: ['line', 'bar', 'stack', 'tiled']
+                            },
+                            restore: {
+                              show: true,
+                              title: "Restore"
+                            },
+                            saveAsImage: {
+                              show: false,
+                              title: "Save Image"
+                            }
+                        }
+                    },
+                    calculable: true,
+                    xAxis: [{
+                        type: 'category',
+                        boundaryGap: false,
+                        data: [
+                              {% for rsc in emaildata %}
+                                  {% if loop.last == false %}
+                                      '{{ rsc.period }}',
+                                  {% else %}
+                                      '{{ rsc.period }}'
+                                  {% endif %}
+                              {% endfor %}
+                          ],
+                    }],
+                    yAxis: [{
+                        type: 'value'
+                    }],
+                series: [{
+                    name: 'Emails',
+                    type: 'line',
+                    smooth: true,
+                    itemStyle: {
+                        normal: {
+                            areaStyle: {
+                                type: 'default'
+                            }
+                        }
+                    },
+                    data: [
+                            {% for rsc in emaildata %}
+                                '{{ rsc.emailssent }}',
+                            {% endfor %}
+                    ]
+                }, {
+                  name: 'Clicks',
+                  type: 'line',
+                  smooth: true,
+                  itemStyle: {
+                        normal: {
+                            areaStyle: {
+                                type: 'default'
+                            }
+                        }
+                  },
+                  data: [30, 182, 434, 791, 390, 30, 10]
+                }, {
+                    name: 'Revenue',
+                    type: 'line',
+                    smooth: true,
+                    itemStyle: {
+                        normal: {
+                            areaStyle: {
+                              type: 'default'
+                            }
+                        }
+                    },
+                    data: [1320, 1132, 601, 234, 120, 90, 20]
+                }, {
+                    name: 'Stats',
+                    type: 'line',
+                    smooth: true,
+                    itemStyle: {
+                        normal: {
+                            areaStyle: {
+                                type: 'default'
+                            }
+                        }
+                    },
+                    data: [1320, 1132, 601, 234, 120, 90, 10]
+                }]
+              });
+        </script>
+    {% endblock %}
+{% endblock %}

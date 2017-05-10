@@ -1,0 +1,312 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Mediaff | Create Email Campaign{% endblock %}
+
+{% block custcss %}
+<!-- page specific date picker -->
+<link href="{{ asset('resources/vendors_new/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
+<!--page specific css -->
+<link href="{{ asset('resources/build/css/emailcampcustome.css') }}" rel="stylesheet">
+
+<script src="{{ asset('https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js') }}"></script>
+<script src="{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+<div class="">
+    <div class="row">
+        <!-- form input mask -->
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Campaing Details</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br/>
+                    {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'id': 'emailcampform'}}) }}
+                    <div class="form-horizontal form-label-left">
+                        <div class="form-group">
+                            <div class="col-md-9 col-sm-9 col-xs-9 col-xs-9-ex">
+                                <div class='input-group fieldsep'>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-thumbs-up"></span>
+                                    </span>
+                                    {{ form_widget(form.partnername) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" id="usergeo" style="display: none">
+                            <div class="col-md-9 col-sm-9 col-xs-9 col-xs-9-ex">
+                                <div class='input-group fieldsep'>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-globe"></span>
+                                    </span>
+                                    {{ form_widget(form.geo) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" id="resourcename" style="display: none">
+                            <div class="col-md-9 col-sm-9 col-xs-9 col-xs-9-ex">
+                                <div class='input-group fieldsep'>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-picture"></span>
+                                    </span>
+                                    {{ form_widget(form.resourcename) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" id="templatename" style="display: none">
+                            <div class="col-md-9 col-sm-9 col-xs-9 col-xs-9-ex">
+                                <div class='input-group fieldsep'>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-list-alt"></span>
+                                    </span>
+                                    {{ form_widget(form.templatename) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" id='numemailspicker' style="display: none">
+                            <div class="col-md-9 col-sm-9 col-xs-9 col-xs-9-ex">
+                                <div class='input-group fieldsep'>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-send"></span>
+                                    </span>
+                                    {{ form_widget(form.numemails) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div id='paidlink' style="display: none">
+                            <div class="form-group">
+                                <div class="col-md-9 col-sm-9 col-xs-9 col-xs-9-ex">
+                                    <div class='input-group fieldsep'>
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-link"></span>
+                                        </span>
+                                        {{ form_widget(form.link1) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group" style="display: none">
+                                <div class="col-md-9 col-sm-9 col-xs-9 col-xs-9-ex">
+                                    <div class='input-group fieldsep'>
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-link"></span>
+                                        </span>
+                                        {{ form_widget(form.link2) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="timezonepicker" style="display: none">
+                            <div class="col-md-9 col-sm-9 col-xs-9 col-xs-9-ex">
+                                <div class='input-group fieldsep date'>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-map-marker"></span>
+                                    </span>
+                                    {{ form_widget(form.timezone) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" id="datetimepcr" style="display: none">
+                            <div class="col-md-9 col-sm-9 col-xs-9 col-xs-9-ex">
+                                <div class='input-group date form_datetime fieldsep' id='datetimepicker'>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                    {{ form_widget(form.datetosend) }}
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ln_solid"></div>
+                        <div class="form-group" id="fbuttons" style="display: none">
+                            <div class="col-md-9 col-sm-9 col-xs-9 col-xs-9-ex">
+                                {{ form_widget(form.submit) }}
+                                {{ form_widget(form.clear) }}
+                            </div>
+                        </div>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+        <!-- /form input mask -->
+        <!-- progress bar -->
+        <div class="col-md-8 col-sm-12 col-xs-12" style="display: none" id="progress_show">
+            <div class="x_panel">
+                <div class="x_title">
+                    <div class="progress">
+                        <div id="progress_bar" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width:0">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="campstats">
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block custjs %}
+<!-- date time picker -->
+<script src="{{ asset('resources/vendors_new/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js')}}"></script>
+<!-- Email form fields -->
+<script>
+    //correct loading of email form fields
+    $('#input_partnername').on('change', function() {
+        if (this.value == '') {
+            $("#usergeo").hide();
+            $("#resourcename").hide();
+            $("#templatename").hide();
+            $("#numemailspicker").hide();
+            $("#timezonepicker").hide();
+            $("#datetimepcr").hide();
+            $("#paidlink").hide();
+            $("#fbuttons").hide();
+        } else if (this.value == '4'){
+            $("#usergeo").show();
+            $("#resourcename").hide();
+            $("#templatename").hide();
+            $("#paidlink").hide();
+            $("#numemailspicker").show();
+            $("#timezonepicker").show();
+            $("#datetimepcr").show();
+            $("#fbuttons").show();
+        } else if (this.value != '4') {
+            $("#usergeo").show();
+            $("#resourcename").show();
+            $("#templatename").show();
+            $("#numemailspicker").show();
+            $("#timezonepicker").show();
+            $("#datetimepcr").show();
+            $("#paidlink").show();
+            $("#fbuttons").show();
+        }
+    }).trigger("change")
+    //js for date/time picker
+    $('.form_datetime').datetimepicker({
+        //language:  'uk',
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        forceParse: 0,
+        showMeridian: 1
+    });
+
+    $('.form_date').datetimepicker({
+        language:  'uk',
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+    });
+
+    $('.form_time').datetimepicker({
+        language:  'uk',
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 1,
+        minView: 0,
+        maxView: 1,
+        forceParse: 0
+    });
+    //submitting the form
+    $("#emailcampform").submit(function(e) {
+        e.preventDefault();
+        var $form = $(e.currentTarget);
+        var formSub = function () {
+            $.ajax({
+                url: $form.attr('action'),
+                method: 'POST',
+                data: $form.serialize()
+            });
+        }
+        formSub();
+    });
+    //js for progress bar to be shown
+    $("#input_submit").click(function() {
+        $("#progress_show").show(); //showing progress bar
+        $("#progress_bar").attr("aria-valuemin", "0%"); //assigning initial value to progress bay
+        var emailstosend = document.getElementById("input_numemails").value //getting count of emails to be sent out
+        var timeOutId = 0;
+        //getting current max campaigns
+        var initCamp = function () {
+            var initcount;
+            $.ajax({
+                type: "GET",
+                url: "{{ path('progbar') }}",
+                dataType: "text",
+                cache: false,
+                success: function(response) {
+                    initcount = response;
+                    var prevprogress;
+                    var ajaxFn = function () {
+                        var currcount = "0%";
+                        $.ajax({
+                            type: "GET",
+                            url: "{{ path('progbar') }}",
+                            dataType: "text",
+                            success: function(response) {
+                                currcount = response;
+                                var progress = Math.floor((Number(currcount) - Number(initcount)) / Number(emailstosend) * Number(100)) + "%";
+                                $("#progress_bar").attr("style", "width: " + progress);
+                                $("#progress_bar").attr("aria-valuenow", progress);
+                                document.getElementById("progress_bar").innerHTML = "Running - " + progress;
+                                if(prevprogress == progress && prevprogress != '0%' && progress >= '98%' || progress == '100%'){
+                                    $("#progress_bar").attr("style", "width: 100%");
+                                    $("#progress_bar").attr("aria-valuenow", "100%");
+                                    document.getElementById("progress_bar").innerHTML = "Completed - 100% - " + (Number(currcount) - Number(initcount)) + " emails";
+                                    var cdAjax = function () {
+                                        $.ajax({
+                                            type: "GET",
+                                            url: "{{ path('campstats') }}",
+                                            dataType: "html",
+                                            success: function(response) {
+                                                $('#campstats').html(response);
+                                            },
+                                            error: function(result) {
+                                                console.log('error');
+                                            }
+                                        });
+                                    }
+                                    cdAjax();
+                                } else {
+                                    timeOutId = setTimeout(ajaxFn, 1000);
+                                }
+                                prevprogress = progress;
+                            },
+                            error: function(result) {
+                                console.log('error');
+                            }
+                        });
+                    }
+                    ajaxFn();
+                },
+                error: function(result) {
+                    console.log('error');
+                }
+            });
+        }
+        initCamp();
+    });
+
+</script>
+
+{% endblock %}

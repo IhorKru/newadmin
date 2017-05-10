@@ -242,9 +242,14 @@
     });
     //js for progress bar to be shown
     $("#input_submit").click(function() {
-        $("#progress_show").show(); //showing progress bar
-        $("#progress_bar").attr("aria-valuemin", "0%"); //assigning initial value to progress bay
-        var emailstosend = document.getElementById("input_numemails").value //getting count of emails to be sent out
+        if ( $("#progress_show").css('display') == 'none' ){
+            $("#progress_show").show(); //showing progress bar
+            $("#progress_bar").attr("aria-valuemin", "0%"); //assigning initial value to progress bar
+        } else {
+            $("#progress_bar").attr("style", "width: 0%");
+            $("#progress_bar").attr("aria-valuenow", "0%");
+        }
+        var emailstosend = document.getElementById("input_numemails").value; //getting count of emails to be sent out
         var timeOutId = 0;
         //getting current max campaigns
         var initCamp = function () {

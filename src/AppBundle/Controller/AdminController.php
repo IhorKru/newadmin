@@ -103,6 +103,8 @@ class AdminController extends Controller
         $spendperiod = $this->getDoctrine()->getRepository('AppBundle:StatsDaily')->currentCp($what,$table,$where0);//count of complaints for the period
         $prevspend = $this->getDoctrine()->getRepository('AppBundle:StatsDaily')->historyLp($what,$table);//selecting 18 prev occurances of above data
         $tabledata = $this->getDoctrine()->getRepository('AppBundle:StatsDaily')->campDetailTable();//getting data for table
+        //opens period
+
         //pushing variables to template
         return $this->render('BackEnd/campaignsdash.html.twig',['batchesperiod'=>$batchesperiod,'prevbatches'=>$prevbatches,'campaignsperiod'=>$campaignsperiod,'prevcampaigns'=>$prevcampaigns,
             'emailsperiod'=>$emailsperiod, 'prevemailssent'=>$prevemailssent,'opensperiod'=>$opensperiod,'prevopens'=>$prevopens,'clicksperiod'=>$clicksperiod,'prevclicks'=>$prevclicks,'bouncesperiod'=>$bouncesperiod,

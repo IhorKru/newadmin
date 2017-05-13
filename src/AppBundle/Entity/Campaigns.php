@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Campaigns
@@ -12,6 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Campaigns
 {
+
     /**
      * @var integer
      *
@@ -852,4 +854,5 @@ class Campaigns
     {
         return $this->batch_id;
     }
+
 }

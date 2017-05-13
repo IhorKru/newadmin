@@ -61,30 +61,6 @@ class Links
     }
 
     /**
-     * Set campaignId
-     *
-     * @param integer $campaignId
-     *
-     * @return Links
-     */
-    public function setCampaignId($campaignId)
-    {
-        $this->campaignId = $campaignId;
-
-        return $this;
-    }
-
-    /**
-     * Get campaignId
-     *
-     * @return int
-     */
-    public function getCampaignId()
-    {
-        return $this->campaignId;
-    }
-
-    /**
      * Set areasEmailId
      *
      * @param integer $areasEmailId
@@ -154,5 +130,30 @@ class Links
     public function getClicks()
     {
         return $this->clicks;
+    }
+
+
+    /**
+     * Set campaignId
+     *
+     * @param integer $campaignId
+     *
+     * @return Links
+     */
+    public function setCampaignId($campaignId)
+    {
+        $this->campaignId = $campaignId;
+
+        return $this;
+    }
+
+    /**
+     * Get campaignId
+     *
+     * @return integer
+     */
+    public function getCampaignId()
+    {
+        return $this->campaignId;
     }
 }

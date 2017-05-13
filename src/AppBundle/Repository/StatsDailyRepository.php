@@ -161,21 +161,26 @@ class StatsDailyRepository extends EntityRepository
     public function campDetailTable() {
         $qb = $this->getEntityManager()->createQueryBuilder();
         $qb
-            -> select('DISTINCT DATE_FORMAT(from_unixtime(c.sent),\'%e-%b-%Y\') AS SendDate,
-                              COUNT(c.id) AS CountCampaigns,
-                              SUM(c.recipients) AS CountEmails,
-                              0 AS CountBounces,
-                              0 AS CountComplaints,
-                              0 AS CountOpens,
-                              0 AS CountClicks,
-                              0 AS Spend,
+            -> select('DISTINCT DATE_FORMAT(from_unixtime(c.sent),\'%e-%b-%Y %H:%i:%S\') AS SendDate,
+                              DATE_FORMAT(from_unixtime(c.sendDate),\'%e-%b-%Y %H:%i:%S\') AS SendDateF,
+                              COUNT(DISTINCT c.id) AS CountCampaigns,
+                              COUNT (s.id) AS CountEmails,
+                              c.opens AS CountOpens,
+                              SUM(s.bounced) AS CountBounces,
+                              SUM(s.bounce_soft) AS CountBouncesS,
+                              SUM(s.complaint) AS CountComplaints,
+                              SUM(lk.clicks) AS CountClicks,
                               0 AS Revenue')
             -> from('AppBundle:Campaigns', 'c')
-            -> groupBy('c.sendDate')
+            -> leftJoin('AppBundle\Entity\Links', 'lk', \Doctrine\ORM\Query\Expr\Join::WITH, 'c.id = lk.campaignId')
+            -> leftJoin('AppBundle\Entity\Lists', 'li', \Doctrine\ORM\Query\Expr\Join::WITH, 'c.toSendLists = li.id')
+            -> leftJoin('AppBundle\Entity\Subscribers', 's', \Doctrine\ORM\Query\Expr\Join::WITH, 'li.id = s.list')
+            -> groupBy('c.sent, c.sendDate')
             -> orderBy('c.sendDate', 'ASC')
         ;
         $result = $qb ->getQuery() ->getResult();
         return $result;
 
     }//concolidated pull function for campaigns dash
+
 }

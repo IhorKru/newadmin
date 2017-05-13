@@ -199,7 +199,6 @@ class statsService extends Controller
             ->andWhere($where5)
             ->andWhere($where6);
         $opensarray = $qb9 ->getQuery() ->getArrayResult();
-
         if(is_array($opensarray)){
             $opensperiod = 0;
             foreach ($opensarray as $opens) {

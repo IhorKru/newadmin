@@ -22,33 +22,41 @@
     <div class="row tile_count" style="text-align: center">
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
             <span class="count_top"><i class="fa fa-user"></i> Total Subscribers</span>
-            <div class="count">{{ countsubscr|number_format(0, '.', ',') }}</div>
+            <div class="count">{{ statsdata.countsubscr|number_format(0, '.', ',') }}</div>
             <span class="count_bottom">
                 <i class="green">
                     <i class="fa fa-sort-asc"></i>
-                    {{ weeklyratiototalsubsc|number_format(1, '.', ',') }}
+                    {{ statsdata.ratiototalsubsc|number_format(1, '.', ',') }}
                 </i> From
-                    {% if period == 'daily' %} Yesterday
-                    {% elseif period == 'weekly' %} Last Week
-                    {% elseif period == 'monthly' %} Last Month
-                    {% elseif period == 'annually' %} Last Year
+                    {% if period == 'daily' %}
+                        Yesterday
+                    {% elseif period == 'weekly' %}
+                        Last Week
+                    {% elseif period == 'monthly' %}
+                        Last Month
+                    {% elseif period == 'annually' %}
+                        Last Year
                     {% endif %}
             </span>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
             <span class="count_top"><i class="fa fa-clock-o">
                 </i> Subscribed
-                    {% if period == 'daily' %} Today
-                    {% elseif period == 'weekly' %} WTD
-                    {% elseif period == 'monthly' %} MTD
-                    {% elseif period == 'annually' %} YTD
+                    {% if period == 'daily' %}
+                        Today
+                    {% elseif period == 'weekly' %}
+                        WTD
+                    {% elseif period == 'monthly' %}
+                        MTD
+                    {% elseif period == 'annually' %}
+                        YTD
                     {% endif %}
             </span>
-            <div class="count">{{ subscribedwtd|number_format(0, '.', ',') }}</div>
+            <div class="count">{{ statsdata.cntsubscrperiod|number_format(0, '.', ',') }}</div>
             <span class="count_bottom">
                 <i class="green">
                     <i class="fa fa-sort-asc"></i>
-                    {{ weeklyratiosubscr|number_format(1, '.', ',') }}%
+                    {{ statsdata.rationsubscrperiod|number_format(1, '.', ',') }}%
                 </i> From
                     {% if period == 'daily' %}
                         Yesterday
@@ -74,11 +82,11 @@
                         YTD
                     {% endif %}
             </span>
-            <div class="count green">{{ unsubscribedwtd|number_format(0, '.', ',') }}</div>
+            <div class="count green">{{ statsdata.cntunsubscribers|number_format(0, '.', ',') }}</div>
             <span class="count_bottom">
                 <i class="green">
                     <i class="fa fa-sort-asc">
-                        </i>{{ weeklyratiounsubscr|number_format(1, '.', ',') }}%
+                        </i>{{ statsdata.rationsubscrperiod|number_format(1, '.', ',') }}%
                 </i> From
                     {% if period == 'daily' %}
                         Yesterday
@@ -104,11 +112,11 @@
                         YTD
                     {% endif %}
                 </span>
-            <div class="count">{{ emailssentwtd|number_format(0, '.', ',') }}</div>
+            <div class="count">{{ statsdata.cntemailssentperiod|number_format(0, '.', ',') }}</div>
             <span class="count_bottom">
                 <i class="green">
                     <i class="fa fa-sort-desc">
-                    </i> {{ weeklyratioemails|number_format(1, '.', ',') }}%
+                    </i> {{ statsdata.ratioemailssent|number_format(1, '.', ',') }}%
                 </i> From
                     {% if period == 'daily' %}
                         Yesterday
@@ -134,11 +142,11 @@
                         YTD
                     {% endif %}
             </span>
-            <div class="count">{{ paidclickswtd|number_format(0, '.', ',') }}</div>
+            <div class="count">{{ statsdata.cntclicksperiod|number_format(0, '.', ',') }}</div>
             <span class="count_bottom">
                 <i class="green">
                     <i class="fa fa-sort-asc"></i>
-                    {{ weeklyratiopaidclicks|number_format(1, '.', ',')  }}% 
+                    {{ statsdata.ratioclicksperiod|number_format(1, '.', ',')  }}%
                 </i> From
                     {% if period == 'daily' %}
                         Yesterday
@@ -164,11 +172,11 @@
                         YTD
                     {% endif %}
             </span>
-            <div class="count">{{ revenuewtd|number_format(2, '.', ',') }}</div>
+            <div class="count">{{ statsdata.revenueperiod|number_format(2, '.', ',') }}</div>
             <span class="count_bottom">
                 <i class="green">
                     <i class="fa fa-sort-asc"></i>
-                    {{ weeklyratiorevenue|number_format(1, '.', ',') }}% 
+                    {{ statsdata.ratiorevenue|number_format(1, '.', ',') }}%
                 </i> From
                     {% if period == 'daily' %}
                         Yesterday
@@ -211,7 +219,38 @@
         <!-- ECharts -->
         <script src="{{ asset('resources/vendors/echarts/build/dist/echarts-all.js')}}"></script>
         <!-- customer js updateting page to tile errors-->
-        <script src="{{ asset('resources/vendors/echarts/build/dist/echarts-all.js')}}"></script>
+        <script>
+            //Updating arrows and colour of the top bar
+            var x = document.getElementsByClassName("count_bottom");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                var shift = x[i].getElementsByTagName("i")[0].innerText;
+                var shift = shift.replace('%',"");
+                if(i != 2) {
+                    if(shift > 0) {
+                        x[i].getElementsByTagName("i")[0].className = "green";
+                        x[i].getElementsByTagName("i")[1].className = "fa fa-caret-up";
+                    } else if(shift < 0) {
+                        x[i].getElementsByTagName("i")[0].className = "red";
+                        x[i].getElementsByTagName("i")[1].className = "fa fa-caret-down";
+                    } else {
+                        x[i].getElementsByTagName("i")[0].className = "";
+                        x[i].getElementsByTagName("i")[1].className = "fa fa-caret-right";
+                    }
+                } else {
+                    if(shift < 0) {
+                        x[i].getElementsByTagName("i")[0].className = "green";
+                        x[i].getElementsByTagName("i")[1].className = "fa fa-caret-down";
+                    } else if(shift < 0) {
+                        x[i].getElementsByTagName("i")[0].className = "red";
+                        x[i].getElementsByTagName("i")[1].className = "fa fa-caret-up";
+                    } else {
+                        x[i].getElementsByTagName("i")[0].className = "";
+                        x[i].getElementsByTagName("i")[1].className = "fa fa-caret-right";
+                    }
+                }
+            }
+        </script>
         <!-- setting up E-charts -->
         <script>
             /*setting up general theme */

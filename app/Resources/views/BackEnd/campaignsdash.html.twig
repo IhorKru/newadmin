@@ -134,7 +134,7 @@
                                     <td>{{ tablerow.CountComplaints }}</td>
                                     <td>{{ tablerow.CountOpens }}</td>
                                     <td>{{ tablerow.CountClicks }}</td>
-                                    <td>{{ tablerow.CountEmails|number_format * 0.0001}}</td>
+                                    <td>{{ tablerow.CountEmails * '0.0001'}}</td>
                                     <td>{{ tablerow.Revenue }}</td>
                                 </tr>
                             {%  endfor %}

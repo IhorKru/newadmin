@@ -81,14 +81,14 @@ class SubscriberAddress
     /**
      * @var string
      *
-     * @ORM\Column(name="preferedmethod", type="string", length=25, nullable=true)
+     * @ORM\Column(name="preferedmethod", type="boolean")
      */
     private $preferedmethod;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="isocountrycode", type="string", length=25)
+     * @ORM\Column(name="isocountrycode", type="string", length=2)
      */
     private $isocountrycode;
 

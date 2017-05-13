@@ -8,10 +8,24 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\AppBundle;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use AppBundle\Entity\CampaignInputDetails;
+use AppBundle\Entity\Template;
+use AppBundle\Entity\cpcInputDetails;
+use AppBundle\Entity\PartnerDetails;
+use AppBundle\Form\InputType;
+use AppBundle\Form\cpcInputType;
+use AppBundle\Form\NewEmailType;
+use AppBundle\Form\newPartnerType;
+use Symfony\Component\Process\Process;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use DateTime;
 
 class PublisherController extends Controller
 {
@@ -78,7 +92,7 @@ class PublisherController extends Controller
         $what = 's.spendperiod';
         $spendperiod = $this->getDoctrine()->getRepository('AppBundle:StatsDaily')->currentCp($what,$table,$where0);//count of complaints for the period
         $prevspend = $this->getDoctrine()->getRepository('AppBundle:StatsDaily')->historyLp($what,$table);//selecting 18 prev occurances of above data
-        $tabledata = $this->getDoctrine()->getRepository('AppBundle:StatsDaily')->campDetailTable();//getting data for table
+        $tabledata = $this->getDoctrine()->getRepository('AppBundle:StatsDaily')->campDetailTable2();//getting data for table
         //opens period
 
         //pushing variables to template
@@ -100,6 +114,90 @@ class PublisherController extends Controller
      */
     public function partnerdashAction(Request $request, $slug){
         return $this->render('BackEnd/partnerdash.html.twig',['daily'=>$slug,'weekly'=>$slug,'monthly'=>$slug,'yearly'=>$slug]);
+    }
+
+    /**
+     * @Route("/emailcampaigns", name="emailcampaigns")
+     */
+    public function emailcampaignsAction(Request $request)
+    {
+        //setting up form entity
+        $em = $this ->getDoctrine() ->getManager();
+        $newCampaign = new CampaignInputDetails();
+        $form = $this->createForm(InputType::class, $newCampaign, [
+            'action' => $this -> generateUrl('emailcampaigns'),
+            'method' => 'POST'
+        ]);
+        //processing form data
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+            $partner_obj = $form['partnername']->getData();
+            $partner = $partner_obj ->getID();
+            $geo = $form['geo']->getData();
+            #if partner is not ADK, collect data from below fields
+            if ($partner != 4) {
+                $app_obj = $form['resourcename']->getData();
+                $app_id = $app_obj ->getID();
+                $templateid = $form['templatename']->getData();
+                $link1 = $form['link1']->getData();
+                $link2 = $form['link2']->getData();
+            } elseif ($partner == 4) {
+                $app_id = '1';
+                $templateid = '1';
+                $link1 = 'http://adknowledge.com';
+                $link2 = 'http://adknowledge.com';
+            }
+            $numcampaigns = $form['numemails']->getData();
+            $timezone = $form['timezone'] ->getData();
+            $depdate = $form['datetosend'] ->getData();
+            $datedepf = date_create($depdate . ':00');
+            //pushing campaign details to db
+            $newCampaign ->setPartnername($partner);
+            $newCampaign ->setGeo($geo);
+            $newCampaign ->setResourcename($app_id);
+            $newCampaign ->setTemplatename($templateid);
+            $newCampaign ->setLink1($link1);
+            $newCampaign ->setLink2($link2);
+            $newCampaign ->setTimezone($timezone);
+            $newCampaign ->setDatetosend($datedepf);
+            $newCampaign ->setDatecreated(new DateTime());
+            $em->persist($newCampaign);
+            $em->flush();
+            //initiating required action based on the partner
+            if($partner == 4) {
+                //closing down current session and progressing with script creation
+                $rootDir = getcwd();
+                $adk_process = new Process(
+                    'php ../bin/console app:adkaction ' . $numcampaigns . ', ' . $timezone . ',' . $depdate
+                );
+                $adk_process->setWorkingDirectory($rootDir);
+                $adk_process->setTimeout(null);
+                $adk_process->start();
+                if($adk_process->isRunning()){
+                    while($adk_process->isRunning()){
+                    }
+                    if(!$adk_process->isSuccessful())
+                        $this->get('session')->getFlashBag()->add('error',"Oops!The process fininished with an error:".$adk_process->getErrorOutput());
+                }
+            } else {
+                $getcampaign = $this->get('gen.campaign');
+                $subscriberst = $getcampaign -> ecampServiceAction($geo, $app_id, $templateid, $numcampaigns, $link1, $link2, $timezone, $depdate);
+            }
+        }
+        return $this->render('BackEnd/emailcampaigns.html.twig',[
+            'form'=>$form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/bar", name="progbar")
+     * @Method({"GET", "POST"})
+     */
+    public function ajaxProcessAction(Request $request)
+    {
+        //getting last updated line
+        $count = $this->getDoctrine()->getManager()->getRepository('AppBundle:Subscribers')->findMaxRow();
+        return new Response($count);
     }
 
     private function setTablePropsTwo($slug) {

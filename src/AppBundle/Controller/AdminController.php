@@ -25,77 +25,11 @@ class AdminController extends Controller
 {
 
     /**
-     * @Route("/emailcampaigns", name="emailcampaigns")
-     */
-    public function emailcampaignsAction(Request $request)
-    {
-        //setting up form entity
-        $newInputs = new CampaignInputDetails();
-        $form = $this->createForm(InputType::class, $newInputs, [
-            'action' => $this -> generateUrl('emailcampaigns'),
-            'method' => 'POST'
-        ]);
-        //processing form data
-        $form->handleRequest($request);
-        #GETTING FORM DATA
-        if($form->isSubmitted() && $form->isValid()) {
-            $partner_obj = $form['partnername']->getData();
-                $partner = $partner_obj ->getID();
-            $geo = $form['geo']->getData();
-            #if partner is not ADK, collect data from below fields
-            if ($partner != 4) {
-                $app_obj = $form['resourcename']->getData();
-                $app_id = $app_obj ->getID();
-                $templateid = $form['templatename']->getData();
-                $link1 = $form['link1']->getData();
-                $link2 = $form['link2']->getData();
-            }
-            $numcampaigns = $form['numemails']->getData();
-            $timezone = $form['timezone'] ->getData();
-            $depdate = $form['datetosend'] ->getData();
-            //initiating required action based on the partner
-            if($partner == 4) {
-                //closing down current session and progressing with script creation
-                $rootDir = getcwd();
-                $adk_process = new Process(
-                    'php ../bin/console app:adkaction ' . $numcampaigns . ', ' . $timezone . ',' . $depdate
-                );
-                $adk_process->setWorkingDirectory($rootDir);
-                $adk_process->setTimeout(null);
-                $adk_process->start();
-                if($adk_process->isRunning()){
-                    while($adk_process->isRunning()){
-                    }
-                    if(!$adk_process->isSuccessful())
-                    $this->get('session')->getFlashBag()->add('error',"Oops!The process fininished with an error:".$adk_process->getErrorOutput());
-                }
-            } else {
-                $getcampaign = $this->get('gen.campaign');
-                $subscriberst = $getcampaign -> ecampServiceAction($geo, $app_id, $templateid, $numcampaigns, $link1, $link2, $timezone, $depdate);
-            }
-        }
-        return $this->render('BackEnd/emailcampaigns.html.twig',[
-            'form'=>$form->createView()
-        ]);
-    }
-
-    /**
      * @Route("/cpccampaign", name="cpccampaign")
      */
     public function cpcCampaignAction(Request $request) {
 
         return $this->render('BackEnd/cpccampaign.html.twig');
-    }
-
-    /**
-     * @Route("/bar", name="progbar")
-     * @Method({"GET", "POST"})
-     */
-    public function ajaxProcessAction(Request $request)
-    {
-        //getting last updated line
-        $count = $this->getDoctrine()->getManager()->getRepository('AppBundle:Subscribers')->findMaxRow();
-        return new Response($count);
     }
 
     /**

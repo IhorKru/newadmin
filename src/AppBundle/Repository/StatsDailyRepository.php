@@ -192,6 +192,30 @@ class StatsDailyRepository extends EntityRepository
         return $result;
 
     }//concolidated pull function for campaigns dash
+    public function campDetailTable2() {
+        $qb = $this->getEntityManager()->createQueryBuilder();
+        $qb
+            -> select('DISTINCT ca.datecreated AS DateCreated,
+                              COUNT(DISTINCT c.id) AS CountCampaigns,
+                              COUNT (s.id) AS CountEmails,
+                              c.opens AS CountOpens,
+                              SUM(s.bounced) AS CountBounces,
+                              SUM(s.bounce_soft) AS CountBouncesS,
+                              SUM(s.complaint) AS CountComplaints,
+                              SUM(lk.clicks) AS CountClicks,
+                              0 AS Revenue')
+            -> from('AppBundle:CampaignInputDetails', 'ca')
+            -> leftJoin('AppBundle\Entity\Campaigns', 'c', \Doctrine\ORM\Query\Expr\Join::WITH,'ca.id = c.batch_id')
+            -> leftJoin('AppBundle\Entity\Links', 'lk', \Doctrine\ORM\Query\Expr\Join::WITH, 'c.id = lk.campaignId')
+            -> leftJoin('AppBundle\Entity\Lists', 'li', \Doctrine\ORM\Query\Expr\Join::WITH, 'c.toSendLists = li.id')
+            -> leftJoin('AppBundle\Entity\Subscribers', 's', \Doctrine\ORM\Query\Expr\Join::WITH, 'li.id = s.list')
+            -> groupBy('ca.datecreated')
+            -> orderBy('ca.datecreated', 'ASC')
+        ;
+        $result = $qb ->getQuery() ->getResult();
+        return $result;
+
+    }//concolidated pull function for campaigns dash
     private function calulateChange($param1, $param2) {
         if ($param1 == 0 or $param2 == 0) {
             $change = 0;

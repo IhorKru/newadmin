@@ -138,8 +138,8 @@ class adkService extends AdminController
             $xmlresponse = array();
             $xmlerror = array();
             $subcreative = array();
-            $querybatch = $em ->createQuery('SELECT MAX(c.batch_id) FROM AppBundle:Campaigns c');
-            $curbatch = $querybatch->getSingleScalarResult() + 1;
+            $querybatch = $em ->createQuery('SELECT MAX(c.id) FROM AppBundle:CampaignInputDetails c');
+            $curbatch = $querybatch->getSingleScalarResult();
             //going into each specific details
             foreach ($result as $id => $xmlbatch) {
                 $xml = new SimpleXMLElement($xmlbatch);

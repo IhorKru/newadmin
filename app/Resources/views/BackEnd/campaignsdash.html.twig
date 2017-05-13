@@ -111,7 +111,7 @@
                     <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                                <th>Date Sent</th>
+                                <th>Date Created</th>
                                 <th>Campaigns</th>
                                 <th>Emails</th>
                                 <th>Bounces</th>
@@ -126,11 +126,7 @@
                         <tbody>
                             {% for tablerow in tabledata %}
                                 <tr>
-                                    {% if tablerow.SendDate == '1-Jan-1970 06:00:00' %}
-                                        <td>{{ tablerow.SendDateF }}</td>
-                                    {% else %}
-                                        <td>{{ tablerow.SendDate }}</td>
-                                    {% endif %}
+                                    <td>{{ tablerow.DateCreated|date('Y-m-d H:i:s') }}</td>
                                     <td>{{ tablerow.CountCampaigns }}</td>
                                     <td>{{ tablerow.CountEmails }}</td>
                                     <td>{{ tablerow.CountBounces }}</td>

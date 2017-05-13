@@ -15,7 +15,8 @@ class CampaignInputDetails
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="integer", nullable=false, unique=true)
+     * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Id
      * 
      */
@@ -83,6 +84,13 @@ class CampaignInputDetails
      * @ORM\Column(name="link2", type="text")
      */
     private $link2;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="datecreated", type="datetime", length=255)
+     */
+    private $datecreated;
 
     /**
      * Get id
@@ -323,5 +331,29 @@ class CampaignInputDetails
     public function getLink2()
     {
         return $this->link2;
+    }
+
+    /**
+     * Set datecreated
+     *
+     * @param \DateTime $datecreated
+     *
+     * @return CampaignInputDetails
+     */
+    public function setDatecreated($datecreated)
+    {
+        $this->datecreated = $datecreated;
+
+        return $this;
+    }
+
+    /**
+     * Get datecreated
+     *
+     * @return \DateTime
+     */
+    public function getDatecreated()
+    {
+        return $this->datecreated;
     }
 }

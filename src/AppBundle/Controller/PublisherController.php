@@ -164,6 +164,7 @@ class PublisherController extends Controller
             $em->persist($newCampaign);
             $em->flush();
             //initiating required action based on the partner
+            session_write_close();
             if($partner == 4) {
                 //closing down current session and progressing with script creation
                 $rootDir = getcwd();

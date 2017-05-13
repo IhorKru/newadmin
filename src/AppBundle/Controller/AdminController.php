@@ -57,9 +57,8 @@ class AdminController extends Controller
         $revenueCp = $em->getRepository('AppBundle:StatsDaily')->revenueCp($table,$where0,$where3);//revenue current period
         $revenueLp = $em->getRepository('AppBundle:StatsDaily')->revenueLp($table,$where1,$where2);//revenue previous period
         $weeklyratiorevenue = $this->calulateChange($revenueCp,$revenueLp);//%change
-        for ($i = 0; $i < 8; $i++) {//selecting length of the period
-            $gperiod = strftime($format, $timestamp);            //selecting required period
-            //$ddate = strftime('%Y-%m-%d', $timestamp);
+        for ($i = 0; $i = 8; $i++) {//selecting length of the period
+            $gperiod = strftime($format, $timestamp);
             $where0 = "s.date = CURRENT_DATE()";
             $emailssent = $em->getRepository('AppBundle:StatsDaily')->cntEmailsSentCp($table,$where0,$where3);//selecting count of emails sent in that specific day
             $emaildata[] = ['period' => $gperiod, 'emailssent' => $emailssent];

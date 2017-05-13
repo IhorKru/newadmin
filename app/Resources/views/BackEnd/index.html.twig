@@ -1,12 +1,12 @@
 {% extends "base.html.twig" %}
 
 {% block customejs1 %}
-    <script src="{{ asset('resources/vendors_new/pace_js/pace.js')}}"></script>
+    <script src="{{ asset('resources/vendors/pace_js/pace.js')}}"></script>
 {% endblock %}
 
 {% block custcss %}
     <!-- Page load progress Bar -->
-    <link href="{{ asset('resources/vendors_new/pace_js/pace.css') }}" rel="stylesheet">
+    <link href="{{ asset('resources/vendors/pace_js/pace.css') }}" rel="stylesheet">
 {% endblock %}
 
 {% block body %}
@@ -18,7 +18,6 @@
             <a href="{{ path('index', {'slug': 4}) }}" class="btn btn-info btn-md">Year</a>
         </div>
     </div>
-
     <!-- top tiles -->
     <div class="row tile_count" style="text-align: center">
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
@@ -29,59 +28,51 @@
                     <i class="fa fa-sort-asc"></i>
                     {{ weeklyratiototalsubsc|number_format(1, '.', ',') }}
                 </i> From
-                        {% if period == 'daily' %} 
-                            Yesterday
-                        {% elseif period == 'weekly' %}
-                            Last Week
-                        {% elseif period == 'monthly' %}
-                            Last Month
-                        {% elseif period == 'annually' %}
-                            Last Year
-                        {% endif %}
+                    {% if period == 'daily' %} Yesterday
+                    {% elseif period == 'weekly' %} Last Week
+                    {% elseif period == 'monthly' %} Last Month
+                    {% elseif period == 'annually' %} Last Year
+                    {% endif %}
             </span>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
             <span class="count_top"><i class="fa fa-clock-o">
                 </i> Subscribed
-                        {% if period == 'daily' %}
-                            Today
-                        {% elseif period == 'weekly' %}
-                            WTD
-                        {% elseif period == 'monthly' %}
-                            MTD
-                        {% elseif period == 'annually' %}
-                            YTD
-                        {% endif %}
+                    {% if period == 'daily' %} Today
+                    {% elseif period == 'weekly' %} WTD
+                    {% elseif period == 'monthly' %} MTD
+                    {% elseif period == 'annually' %} YTD
+                    {% endif %}
             </span>
             <div class="count">{{ subscribedwtd|number_format(0, '.', ',') }}</div>
             <span class="count_bottom">
                 <i class="green">
                     <i class="fa fa-sort-asc"></i>
                     {{ weeklyratiosubscr|number_format(1, '.', ',') }}%
-                </i> From 
-                        {% if period == 'daily' %} 
-                            Yesterday
-                        {% elseif period == 'weekly' %}
-                            Last Week
-                        {% elseif period == 'monthly' %}
-                            Last Month
-                        {% elseif period == 'annually' %}
-                            Last Year
-                        {% endif %}
+                </i> From
+                    {% if period == 'daily' %}
+                        Yesterday
+                    {% elseif period == 'weekly' %}
+                        Last Week
+                    {% elseif period == 'monthly' %}
+                        Last Month
+                    {% elseif period == 'annually' %}
+                        Last Year
+                    {% endif %}
             </span>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
             <span class="count_top"><i class="fa fa-user">
                 </i> Unsubscribed
-                        {% if period == 'daily' %}
-                            Today
-                        {% elseif period == 'weekly' %}
-                            WTD
-                        {% elseif period == 'monthly' %}
-                            MTD
-                        {% elseif period == 'annually' %}
-                            YTD
-                        {% endif %}
+                    {% if period == 'daily' %}
+                        Today
+                    {% elseif period == 'weekly' %}
+                        WTD
+                    {% elseif period == 'monthly' %}
+                        MTD
+                    {% elseif period == 'annually' %}
+                        YTD
+                    {% endif %}
             </span>
             <div class="count green">{{ unsubscribedwtd|number_format(0, '.', ',') }}</div>
             <span class="count_bottom">
@@ -89,45 +80,45 @@
                     <i class="fa fa-sort-asc">
                         </i>{{ weeklyratiounsubscr|number_format(1, '.', ',') }}%
                 </i> From
-                        {% if period == 'daily' %} 
-                            Yesterday
-                        {% elseif period == 'weekly' %}
-                            Last Week
-                        {% elseif period == 'monthly' %}
-                            Last Month
-                        {% elseif period == 'annually' %}
-                            Last Year
-                        {% endif %}
+                    {% if period == 'daily' %}
+                        Yesterday
+                    {% elseif period == 'weekly' %}
+                        Last Week
+                    {% elseif period == 'monthly' %}
+                        Last Month
+                    {% elseif period == 'annually' %}
+                        Last Year
+                    {% endif %}
                 </span>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
             <span class="count_top"><i class="fa fa-user">
                 </i> Emails sent
-                        {% if period == 'daily' %}
-                            Today
-                        {% elseif period == 'weekly' %}
-                            WTD
-                        {% elseif period == 'monthly' %}
-                            MTD
-                        {% elseif period == 'annually' %}
-                            YTD
-                        {% endif %}
+                    {% if period == 'daily' %}
+                        Today
+                    {% elseif period == 'weekly' %}
+                        WTD
+                    {% elseif period == 'monthly' %}
+                        MTD
+                    {% elseif period == 'annually' %}
+                        YTD
+                    {% endif %}
                 </span>
             <div class="count">{{ emailssentwtd|number_format(0, '.', ',') }}</div>
             <span class="count_bottom">
                 <i class="green">
                     <i class="fa fa-sort-desc">
                     </i> {{ weeklyratioemails|number_format(1, '.', ',') }}%
-                </i> From 
-                        {% if period == 'daily' %} 
-                            Yesterday
-                        {% elseif period == 'weekly' %}
-                            Last Week
-                        {% elseif period == 'monthly' %}
-                            Last Month
-                        {% elseif period == 'annually' %}
-                            Last Year
-                        {% endif %}
+                </i> From
+                    {% if period == 'daily' %}
+                        Yesterday
+                    {% elseif period == 'weekly' %}
+                        Last Week
+                    {% elseif period == 'monthly' %}
+                        Last Month
+                    {% elseif period == 'annually' %}
+                        Last Year
+                    {% endif %}
             </span>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
@@ -148,16 +139,16 @@
                 <i class="green">
                     <i class="fa fa-sort-asc"></i>
                     {{ weeklyratiopaidclicks|number_format(1, '.', ',')  }}% 
-                </i> From 
-                        {% if period == 'daily' %} 
-                            Yesterday
-                        {% elseif period == 'weekly' %}
-                            Last Week
-                        {% elseif period == 'monthly' %}
-                            Last Month
-                        {% elseif period == 'annually' %}
-                            Last Year
-                        {% endif %}
+                </i> From
+                    {% if period == 'daily' %}
+                        Yesterday
+                    {% elseif period == 'weekly' %}
+                        Last Week
+                    {% elseif period == 'monthly' %}
+                        Last Month
+                    {% elseif period == 'annually' %}
+                        Last Year
+                    {% endif %}
             </span>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
@@ -178,16 +169,16 @@
                 <i class="green">
                     <i class="fa fa-sort-asc"></i>
                     {{ weeklyratiorevenue|number_format(1, '.', ',') }}% 
-                </i> From 
-                        {% if period == 'daily' %} 
-                            Yesterday
-                        {% elseif period == 'weekly' %}
-                            Last Week
-                        {% elseif period == 'monthly' %}
-                            Last Month
-                        {% elseif period == 'annually' %}
-                            Last Year
-                        {% endif %}
+                </i> From
+                    {% if period == 'daily' %}
+                        Yesterday
+                    {% elseif period == 'weekly' %}
+                        Last Week
+                    {% elseif period == 'monthly' %}
+                        Last Month
+                    {% elseif period == 'annually' %}
+                        Last Year
+                    {% endif %}
             </span>
         </div>
     </div>
@@ -210,9 +201,7 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-
                     <div id="echart_line" style="height:350px;"></div>
-
                 </div>
             </div>
         </div>
@@ -220,44 +209,9 @@
     <!-- /first set done -->
     {% block custjs %}
         <!-- ECharts -->
-        <script src="{{ asset('resources/vendors_new/echarts/build/dist/echarts-all.js')}}"></script>
-        
-        <!-- customer js calculation on the page-->
-        <script type="text/javascript">
-
-            //Updating arrows and colour of the top bar
-            var x = document.getElementsByClassName("count_bottom");
-            var i;
-            for (i = 0; i < x.length; i++) {
-                var shift = x[i].getElementsByTagName("i")[0].innerText;
-                var shift = shift.replace('%',"");
-
-                if(i != 2) {
-                    if(shift > 0) {
-                        x[i].getElementsByTagName("i")[0].className = "green";
-                        x[i].getElementsByTagName("i")[1].className = "fa fa-caret-up";
-                    } else if(shift < 0) {
-                        x[i].getElementsByTagName("i")[0].className = "red";
-                        x[i].getElementsByTagName("i")[1].className = "fa fa-caret-down";
-                    } else {
-                        x[i].getElementsByTagName("i")[0].className = "";
-                        x[i].getElementsByTagName("i")[1].className = "fa fa-caret-right";
-                    }
-                } else {
-                    if(shift < 0) {
-                        x[i].getElementsByTagName("i")[0].className = "green";
-                        x[i].getElementsByTagName("i")[1].className = "fa fa-caret-down";
-                    } else if(shift < 0) {
-                        x[i].getElementsByTagName("i")[0].className = "red";
-                        x[i].getElementsByTagName("i")[1].className = "fa fa-caret-up";
-                    } else {
-                        x[i].getElementsByTagName("i")[0].className = "";
-                        x[i].getElementsByTagName("i")[1].className = "fa fa-caret-right";
-                    }
-                }
-            }
-        </script>
-        
+        <script src="{{ asset('resources/vendors/echarts/build/dist/echarts-all.js')}}"></script>
+        <!-- customer js updateting page to tile errors-->
+        <script src="{{ asset('resources/vendors/echarts/build/dist/echarts-all.js')}}"></script>
         <!-- setting up E-charts -->
         <script>
             /*setting up general theme */
@@ -464,7 +418,6 @@
                     fontFamily: 'Arial, Verdana, sans-serif'
                 }
             };
-            
             <!-- KPI chart -->
             var echartLine = echarts.init(document.getElementById('echart_line'), theme);
                 echartLine.setOption({

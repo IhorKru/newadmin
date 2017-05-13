@@ -3,8 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/mediaff.iml" filepath="$PROJECT_DIR$/.idea/mediaff.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../sendy_2.1.2.8/.idea/sendy_co.iml" filepath="$PROJECT_DIR$/../sendy_2.1.2.8/.idea/sendy_co.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../sendy_2.1.2.7/.idea/sendy.co.iml" filepath="$PROJECT_DIR$/../sendy_2.1.2.7/.idea/sendy.co.iml" />
     </modules>
   </component>
 </project>

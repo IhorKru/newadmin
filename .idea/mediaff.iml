@@ -209,5 +209,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module" module-name="sendy_2.1.2.8" />
+    <orderEntry type="module" module-name="sendy_co" />
   </component>
 </module>

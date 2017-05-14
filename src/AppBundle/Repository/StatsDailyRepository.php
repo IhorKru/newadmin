@@ -136,13 +136,13 @@ class StatsDailyRepository extends EntityRepository
             'ratiorevenue' => $ratiorevenue
             ];
     } //calculating data from index page
-    public function cntEmailsSentCp($table,$where0,$where3) {
+    public function cntEmailsSentCp($table,$where0, $where3) {
         $qb = $this->getEntityManager()->createQueryBuilder();
         $qb
             -> select('s.emailssentperiod')
             -> from($table, 's')
             -> where($where0)
-            -> andwhere($where3)
+            -> andWhere($where3)
         ;
         $result = $qb ->getQuery() ->getSingleScalarResult();
         return $result;

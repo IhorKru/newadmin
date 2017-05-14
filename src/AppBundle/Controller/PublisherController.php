@@ -48,15 +48,31 @@ class PublisherController extends Controller
         //getting data for
         $statsdata = $em->getRepository('AppBundle:StatsDaily')->calculateStats($table,$where0,$where1,$where2,$where3);
 
-        for ($i = 0; $i < 7; $i++) {//selecting length of the period
-            $gperiod = strftime($format, $timestamp);
-            $where0 = "s.date = CURRENT_DATE()";
-            $emailssent = $em->getRepository('AppBundle:StatsDaily')->cntEmailsSentCp($table,$where0,$where3);//selecting count of emails sent in that specific day
-            $emaildata[] = ['period' => $gperiod, 'emailssent' => $emailssent];
-            $timestamp = strtotime($addperiod, $timestamp);
-        } ////////CALCULATING DATA FROM THE GRAPH/////////*/
+        //$where0 = strtotime("now");
+        //$gperiod=strftime($format,$where0);
 
+        for ($i = 0; $i < 7; $i++) {
+            $gperiod=strftime($format,$timestamp);
+            if ($slug == 1) {
+                $where0 = "s.date = DATE_ADD(CURRENT_DATE(),'-".$i."','DAY')";
+            } elseif ($slug == 2) {
+                $where0 = "s.week = ".strftime('%W',$timestamp);
+            } elseif ($slug == 3) {
+                $where0 = "s.month = ".substr(strftime('%m',$timestamp),-1);
+                if ($where0 == '12') {
+                    $where3 = "s.year = year(now())-1";
+                }
+            } elseif ($slug == 4) {
+                $where0 = "s.year = ".strftime('%G',$timestamp);
+            }
+            $emailssent=$em->getRepository('AppBundle:StatsDaily')->cntEmailsSentCp($table,$where0,$where3);//selectingcountofemailssentinthatspecificday
+            $emaildata[] = ['period'=>$gperiod,'emailssent'=>$emailssent];
+            $timestamp = strtotime($addperiod, $timestamp);
+
+        }
+        $emaildata = array_reverse($emaildata);
         return $this->render('BackEnd/index.html.twig', ['statsdata' => $statsdata, 'period' => $period, 'emaildata' => $emaildata]);
+        //return $emaildata;
 
     }
 
@@ -211,9 +227,9 @@ class PublisherController extends Controller
             $where2 = "s.id LIKE '%'";
             $where3 = "s.id LIKE '%'";
             $period = 'daily';
-            $timestamp = strtotime("last Monday");
+            $timestamp = strtotime("Today");
             $format = '%d/%m(%a)';
-            $addperiod = '+1 day';
+            $addperiod = '-1 day';
         } elseif ($slug == "2") { //weekly stats
             $table = "AppBundle\Entity\StatsWeekly";
             $where0 = "s.week = week(now(),1)";
@@ -227,9 +243,9 @@ class PublisherController extends Controller
                 $where3 = $where2;
             }
             $period = 'weekly';
-            $timestamp = strtotime("-1 month");
+            $timestamp = strtotime("This week");
             $format = '%W(%Y)';
-            $addperiod = '+1 week';
+            $addperiod = '-1 week';
         } elseif ($slug == "3") { //monthly stats
             $table = "AppBundle\Entity\StatsMonthly";
             $where0 = "s.month = month(now())";
@@ -243,9 +259,9 @@ class PublisherController extends Controller
                 $where3 = $where2;
             }
             $period = 'monthly';
-            $timestamp = strtotime("-1 month");
+            $timestamp = strtotime("This Month");
             $format = '%m(%Y)';
-            $addperiod = '+1 month';
+            $addperiod = '- 1 month';
         } elseif ($slug == "4") { //yearly stats
             $table = "AppBundle\Entity\StatsYearly";
             $where0 = "s.year = year(now())";
@@ -253,9 +269,9 @@ class PublisherController extends Controller
             $where2 = "s.id LIKE '%'";
             $where3 = "s.id LIKE '%'";
             $period = 'annually';
-            $timestamp = strtotime("-1 month");
+            $timestamp = strtotime("This Year");
             $format = '%Y';
-            $addperiod = '+1 year';
+            $addperiod = '-1 year';
         } else {
             $table = "AppBundle\Entity\StatsWeekly";
             $where0 = "s.week = week(now(),1)";

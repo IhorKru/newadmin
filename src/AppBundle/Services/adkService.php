@@ -183,6 +183,15 @@ class adkService extends AdminController
                                     $friendlyfrom = $creative->friendlyfrom;
                                     $sendytitle = $creative->subject;
                                     $body = $creative->body;
+                                    $body = substr($body,2,-3);
+                                    if(substr($body,0,6) == '<html>') {
+                                        $bodyconv = (string)$body;
+                                        $crawler = new Crawler($bodyconv);
+                                        $link = $crawler->filterXPath('//a/@href')->text();
+                                        //$textbody = $subcreative->textbody;
+                                        //$htmlcreativelength = $subcreative->htmlcreativelength;
+                                        //$textcreativelength = $subcreative->textcreativelength;
+                                    };
                                 }
                                 $adkcategory = $adkcategoryrepo->findOneBy(['categoryid' => $categoryid]);
                                 if(is_null($adkcategory)) {
@@ -190,12 +199,25 @@ class adkService extends AdminController
                                 } else {
                                     $app = $adkcategory ->getAppId();
                                 }
+
                                 $appdetails = $sendyappdetails->findOneBy(['id' => $app]);
                                 $appname = $appdetails->getAppName();
                                 $appfromname = $appdetails ->getFromName();
                                 $appfromemail = $appdetails ->getFromEmail();
                                 $appreplytoemail = $appdetails ->getReplyTo();
-                                    #creating subscriber lists
+                                //creating email template for old adk templates
+                                if(substr($body,0,6) == '<html>') {
+                                    $template = $templaterepo->findOneBy(['app' => $app]);
+                                    $preemail = $template->getHtmlText();
+                                    $template = $this->get('twig')->createTemplate($preemail);
+                                    $body = $template->render(array(
+                                        'link' => $link,
+                                        'insertone' => $friendlyfrom,
+                                        'sentemail' => $appfromemail,
+                                        'resourcename' => $appname));
+                                };
+
+                                #creating subscriber lists
                                 $newList = new Lists();
                                 $newList ->setUserid('1');
                                 $newList ->setApp($app);

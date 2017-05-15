@@ -1925,8 +1925,6 @@
     <column id="433" parent="31" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="434" parent="31" name="userID">
       <Position>2</Position>
@@ -1938,24 +1936,11 @@
     </column>
     <column id="436" parent="31" name="template_name">
       <Position>4</Position>
-      <DataType>varchar(100)|0</DataType>
+      <DataType>tinytext|0</DataType>
     </column>
     <column id="437" parent="31" name="html_text">
       <Position>5</Position>
       <DataType>longtext|0</DataType>
     </column>
-    <index id="438" parent="31" name="UNIQ_97601F83BF396750">
-      <ColNames>id</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <key id="439" parent="31" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <key id="440" parent="31" name="UNIQ_97601F83BF396750">
-      <ColNames>id</ColNames>
-      <UnderlyingIndexName>UNIQ_97601F83BF396750</UnderlyingIndexName>
-    </key>
   </database-model>
 </dataSource>

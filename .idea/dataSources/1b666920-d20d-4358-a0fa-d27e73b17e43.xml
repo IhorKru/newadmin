@@ -1086,31 +1086,31 @@
       <DataType>varchar(3)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="289" parent="25" name="test_email">
+    <column id="289" parent="25" name="year_of_next_reset">
+      <Position>22</Position>
+      <DataType>varchar(4)|0</DataType>
+    </column>
+    <column id="290" parent="25" name="test_email">
       <Position>23</Position>
       <DataType>varchar(100)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="290" parent="25" name="brand_logo_filename">
+    <column id="291" parent="25" name="brand_logo_filename">
       <Position>24</Position>
       <DataType>varchar(100)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="291" parent="25" name="allowed_attachments">
+    <column id="292" parent="25" name="allowed_attachments">
       <Position>25</Position>
       <DataType>varchar(100)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;jpeg,jpg,gif,png,pdf,zip&apos;</DefaultExpression>
     </column>
-    <column id="292" parent="25" name="reports_only">
+    <column id="293" parent="25" name="reports_only">
       <Position>26</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
-    </column>
-    <column id="293" parent="25" name="year_of_next_reset">
-      <Position>22</Position>
-      <DataType>varchar(4)|0</DataType>
     </column>
     <index id="294" parent="25" name="sendy_apps_pkey">
       <ColNames>id</ColNames>
@@ -1308,48 +1308,48 @@
       <DataType>int(11)|0</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
     </column>
-    <column id="339" parent="28" name="send_date">
+    <column id="339" parent="28" name="quota_deducted">
+      <Position>19</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="340" parent="28" name="send_date">
       <Position>20</Position>
       <DataType>varchar(100)|0</DataType>
     </column>
-    <column id="340" parent="28" name="lists">
+    <column id="341" parent="28" name="lists">
       <Position>21</Position>
       <DataType>mediumtext|0</DataType>
     </column>
-    <column id="341" parent="28" name="timezone">
+    <column id="342" parent="28" name="timezone">
       <Position>22</Position>
       <DataType>varchar(100)|0</DataType>
     </column>
-    <column id="342" parent="28" name="errors">
+    <column id="343" parent="28" name="errors">
       <Position>23</Position>
       <DataType>longtext|0</DataType>
     </column>
-    <column id="343" parent="28" name="bounce_setup">
+    <column id="344" parent="28" name="bounce_setup">
       <Position>24</Position>
       <DataType>int(11)|0</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
     </column>
-    <column id="344" parent="28" name="complaint_setup">
+    <column id="345" parent="28" name="complaint_setup">
       <Position>25</Position>
       <DataType>int(11)|0</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
     </column>
-    <column id="345" parent="28" name="opens_tracking">
+    <column id="346" parent="28" name="opens_tracking">
       <Position>26</Position>
       <DataType>int(11)|0</DataType>
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
     </column>
-    <column id="346" parent="28" name="links_tracking">
+    <column id="347" parent="28" name="links_tracking">
       <Position>27</Position>
       <DataType>int(11)|0</DataType>
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
     </column>
-    <column id="347" parent="28" name="batch_id">
+    <column id="348" parent="28" name="batch_id">
       <Position>28</Position>
-      <DataType>int(11)|0</DataType>
-    </column>
-    <column id="348" parent="28" name="quota_deducted">
-      <Position>19</Position>
       <DataType>int(11)|0</DataType>
     </column>
     <index id="349" parent="28" name="UNIQ_E3737470BF396750">

@@ -1,4 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="AWS_Mediaff" persistUploadOnCheckin="false" />
+  <component name="PublishConfigData" serverName="mediaff">
+    <serverData>
+      <paths name="AWS_Mediaff">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$/../sendy.co" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="AWS_Sendy">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$/../sendy.co" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="mediaff">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="app_dev.php" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
 </project>

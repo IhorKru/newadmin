@@ -9,6 +9,7 @@
 namespace AppBundle\Services;
 
 use AppBundle\Controller\AdminController;
+use AppBundle\Controller\PublisherController;
 use AppBundle\Entity\Campaigns;
 use AppBundle\Entity\Lists;
 use AppBundle\Entity\Subscriber;
@@ -25,7 +26,7 @@ use DoctrineExtensions\Query\Mysql\Date;
 use SimpleXMLElement;
 use Symfony\Component\DomCrawler\Crawler;
 
-class adkService extends AdminController
+class adkService extends PublisherController
 {
     private $numcampaigns;
     private $timezone;

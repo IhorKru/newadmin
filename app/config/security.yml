@@ -17,15 +17,6 @@ security:
             entity:
                 class: AppBundle:User
                 property: username
-        in_memory:
-            memory:
-                users:
-                    ryan:
-                        password: ryanpass
-                        roles: 'ROLE_USER'
-                    admin:
-                        password: testadmin
-                        roles: 'ROLE_ADMIN'
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/

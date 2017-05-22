@@ -235,7 +235,8 @@
             $.ajax({
                 url: $form.attr('action'),
                 method: 'POST',
-                data: $form.serialize()
+                data: $form.serialize(),
+                timeout: 1000
             });
         }
         formSub();
@@ -257,8 +258,8 @@
             $.ajax({
                 type: "GET",
                 url: "{{ path('progbar') }}",
-                dataType: "text",
                 timeout: 60000,
+                dataType: "text",
                 cache: false,
                 success: function(response) {
                     initcount = response;
@@ -287,7 +288,11 @@
                                             dataType: "html",
                                             timeout: 6000000,
                                             success: function(response) {
-                                                $('#campstats').html(response);
+                                                if(response.length != 0) {
+                                                    $('#campstats').html(response);
+                                                } else {
+                                                    timeOutId = setTimeout(cdAjax, 1000);
+                                                }
                                             },
                                             error: function(result) {
                                                 console.log('error');
@@ -296,7 +301,7 @@
                                     }
                                     cdAjax();
                                 } else {
-                                    timeOutId = setTimeout(ajaxFn, 1000);
+                                    timeOutId = setTimeout(ajaxFn, 1000);//set frequnecy of updating progress bar
                                 }
                                 prevprogress = progress;
                             },
@@ -314,7 +319,6 @@
         }
         initCamp();
     });
-
 </script>
 
 {% endblock %}

@@ -30,7 +30,7 @@ use DateTime;
 class PublisherController extends Controller
 {
     /**
-     * @Route("/{slug}", name="index", defaults={"slug" = false}, requirements={"slug": "\d+"})
+     * @Route("/{slug}", name="index", defaults={"slug" = 2}, requirements={"slug": "\d+"})
      */
     public function indexAction(Request $request, $slug)
     {
@@ -47,9 +47,6 @@ class PublisherController extends Controller
         $em = $this ->getDoctrine() ->getManager(); //getting data for stats
         //getting data for
         $statsdata = $em->getRepository('AppBundle:StatsDaily')->calculateStats($table,$where0,$where1,$where2,$where3);
-
-        //$where0 = strtotime("now");
-        //$gperiod=strftime($format,$where0);
 
         for ($i = 0; $i < 7; $i++) {
             $gperiod=strftime($format,$timestamp);
@@ -108,7 +105,7 @@ class PublisherController extends Controller
         $what = 's.spendperiod';
         $spendperiod = $this->getDoctrine()->getRepository('AppBundle:StatsDaily')->currentCp($what,$table,$where0);//count of complaints for the period
         $prevspend = $this->getDoctrine()->getRepository('AppBundle:StatsDaily')->historyLp($what,$table);//selecting 18 prev occurances of above data
-        $tabledata = $this->getDoctrine()->getRepository('AppBundle:StatsDaily')->campDetailTable2();//getting data for table
+        $tabledata = $this->getDoctrine()->getRepository('AppBundle:StatsDaily')->campDetailTable();//getting data for table
         //opens period
 
         //pushing variables to template
@@ -212,9 +209,123 @@ class PublisherController extends Controller
      */
     public function ajaxProcessAction(Request $request)
     {
-        //getting last updated line
         $count = $this->getDoctrine()->getManager()->getRepository('AppBundle:Subscribers')->findMaxRow();
         return new Response($count);
+    }
+
+    /**
+     * @Route("/campstats", name="campstats")
+     * @Method({"GET", "POST"})
+     */
+    public function campaignStatsAction(Request $request) {
+        $em = $this ->getDoctrine() ->getManager();
+        //getting campaigns per resource
+        $resourcestats = $em->getRepository('AppBundle:Campaigns')->campaignsPerResource();
+        //getting emails per resource
+        $resourceemails = $em->getRepository('AppBundle:Campaigns')->emailsPerResource();
+        //getting emails sent or scheduled to be sent within 24 hours
+        $emailsused = $em->getRepository('AppBundle:Subscribers')->emailsSentPeriod();
+        //calculate email limit
+        $emaillimit = '50000';
+        //global limit a day minus what is in the line or already sent today
+        if ($emailsused <> 0) {
+            $sendlimit = ($emailsused/$emaillimit) * 100;
+        } else {
+            $sendlimit = 0;
+        }
+        //responce
+        $partner = "Live";
+        $response = new Response();
+        $response->setContent($this->renderView('BackEnd/campdetails.html.twig',[
+            'resourcestats' => $resourcestats,
+            'resourceemails' => $resourceemails,
+            'partnername' => $partner,
+            'emaillimit' => $sendlimit
+        ]));
+        return $response;
+    }
+
+    /**
+     * @Route("/cpccampaign", name="cpccampaign")
+     */
+    public function cpcCampaignAction(Request $request) {
+
+        return $this->render('BackEnd/cpccampaign.html.twig');
+    }
+
+    /**
+     * @Route("/newemailtempl", name="newemailtempl")
+     */
+    public function newemailtemplAction(Request $request){
+        $newTemplate = new Template();
+        $em = $this ->getDoctrine() ->getManager();
+        $form = $this->createForm(NewEmailType::class, $newTemplate, [
+            'action' => $this -> generateUrl('newemailtempl'),
+            'method' => 'POST'
+        ]);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+            $appobj = $form['app']->getData();
+            $app = $appobj ->getID();
+            $tempname = $form['template_name']->getData();
+            $file = $form['htmltext']->getData();
+            $htmlText = file_get_contents($file->getPathname());
+            $queryli = $em ->createQuery('SELECT MAX(li.id) FROM AppBundle:Template li');
+            $newTemplate ->setId($queryli->getSingleScalarResult() + 1);
+            $newTemplate ->setUserid('1');
+            $newTemplate ->setApp($app);
+            $newTemplate ->setTemplateName($tempname);
+            $newTemplate ->setHtmlText($htmlText);
+            $em->persist($newTemplate);
+            $em->flush();
+            return $this->render('BackEnd/newemailtempl.html.twig',[
+                'form'=>$form->createView()
+            ]);
+        }
+        $tabledata = $this->getDoctrine()->getRepository('AppBundle:Template')->temaplteDetailsTable();//getting data for table
+        return $this->render('BackEnd/newemailtempl.html.twig',[
+            'form'=>$form->createView(),
+            'tabledata'=>$tabledata
+        ]);
+    }
+
+    /**
+     * @Route("/newpubnetwork", name="newpubnetwork")
+     */
+    public function newadnetworkAction(Request $request){
+        $newPartner = new PartnerDetails();
+        $em = $this ->getDoctrine() ->getManager();
+        $form = $this->createForm(newPartnerType::class, $newPartner, [
+            'action' => $this -> generateUrl('newpubnetwork'),
+            'method' => 'POST'
+        ]);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+            $networkname = $form['partner_name']->getData();
+            $traffictype = $form['traffic_type']->getData();
+            $geo = $form['geo']->getData();
+            $size = $form['size']->getData();
+            $tire = $form['tire']->getData();
+            $newPartner ->setPartnerName($networkname);
+            $newPartner ->setTrafficType($traffictype);
+            $newPartner ->setGeo($geo);
+            $newPartner ->setSize($size);
+            $newPartner ->setTire($tire);
+            $newPartner ->setPartnerType("Ad Network");
+            $newPartner ->setDateCreated(new DateTime());
+            $em->persist($newPartner);
+            $em->flush();
+            $tabledata = $this->getDoctrine()->getRepository('AppBundle:PartnerDetails')->publisherDetailsTable();//getting data for table
+            return $this->render('BackEnd/Publisher/newPubNetwork.html.twig',[
+                'form'=>$form->createView(),
+                'tabledata'=>$tabledata
+            ]);
+        }
+        $tabledata = $this->getDoctrine()->getRepository('AppBundle:PartnerDetails')->publisherDetailsTable();//getting data for table
+        return $this->render('BackEnd/Publisher/newPubNetwork.html.twig',[
+            'form'=>$form->createView(),
+            'tabledata'=>$tabledata
+        ]);
     }
 
     private function setTablePropsTwo($slug) {

@@ -278,12 +278,12 @@ class PublisherController extends Controller
             $newTemplate ->setHtmlText($htmlText);
             $em->persist($newTemplate);
             $em->flush();
-            return $this->render('BackEnd/newemailtempl.html.twig',[
+            return $this->render('BackEnd/newEmailTempl.html.twig',[
                 'form'=>$form->createView()
             ]);
         }
         $tabledata = $this->getDoctrine()->getRepository('AppBundle:Template')->temaplteDetailsTable();//getting data for table
-        return $this->render('BackEnd/newemailtempl.html.twig',[
+        return $this->render('BackEnd/Publisher/newEmailTempl.html.twig',[
             'form'=>$form->createView(),
             'tabledata'=>$tabledata
         ]);

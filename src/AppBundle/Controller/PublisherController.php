@@ -30,7 +30,7 @@ use DateTime;
 class PublisherController extends Controller
 {
     /**
-     * @Route("/{slug}", name="index", defaults={"slug" = 2}, requirements={"slug": "\d+"})
+     * @Route("/pubmaster/{slug}", name="pubmaster", defaults={"slug" = 2}, requirements={"slug": "\d+"})
      */
     public function indexAction(Request $request, $slug)
     {
@@ -65,16 +65,15 @@ class PublisherController extends Controller
             $emailssent=$em->getRepository('AppBundle:StatsDaily')->cntEmailsSentCp($table,$where0,$where3);//selectingcountofemailssentinthatspecificday
             $emaildata[] = ['period'=>$gperiod,'emailssent'=>$emailssent];
             $timestamp = strtotime($addperiod, $timestamp);
-
         }
         $emaildata = array_reverse($emaildata);
-        return $this->render('BackEnd/index.html.twig', ['statsdata' => $statsdata, 'period' => $period, 'emaildata' => $emaildata]);
+        return $this->render('BackEnd/Publisher/pubMasterDash.twig', ['statsdata' => $statsdata, 'period' => $period, 'emaildata' => $emaildata]);
         //return $emaildata;
 
     }
 
     /**
-     * @Route("/campaignsdash/{slug}", name="campaignsdash", defaults={"slug" = false})
+     * @Route("/campaignsdash/{slug}", name="campaignsdash", defaults={"slug" = 2})
      */
     public function campaignsdashAction(Request $request, $slug){
         $em = $this ->getDoctrine() ->getManager();
@@ -109,7 +108,7 @@ class PublisherController extends Controller
         //opens period
 
         //pushing variables to template
-        return $this->render('BackEnd/campaignsdash.html.twig',['batchesperiod'=>$batchesperiod,'prevbatches'=>$prevbatches,'campaignsperiod'=>$campaignsperiod,'prevcampaigns'=>$prevcampaigns,
+        return $this->render('BackEnd/Publisher/pubCampDash.html.twig',['batchesperiod'=>$batchesperiod,'prevbatches'=>$prevbatches,'campaignsperiod'=>$campaignsperiod,'prevcampaigns'=>$prevcampaigns,
             'emailsperiod'=>$emailsperiod, 'prevemailssent'=>$prevemailssent,'opensperiod'=>$opensperiod,'prevopens'=>$prevopens,'clicksperiod'=>$clicksperiod,'prevclicks'=>$prevclicks,'bouncesperiod'=>$bouncesperiod,
             'prevbounces'=>$prevbounces,'complaintsperiod'=>$complaintsperiod,'prevcomplaints'=>$prevcomplaints,'spendperiod'=>$spendperiod,'prevspend'=>$prevspend,'revenueperiod'=>$revenue, 'tabledata'=>$tabledata,
             'daily'=>$slug,'weekly'=>$slug,'monthly'=>$slug,'yearly'=>$slug]);

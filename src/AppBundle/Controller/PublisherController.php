@@ -118,14 +118,14 @@ class PublisherController extends Controller
      * @Route("/subscriberdash/{slug}", name="subscriberdash", defaults={"slug" = false})
      */
     public function subscribersdashAction(Request $request, $slug){
-        return $this->render('BackEnd/subscriberdash.html.twig',['daily'=>$slug,'weekly'=>$slug,'monthly'=>$slug,'yearly'=>$slug]);
+        return $this->render('BackEnd/Publisher/pubSubscrDash.twig',['daily'=>$slug,'weekly'=>$slug,'monthly'=>$slug,'yearly'=>$slug]);
     }
 
     /**
      * @Route("/partnerdash/{slug}", name="partnerdash", defaults={"slug" = false})
      */
     public function partnerdashAction(Request $request, $slug){
-        return $this->render('BackEnd/partnerdash.html.twig',['daily'=>$slug,'weekly'=>$slug,'monthly'=>$slug,'yearly'=>$slug]);
+        return $this->render('BackEnd/Publisher/pubPartnerDash.html.twig',['daily'=>$slug,'weekly'=>$slug,'monthly'=>$slug,'yearly'=>$slug]);
     }
 
     /**
@@ -197,7 +197,7 @@ class PublisherController extends Controller
                 $subscriberst = $getcampaign -> ecampServiceAction($geo, $app_id, $templateid, $numcampaigns, $link1, $link2, $timezone, $depdate);
             }
         }
-        return $this->render('BackEnd/emailcampaigns.html.twig',[
+        return $this->render('BackEnd/Publisher/pubEmailCamp.html.twig',[
             'form'=>$form->createView()
         ]);
     }
@@ -248,8 +248,7 @@ class PublisherController extends Controller
      * @Route("/cpccampaign", name="cpccampaign")
      */
     public function cpcCampaignAction(Request $request) {
-
-        return $this->render('BackEnd/cpccampaign.html.twig');
+        return $this->render('BackEnd/Publisher/pubCpcCamp.html.twig');
     }
 
     /**

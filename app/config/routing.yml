@@ -6,4 +6,4 @@ logout:
 admin:
     path: /{slug}
     defaults:
-        _controller: AppBundle:AdminController:index
+        _controller: AppBundle:FrontEndController:index

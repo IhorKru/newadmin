@@ -34,7 +34,7 @@ class AdvertiserController extends Controller
     }
 
     /**
-     * @Route("/adsoffersdashboard/{slug}", name="adsoffersdashboard", defaults={"slug" = false}, requirements={"slug": "\d+"})
+     * @Route("/adsoffersdashboard", name="adsoffersdashboard", defaults={"slug" = false}, requirements={"slug": "\d+"})
      */
     public function adsoffersdashboardAction (Request $request, $slug) {
         return $this->render('BackEnd/Advertiser/adOfferDash.html.twig');

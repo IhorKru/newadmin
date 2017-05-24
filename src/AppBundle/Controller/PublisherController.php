@@ -32,7 +32,7 @@ class PublisherController extends Controller
     /**
      * @Route("/pubmaster/{slug}", name="pubmaster", defaults={"slug" = 2}, requirements={"slug": "\d+"})
      */
-    public function indexAction(Request $request, $slug)
+    public function pubmasterAction(Request $request, $slug)
     {
         //getting slug value
         $table = $this->setTablePropsTwo($slug)[0];

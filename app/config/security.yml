@@ -31,7 +31,7 @@ security:
                 check_path: login
                 username_parameter: login[username]
                 password_parameter: login[password]
-                always_use_default_target_path: false
+                always_use_default_target_path: true
                 default_target_path: /pubmaster
                 target_path_parameter: _target_path
                 use_referer: false

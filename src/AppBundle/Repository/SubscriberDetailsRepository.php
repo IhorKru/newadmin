@@ -20,7 +20,7 @@ class SubscriberDetailsRepository extends EntityRepository
         $qb1
             ->select('send')
             ->from('AppBundle\Entity\Subscribers', 'send')
-            ->where('DATE_FORMAT(now(), \'%e-%b-%Y\') - DATE_FORMAT(FROM_UNIXTIME(send.last_campaign), \'%e-%b-%Y\') <=7')
+            ->where('DATE_FORMAT(now(), \'%e-%b-%Y\') - DATE_FORMAT(FROM_UNIXTIME(send.last_campaign), \'%e-%b-%Y\') <=360')
             ->andwhere('send.bounced <> 1')
             ->andwhere('send.complaint <> 1')
             ->andwhere('s.emailaddress = send.emailaddress');

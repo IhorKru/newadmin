@@ -17,7 +17,7 @@ use AppBundle\Entity\CampaignInputDetails;
 use AppBundle\Entity\Template;
 use AppBundle\Entity\cpcInputDetails;
 use AppBundle\Entity\PartnerDetails;
-use AppBundle\Form\InputType;
+use AppBundle\Form\CampaignInputType;
 use AppBundle\Form\cpcInputType;
 use AppBundle\Form\NewEmailType;
 use AppBundle\Form\newPartnerType;
@@ -136,7 +136,7 @@ class PublisherController extends Controller
         //setting up form entity
         $em = $this ->getDoctrine() ->getManager();
         $newCampaign = new CampaignInputDetails();
-        $form = $this->createForm(InputType::class, $newCampaign, [
+        $form = $this->createForm(CampaignInputType::class, $newCampaign, [
             'action' => $this -> generateUrl('emailcampaigns'),
             'method' => 'POST'
         ]);
@@ -197,7 +197,7 @@ class PublisherController extends Controller
                 $subscriberst = $getcampaign -> ecampServiceAction($geo, $app_id, $templateid, $numcampaigns, $link1, $link2, $timezone, $depdate);
             }
         }
-        return $this->render('BackEnd/Publisher/pubEmailCamp.html.twig',[
+        return $this->render('BackEnd/Publisher/newPubCampaign.html.twig',[
             'form'=>$form->createView()
         ]);
     }
@@ -235,20 +235,13 @@ class PublisherController extends Controller
         //responce
         $partner = "Live";
         $response = new Response();
-        $response->setContent($this->renderView('BackEnd/campdetails.html.twig',[
+        $response->setContent($this->renderView('BackEnd/Publisher/pubCampDetails.html.twig',[
             'resourcestats' => $resourcestats,
             'resourceemails' => $resourceemails,
             'partnername' => $partner,
             'emaillimit' => $sendlimit
         ]));
         return $response;
-    }
-
-    /**
-     * @Route("/cpccampaign", name="cpccampaign")
-     */
-    public function cpcCampaignAction(Request $request) {
-        return $this->render('BackEnd/Publisher/pubCpcCamp.html.twig');
     }
 
     /**

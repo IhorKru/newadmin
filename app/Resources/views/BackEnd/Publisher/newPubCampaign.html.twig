@@ -35,6 +35,16 @@
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-thumbs-up"></span>
                                     </span>
+                                    {{ form_widget(form.traffic_type) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" id="partnername" style="display: none">
+                            <div class="col-md-9 col-sm-9 col-xs-9 col-xs-9-ex">
+                                <div class='input-group fieldsep'>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-thumbs-up"></span>
+                                    </span>
                                     {{ form_widget(form.partnername) }}
                                 </div>
                             </div>
@@ -159,74 +169,10 @@
 
 {% block custjs %}
 <!-- date time picker -->
-<script src="{{ asset('resources/vendors/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js')}}"></script>
+    <script src="{{ asset('resources/vendors/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js')}}"></script>
 <!-- Email form fields -->
+    <script src="{{ asset('resources/build/js/publisher.js')}}"></script>
 <script>
-    //correct loading of email form fields
-    $('#input_partnername').on('change', function() {
-        if (this.value == '') {
-            $("#usergeo").hide();
-            $("#resourcename").hide();
-            $("#templatename").hide();
-            $("#numemailspicker").hide();
-            $("#timezonepicker").hide();
-            $("#datetimepcr").hide();
-            $("#paidlink").hide();
-            $("#fbuttons").hide();
-        } else if (this.value == '4'){
-            $("#usergeo").show();
-            $("#resourcename").hide();
-            $("#templatename").hide();
-            $("#paidlink").hide();
-            $("#numemailspicker").show();
-            $("#timezonepicker").show();
-            $("#datetimepcr").show();
-            $("#fbuttons").show();
-        } else if (this.value != '4') {
-            $("#usergeo").show();
-            $("#resourcename").show();
-            $("#templatename").show();
-            $("#numemailspicker").show();
-            $("#timezonepicker").show();
-            $("#datetimepcr").show();
-            $("#paidlink").show();
-            $("#fbuttons").show();
-        }
-    }).trigger("change")
-    //js for date/time picker
-    $('.form_datetime').datetimepicker({
-        //language:  'uk',
-        weekStart: 1,
-        todayBtn:  1,
-        autoclose: 1,
-        todayHighlight: 1,
-        startView: 2,
-        forceParse: 0,
-        showMeridian: 1
-    });
-
-    $('.form_date').datetimepicker({
-        language:  'uk',
-        weekStart: 1,
-        todayBtn:  1,
-        autoclose: 1,
-        todayHighlight: 1,
-        startView: 2,
-        minView: 2,
-        forceParse: 0
-    });
-
-    $('.form_time').datetimepicker({
-        language:  'uk',
-        weekStart: 1,
-        todayBtn:  1,
-        autoclose: 1,
-        todayHighlight: 1,
-        startView: 1,
-        minView: 0,
-        maxView: 1,
-        forceParse: 0
-    });
     //submitting the form
     $("#emailcampform").submit(function(e) {
         e.preventDefault();

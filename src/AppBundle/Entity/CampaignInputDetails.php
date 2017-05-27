@@ -25,6 +25,13 @@ class CampaignInputDetails
     /**
      * @var string
      *
+     * @ORM\Column(name="traffic_type", type="string", length=255)
+     */
+    private $traffic_type;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="partnername", type="string", length=255)
      */
     private $partnername;
@@ -355,5 +362,29 @@ class CampaignInputDetails
     public function getDatecreated()
     {
         return $this->datecreated;
+    }
+
+    /**
+     * Set trafficType
+     *
+     * @param string $trafficType
+     *
+     * @return CampaignInputDetails
+     */
+    public function setTrafficType($trafficType)
+    {
+        $this->traffic_type = $trafficType;
+
+        return $this;
+    }
+
+    /**
+     * Get trafficType
+     *
+     * @return string
+     */
+    public function getTrafficType()
+    {
+        return $this->traffic_type;
     }
 }

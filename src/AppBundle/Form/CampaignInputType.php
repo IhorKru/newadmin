@@ -15,8 +15,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\FormEvent;
 
-class InputType extends AbstractType {
-
+class CampaignInputType extends AbstractType {
     /**
      * @param FormBuilderInterface $builder
      * @param array                $options
@@ -24,6 +23,18 @@ class InputType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         
         $builder
+            ->add('traffic_type', EntityType::class,[
+                'label' => false,
+                'required' => true,
+                'error_bubbling' => true,
+                'placeholder' => 'Traffic Type',
+                'class' => 'AppBundle:RefWebTrafficTypeDetails',
+                'choice_label' => 'traffic_type_name',
+                'attr' => [
+                    'class' => 'form-control',
+                    'id'=> "ex3p"
+                ]
+            ])
             ->add('partnername', EntityType::class, [
                 'label' => false,
                 'required' => true,

@@ -129,7 +129,7 @@ class PublisherController extends Controller
     }
 
     /**
-     * @Route("/emailcampaigns", name="emailcampaigns")
+     * @Route("/newpubcampaign", name="newpubcampaign")
      */
     public function emailcampaignsAction(Request $request)
     {
@@ -137,14 +137,16 @@ class PublisherController extends Controller
         $em = $this ->getDoctrine() ->getManager();
         $newCampaign = new CampaignInputDetails();
         $form = $this->createForm(CampaignInputType::class, $newCampaign, [
-            'action' => $this -> generateUrl('emailcampaigns'),
+            'action' => $this -> generateUrl('newpubcampaign'),
             'method' => 'POST'
         ]);
         //processing form data
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
+            $traffic_obj = $form['traffic_type']->getData();
+                $traffic_type = $traffic_obj ->getID();
             $partner_obj = $form['partnername']->getData();
-            $partner = $partner_obj ->getID();
+                $partner = $partner_obj ->getID();
             $geo = $form['geo']->getData();
             #if partner is not ADK, collect data from below fields
             if ($partner != 4) {
@@ -164,6 +166,7 @@ class PublisherController extends Controller
             $depdate = $form['datetosend'] ->getData();
             $datedepf = date_create($depdate . ':00');
             //pushing campaign details to db
+            $newCampaign ->setTrafficType($traffic_type);
             $newCampaign ->setPartnername($partner);
             $newCampaign ->setGeo($geo);
             $newCampaign ->setResourcename($app_id);

@@ -172,99 +172,98 @@
     <script src="{{ asset('resources/vendors/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js')}}"></script>
 <!-- Email form fields -->
     <script src="{{ asset('resources/build/js/publisher.js')}}"></script>
-<script>
-    //submitting the form
-    $("#emailcampform").submit(function(e) {
-        e.preventDefault();
-        var $form = $(e.currentTarget);
-        var formSub = function () {
-            $.ajax({
-                url: $form.attr('action'),
-                method: 'POST',
-                data: $form.serialize(),
-                timeout: 1000
-            });
-        }
-        formSub();
-    });
-    //js for progress bar to be shown
-    $("#input_submit").click(function() {
-        if ( $("#progress_show").css('display') == 'none' ){
-            $("#progress_show").show(); //showing progress bar
-            $("#progress_bar").attr("aria-valuemin", "0%"); //assigning initial value to progress bar
-        } else {
-            $("#progress_bar").attr("style", "width: 0%");
-            $("#progress_bar").attr("aria-valuenow", "0%");
-        }
-        var emailstosend = document.getElementById("input_numemails").value; //getting count of emails to be sent out
-        var timeOutId = 0;
-        //getting current max campaigns
-        var initCamp = function () {
-            var initcount;
-            $.ajax({
-                type: "GET",
-                url: "{{ path('progbar') }}",
-                timeout: 60000,
-                dataType: "text",
-                cache: false,
-                success: function(response) {
-                    initcount = response;
-                    var prevprogress;
-                    var ajaxFn = function () {
-                        var currcount = "0%";
-                        $.ajax({
-                            type: "GET",
-                            url: "{{ path('progbar') }}",
-                            timeout: 60000,
-                            dataType: "text",
-                            success: function(response) {
-                                currcount = response;
-                                var progress = Math.floor((Number(currcount) - Number(initcount)) / Number(emailstosend) * Number(100)) + "%";
-                                $("#progress_bar").attr("style", "width: " + progress);
-                                $("#progress_bar").attr("aria-valuenow", progress);
-                                document.getElementById("progress_bar").innerHTML = "Running - " + progress;
-                                if(prevprogress == progress && prevprogress != '0%' && progress >= '98%' || progress == '100%'){
-                                    $("#progress_bar").attr("style", "width: 100%");
-                                    $("#progress_bar").attr("aria-valuenow", "100%");
-                                    document.getElementById("progress_bar").innerHTML = "Completed - 100% - " + (Number(currcount) - Number(initcount)) + " emails";
-                                    var cdAjax = function () {
-                                        $.ajax({
-                                            type: "GET",
-                                            url: "{{ path('campstats') }}",
-                                            dataType: "html",
-                                            timeout: 6000000,
-                                            success: function(response) {
-                                                if(response.length != 0) {
-                                                    $('#campstats').html(response);
-                                                } else {
-                                                    timeOutId = setTimeout(cdAjax, 1000);
+    <script>
+        //submitting the form
+        $("#emailcampform").submit(function(e) {
+            e.preventDefault();
+            if ( $("#progress_show").css('display') == 'none' ){
+                $("#progress_show").show(); //showing progress bar
+                $("#progress_bar").attr("aria-valuemin", "0%"); //assigning initial value to progress bar
+            } else {
+                $("#progress_bar").attr("style", "width: 0%");
+                $("#progress_bar").attr("aria-valuenow", "0%");
+            }
+            var $form = $(e.currentTarget);
+            var formSub = function () {
+                $.ajax({
+                    url: $form.attr('action'),
+                    method: 'POST',
+                    data: $form.serialize(),
+                    timeout: 1000
+                });
+            }
+            formSub();
+            var emailstosend = document.getElementById("campaign_input_numemails").value; //getting count of emails to be sent out
+            var timeOutId = 0;
+            //getting current max campaigns
+            var initCamp = function () {
+                var initcount;
+                $.ajax({
+                    type: "GET",
+                    url: "{{ path('progbar') }}",
+                    timeout: 60000,
+                    dataType: "text",
+                    cache: false,
+                    success: function(response) {
+                        initcount = response;
+                        var prevprogress;
+                        var ajaxFn = function () {
+                            var currcount = "0%";
+                            $.ajax({
+                                type: "GET",
+                                url: "{{ path('progbar') }}",
+                                timeout: 60000,
+                                dataType: "text",
+                                success: function(response) {
+                                    currcount = response;
+                                    var progress = Math.floor((Number(currcount) - Number(initcount)) / Number(emailstosend) * Number(100)) + "%";
+                                    $("#progress_bar").attr("style", "width: " + progress);
+                                    $("#progress_bar").attr("aria-valuenow", progress);
+                                    document.getElementById("progress_bar").innerHTML = "Running - " + progress;
+                                    if(prevprogress == progress && prevprogress != '0%' && progress >= '98%' || progress == '100%'){
+                                        $("#progress_bar").attr("style", "width: 100%");
+                                        $("#progress_bar").attr("aria-valuenow", "100%");
+                                        document.getElementById("progress_bar").innerHTML = "Completed - 100% - " + (Number(currcount) - Number(initcount)) + " emails";
+                                        var cdAjax = function () {
+                                            $.ajax({
+                                                type: "GET",
+                                                url: "{{ path('campstats') }}",
+                                                dataType: "html",
+                                                timeout: 6000000,
+                                                success: function(response) {
+                                                    if(response.length != 0) {
+                                                        $('#campstats').html(response);
+                                                    } else {
+                                                        timeOutId = setTimeout(cdAjax, 1000);
+                                                    }
+                                                },
+                                                error: function(result) {
+                                                    console.log('error');
                                                 }
-                                            },
-                                            error: function(result) {
-                                                console.log('error');
-                                            }
-                                        });
+                                            });
+                                        }
+                                        cdAjax();
+                                    } else {
+                                        timeOutId = setTimeout(ajaxFn, 1000);//set frequnecy of updating progress bar
                                     }
-                                    cdAjax();
-                                } else {
-                                    timeOutId = setTimeout(ajaxFn, 1000);//set frequnecy of updating progress bar
+                                    prevprogress = progress;
+                                },
+                                error: function(result) {
+                                    console.log('error');
                                 }
-                                prevprogress = progress;
-                            },
-                            error: function(result) {
-                                console.log('error');
-                            }
-                        });
+                            });
+                        }
+                        ajaxFn();
+                    },
+                    error: function(result) {
+                        console.log('error');
                     }
-                    ajaxFn();
-                },
-                error: function(result) {
-                    console.log('error');
-                }
-            });
-        }
-        initCamp();
-    });
-</script>
+                });
+            }
+            initCamp();
+        });
+        //js for progress bar to be shown
+
+    </script>
 
 {% endblock %}

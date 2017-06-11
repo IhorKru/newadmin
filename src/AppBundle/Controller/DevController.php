@@ -32,7 +32,6 @@ class DevController Extends Controller
      * @Route("/fbrawdata", name="fbrawdata")
      */
     public function facebookAction(){
-
         return $this->render('Testing/testing.html.twig');
     }
 }

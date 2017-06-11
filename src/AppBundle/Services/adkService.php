@@ -22,6 +22,8 @@ use AppBundle\Entity\SubscriberOptOutDetails;
 use AppBundle\Entity\Subscribers;
 use AppBundle\Repository\ListsRepository;
 use DateTime;
+use XMLReader;
+use DOMDocument;
 use DoctrineExtensions\Query\Mysql\Date;
 use SimpleXMLElement;
 use Symfony\Component\DomCrawler\Crawler;
@@ -40,9 +42,6 @@ class adkService extends PublisherController
             $url = 'http://integrated.adstation.com/1.3';
             $idomain = 'adk.mediaff.com';
             $cdomain = 'adk.mediaff.com';
-            $batchSize = 20;
-            $start  = date("m/d/Y h:i:s a", time());
-            $e = 0;
         # 1b. Definition of entities
             $subscriber = new SubscriberDetails();
             $address = new SubscriberAddress();
@@ -94,7 +93,7 @@ class adkService extends PublisherController
                             . "<metrocode>$metrocode</metrocode>"
                             . "<postalcode>$postalcode</postalcode>"
                             . "<gender>$gender</gender>"
-                            . "<test>0</test>"
+                            . "<test>0</test>"//setting up if all clicks will be test ones or real ones
                             . "</email>";
                     }
                     #preparing xml string
@@ -106,8 +105,7 @@ class adkService extends PublisherController
                     $query .= 'idomain=' . $idomain . '&';
                     $query .= 'cdomain=' . $cdomain . '&';
                     $query .= 'request=' . $request .'&';
-                    $query .= 'test=1';
-
+                    $query .= 'test=0';//setting up if all clicks will be test ones or real ones
                     array_push($xmlarray, $query);
                 }
             }
@@ -135,7 +133,51 @@ class adkService extends PublisherController
             }// get content and remove handles
             curl_multi_close($mh);
         #3b. Parsing xml responce
-        try {
+            $z = new XMLReader();
+            $categoriesarray = array();
+            $querybatch = $em ->createQuery('SELECT MAX(c.id) FROM AppBundle:CampaignInputDetails c');
+            $curbatch = $querybatch->getSingleScalarResult();
+            //$result variable contains full xml responce and $xmlbatch varibale contains batches of 500 responces
+            //first one is an array second one is a string
+            foreach($result as $id => $xmlbatch) {
+                $z ->XML($xmlbatch);
+                while ($z->read() && $z->name !== 'error');
+                // now that we're at the right depth, hop to the next <error/> until the end of the tree
+                while ($z->name === 'error') {
+                    $node = new SimpleXMLElement($z->readOuterXML()); //creating simple element from the error node
+                    if(isset($node ->recipient)) { //getting error data
+                        $errornum = $node->num;
+                        $errordesc = $node->str;
+                        $requestid = $node->requestid;
+                        $errorrecipient = $email_hashes[ (string)$node->recipient ];
+                        #pusshing errors to db
+                        $errordetails = new SubscriberADKCampErrors();
+                        $errordetails ->setErrornum($errornum);
+                        $errordetails ->setErrordesc($errordesc);
+                        $errordetails ->setRequestid($requestid);
+                        $errordetails ->setRecipient($errorrecipient);
+                        $errordetails ->setDatemodified(new DateTime());
+                        $em->persist($errordetails);
+                        $em->flush();
+                    }
+                    $z->next('error');//got to next  error
+                }
+                $z->close();
+            }
+            foreach($result as $id => $xmlbatch){
+                $z ->XML($xmlbatch);
+                while ($z->read() && $z->name !== 'email');
+                while ($z->name === 'email') {
+                    $node = new SimpleXMLElement($z->readOuterXML()); //creating simple element from the error node
+                    $categoryid = $node ->categoryid;
+                    if(!in_array((string)$categoryid, $categoriesarray)) {
+                        array_push($categoriesarray,(string)$categoryid);
+                    }
+                    $z->next('email');//got to next email
+                }
+                $z->close();
+            }
+        /*try {
             $xmlresponse = array();
             $xmlerror = array();
             $subcreative = array();
@@ -200,7 +242,6 @@ class adkService extends PublisherController
                                 } else {
                                     $app = $adkcategory ->getAppId();
                                 }
-
                                 $appdetails = $sendyappdetails->findOneBy(['id' => $app]);
                                 $appname = $appdetails->getAppName();
                                 $appfromname = $appdetails ->getFromName();
@@ -235,7 +276,7 @@ class adkService extends PublisherController
                                 $em->flush($newList);
                                 $latestlist = new Lists();
                                 $latestlist = $em->getRepository('AppBundle:Lists')->selectLatestList();
-                                    #selecting subscribers
+                                #selecting subscribers
                                 foreach ($xml->email as $xmlresponse) {
                                     $categoryid = $xmlresponse ->categoryid;
                                     if((string)$categoryid == $category) {
@@ -263,7 +304,7 @@ class adkService extends PublisherController
                                         $em->persist($sendySubscriber);
                                     }
                                 }
-                                    #pusshing campaign details into DB
+                                #pusshing campaign details into DB
                                 $sendyoffer = new Campaigns();
                                 $sendyoffer ->setUserid('1');
                                 $sendyoffer ->setApp($app);
@@ -291,10 +332,6 @@ class adkService extends PublisherController
 
         } catch (Error $ce) {
 
-        }
-        /*$end  = date("m/d/Y h:i:s a", time());
-        $timelapsed = strtotime($end) - strtotime($start);
-        echo $timelapsed;
-        return $timelapsed;*/
+        }*/
     }
 }

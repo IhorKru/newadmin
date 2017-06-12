@@ -2218,64 +2218,58 @@
       <ColNames>id</ColNames>
       <UnderlyingIndexName>UNIQ_2FCD16ACBF396750</UnderlyingIndexName>
     </key>
-    <foreign-key id="505" parent="38" name="FK_2FCD16AC44C8F818">
-      <ColNames>list</ColNames>
-      <RefSchemaName>mediazmj_mysql</RefSchemaName>
-      <RefTableName>lists</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <column id="506" parent="39" name="id">
+    <column id="505" parent="39" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="507" parent="39" name="userID">
+    <column id="506" parent="39" name="userID">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="508" parent="39" name="app">
+    <column id="507" parent="39" name="app">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="509" parent="39" name="template_name">
+    <column id="508" parent="39" name="template_name">
       <Position>4</Position>
       <DataType>varchar(100)|0</DataType>
     </column>
-    <column id="510" parent="39" name="html_text">
+    <column id="509" parent="39" name="html_text">
       <Position>5</Position>
       <DataType>longtext|0</DataType>
     </column>
-    <index id="511" parent="39" name="UNIQ_97601F83BF396750">
+    <index id="510" parent="39" name="UNIQ_97601F83BF396750">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="512" parent="39" name="PRIMARY">
+    <key id="511" parent="39" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="513" parent="39" name="UNIQ_97601F83BF396750">
+    <key id="512" parent="39" name="UNIQ_97601F83BF396750">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>UNIQ_97601F83BF396750</UnderlyingIndexName>
     </key>
-    <column id="514" parent="40" name="id">
+    <column id="513" parent="40" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0</DataType>
     </column>
-    <column id="515" parent="40" name="subscribe_endpoint">
+    <column id="514" parent="40" name="subscribe_endpoint">
       <Position>2</Position>
       <DataType>tinytext|0</DataType>
     </column>
-    <column id="516" parent="40" name="event">
+    <column id="515" parent="40" name="event">
       <Position>3</Position>
       <DataType>tinytext|0</DataType>
     </column>
-    <column id="517" parent="40" name="list">
+    <column id="516" parent="40" name="list">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="518" parent="40" name="app">
+    <column id="517" parent="40" name="app">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
     </column>

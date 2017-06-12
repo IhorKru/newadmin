@@ -133,7 +133,7 @@ class adkService extends PublisherController
             }// get content and remove handles
             curl_multi_close($mh);
         #3b. Parsing xml responce
-            $z = new XMLReader();
+            /*$z = new XMLReader();
             $categoriesarray = array();
             $emailsarray = array();
             $querybatch = $em ->createQuery('SELECT MAX(c.id) FROM AppBundle:CampaignInputDetails c');
@@ -292,8 +292,8 @@ class adkService extends PublisherController
                         $z->next('email');//got to next  error
                     }
                 }
-            }
-        /*try {
+            }*/
+        try {
             $xmlresponse = array();
             $xmlerror = array();
             $subcreative = array();
@@ -323,123 +323,123 @@ class adkService extends PublisherController
                 $em->flush(); //Persist objects that did not make up an entire batch
                 $em->clear();
                 #parsing valid responces
-                    #extracting all category ids from xml doc
-                    $categoriesarray = array();
+                #extracting all category ids from xml doc
+                $categoriesarray = array();
+                foreach ($xml->email as $xmlresponse) {
+                    $categoryid = $xmlresponse ->categoryid;
+                    if(!in_array((string)$categoryid, $categoriesarray)){
+                        array_push($categoriesarray,(string)$categoryid);
+                    }
+                }
+                #extracting data from xml based on the category id
+                foreach ($categoriesarray as $category) {
                     foreach ($xml->email as $xmlresponse) {
                         $categoryid = $xmlresponse ->categoryid;
-                        if(!in_array((string)$categoryid, $categoriesarray)){
-                            array_push($categoriesarray,(string)$categoryid);
-                        }
-                    }
-                    #extracting data from xml based on the category id
-                    foreach ($categoriesarray as $category) {
-                        foreach ($xml->email as $xmlresponse) {
-                            $categoryid = $xmlresponse ->categoryid;
-                            if((string)$categoryid == $category) {
-                                #creating campaign details
-                                foreach($xmlresponse->creative as $creative) {
-                                    $sendyfrom = $creative->friendlyfrom;
-                                    $friendlyfrom = $creative->friendlyfrom;
-                                    $sendytitle = $creative->subject;
-                                    $body = $creative->body;
-                                    $body = substr($body,2,-3);
-                                    if(substr($body,0,6) == '<html>') {
-                                        $bodyconv = (string)$body;
-                                        $crawler = new Crawler($bodyconv);
-                                        $link = $crawler->filterXPath('//a/@href')->text();
-                                        //$textbody = $subcreative->textbody;
-                                        //$htmlcreativelength = $subcreative->htmlcreativelength;
-                                        //$textcreativelength = $subcreative->textcreativelength;
-                                    };
-                                }
-                                $adkcategory = $adkcategoryrepo->findOneBy(['categoryid' => $categoryid]);
-                                if(is_null($adkcategory)) {
-                                    $app = '8';
-                                } else {
-                                    $app = $adkcategory ->getAppId();
-                                }
-                                $appdetails = $sendyappdetails->findOneBy(['id' => $app]);
-                                $appname = $appdetails->getAppName();
-                                $appfromname = $appdetails ->getFromName();
-                                $appfromemail = $appdetails ->getFromEmail();
-                                $appreplytoemail = $appdetails ->getReplyTo();
-                                //creating email template for old adk templates
+                        if((string)$categoryid == $category) {
+                            #creating campaign details
+                            foreach($xmlresponse->creative as $creative) {
+                                $sendyfrom = $creative->friendlyfrom;
+                                $friendlyfrom = $creative->friendlyfrom;
+                                $sendytitle = $creative->subject;
+                                $body = $creative->body;
+                                $body = substr($body,2,-3);
                                 if(substr($body,0,6) == '<html>') {
-                                    $template = $templaterepo->findOneBy(['app' => $app]);
-                                    $preemail = $template->getHtmlText();
-                                    $template = $this->get('twig')->createTemplate($preemail);
-                                    $body = $template->render(array(
-                                        'link' => $link,
-                                        'insertone' => $friendlyfrom,
-                                        'sentemail' => $appfromemail,
-                                        'resourcename' => $appname));
+                                    $bodyconv = (string)$body;
+                                    $crawler = new Crawler($bodyconv);
+                                    $link = $crawler->filterXPath('//a/@href')->text();
+                                    //$textbody = $subcreative->textbody;
+                                    //$htmlcreativelength = $subcreative->htmlcreativelength;
+                                    //$textcreativelength = $subcreative->textcreativelength;
                                 };
-                                #creating subscriber lists
-                                $newList = new Lists();
-                                $newList ->setUserid('1');
-                                $newList ->setApp($app);
-                                $newList ->setName($sendyfrom);
-                                $newList ->setOptIn('1');
-                                $newList ->setConfirmUrl('http://mediaff.com');
-                                $newList ->setThankyou('0');
-                                $newList ->setGoodbye('0');
-                                $newList ->setUnsubscribeAllList('1');
-                                $newList ->setPrevCount('0');
-                                $newList ->setCurrentlyProcessing('0');
-                                $newList ->setTotalRecords('0');
-                                $em->persist($newList); //persisting data to list table
-                                $em->flush($newList);
-                                $latestlist = new Lists();
-                                $latestlist = $em->getRepository('AppBundle:Lists')->selectLatestList();
-                                #selecting subscribers
-                                foreach ($xml->email as $xmlresponse) {
-                                    $categoryid = $xmlresponse ->categoryid;
-                                    if((string)$categoryid == $category) {
-                                        $adksubscremail = $email_hashes[(string)$xmlresponse->recipient];
-                                        $subscriber = $ent->findOneByEmailaddress($adksubscremail);
-                                        $firstname = $subscriber ->getFirstName();
-                                        $lastname = $subscriber ->getLastName();
-                                        $subscriptiondate = $optindetails ->getOptindate();
-                                        #setting properties for each subscriber
-                                        $sendySubscriber = new Subscribers();
-                                        $sendySubscriber ->setUserid('1');
-                                        $sendySubscriber ->setEmailaddress($adksubscremail);
-                                        $sendySubscriber ->setName($firstname);
-                                        $sendySubscriber ->setCustomFields($lastname.'%s%');
-                                        $sendySubscriber ->setList($latestlist[0]);
-                                        $sendySubscriber ->setUnsubscribed('0');
-                                        $sendySubscriber ->setBounced('0');
-                                        $sendySubscriber ->setBounceSoft('0');
-                                        $sendySubscriber ->setComplaint('0');
-                                        $sendySubscriber ->setLastCampaign(strtotime($depdate));
-                                        $sendySubscriber ->setTimestamp(new DateTime());
-                                        $sendySubscriber ->setJoinDate($subscriptiondate);
-                                        $sendySubscriber ->setConfirmed('1');
-                                        $sendySubscriber ->setMessageID('testmessage');
-                                        $em->persist($sendySubscriber);
-                                    }
-                                }
-                                #pusshing campaign details into DB
-                                $sendyoffer = new Campaigns();
-                                $sendyoffer ->setUserid('1');
-                                $sendyoffer ->setApp($app);
-                                $sendyoffer ->setFromName($appfromname);
-                                $sendyoffer ->setFromEmail($appfromemail);
-                                $sendyoffer ->setReplyTo($appreplytoemail);
-                                $sendyoffer ->setTitle("[Name,fallback=], ".$sendytitle);
-                                $sendyoffer ->setHtmlText($body);
-                                $sendyoffer ->setToSendLists($latestlist[0]->getId());
-                                $sendyoffer ->setWysiwyg('1');
-                                $sendyoffer ->setLists($latestlist[0]->getId());
-                                $sendyoffer ->setSendDate(strtotime($depdate));
-                                $sendyoffer ->setTimezone($timezone);
-                                $sendyoffer ->setBatchId($curbatch);
-                                $em->persist($sendyoffer); //persisting data to campaign table
-                                $em->flush(); //pushing data to db
-                                break;
                             }
+                            $adkcategory = $adkcategoryrepo->findOneBy(['categoryid' => $categoryid]);
+                            if(is_null($adkcategory)) {
+                                $app = '8';
+                            } else {
+                                $app = $adkcategory ->getAppId();
+                            }
+                            $appdetails = $sendyappdetails->findOneBy(['id' => $app]);
+                            $appname = $appdetails->getAppName();
+                            $appfromname = $appdetails ->getFromName();
+                            $appfromemail = $appdetails ->getFromEmail();
+                            $appreplytoemail = $appdetails ->getReplyTo();
+                            //creating email template for old adk templates
+                            if(substr($body,0,6) == '<html>') {
+                                $template = $templaterepo->findOneBy(['app' => $app]);
+                                $preemail = $template->getHtmlText();
+                                $template = $this->get('twig')->createTemplate($preemail);
+                                $body = $template->render(array(
+                                    'link' => $link,
+                                    'insertone' => $friendlyfrom,
+                                    'sentemail' => $appfromemail,
+                                    'resourcename' => $appname));
+                            };
+                            #creating subscriber lists
+                            $newList = new Lists();
+                            $newList ->setUserid('1');
+                            $newList ->setApp($app);
+                            $newList ->setName($sendyfrom);
+                            $newList ->setOptIn('1');
+                            $newList ->setConfirmUrl('http://mediaff.com');
+                            $newList ->setThankyou('0');
+                            $newList ->setGoodbye('0');
+                            $newList ->setUnsubscribeAllList('1');
+                            $newList ->setPrevCount('0');
+                            $newList ->setCurrentlyProcessing('0');
+                            $newList ->setTotalRecords('0');
+                            $em->persist($newList); //persisting data to list table
+                            $em->flush($newList);
+                            $latestlist = new Lists();
+                            $latestlist = $em->getRepository('AppBundle:Lists')->selectLatestList();
+                            #selecting subscribers
+                            foreach ($xml->email as $xmlresponse) {
+                                $categoryid = $xmlresponse ->categoryid;
+                                if((string)$categoryid == $category) {
+                                    $adksubscremail = $email_hashes[(string)$xmlresponse->recipient];
+                                    $subscriber = $ent->findOneByEmailaddress($adksubscremail);
+                                    $firstname = $subscriber ->getFirstName();
+                                    $lastname = $subscriber ->getLastName();
+                                    $subscriptiondate = $optindetails ->getOptindate();
+                                    #setting properties for each subscriber
+                                    $sendySubscriber = new Subscribers();
+                                    $sendySubscriber ->setUserid('1');
+                                    $sendySubscriber ->setEmailaddress($adksubscremail);
+                                    $sendySubscriber ->setName($firstname);
+                                    $sendySubscriber ->setCustomFields($lastname.'%s%');
+                                    $sendySubscriber ->setList($latestlist[0]);
+                                    $sendySubscriber ->setUnsubscribed('0');
+                                    $sendySubscriber ->setBounced('0');
+                                    $sendySubscriber ->setBounceSoft('0');
+                                    $sendySubscriber ->setComplaint('0');
+                                    $sendySubscriber ->setLastCampaign(strtotime($depdate));
+                                    $sendySubscriber ->setTimestamp(new DateTime());
+                                    $sendySubscriber ->setJoinDate($subscriptiondate);
+                                    $sendySubscriber ->setConfirmed('1');
+                                    $sendySubscriber ->setMessageID('testmessage');
+                                    $em->persist($sendySubscriber);
+                                }
+                            }
+                            #pusshing campaign details into DB
+                            $sendyoffer = new Campaigns();
+                            $sendyoffer ->setUserid('1');
+                            $sendyoffer ->setApp($app);
+                            $sendyoffer ->setFromName($appfromname);
+                            $sendyoffer ->setFromEmail($appfromemail);
+                            $sendyoffer ->setReplyTo($appreplytoemail);
+                            $sendyoffer ->setTitle("[Name,fallback=], ".$sendytitle);
+                            $sendyoffer ->setHtmlText($body);
+                            $sendyoffer ->setToSendLists($latestlist[0]->getId());
+                            $sendyoffer ->setWysiwyg('1');
+                            $sendyoffer ->setLists($latestlist[0]->getId());
+                            $sendyoffer ->setSendDate(strtotime($depdate));
+                            $sendyoffer ->setTimezone($timezone);
+                            $sendyoffer ->setBatchId($curbatch);
+                            $em->persist($sendyoffer); //persisting data to campaign table
+                            $em->flush(); //pushing data to db
+                            break;
                         }
                     }
+                }
             }
         } catch (Exception $e) {
 
@@ -447,6 +447,6 @@ class adkService extends PublisherController
 
         } catch (Error $ce) {
 
-        }*/
+        }
     }
 }

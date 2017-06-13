@@ -20,6 +20,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/orm" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/elfet/pure" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/evenement/evenement" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/fig/link-util" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/psr7" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/herrera-io/json" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/herrera-io/phar-update" />
@@ -31,8 +32,11 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/paragonie/random_compat" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpseclib/phpseclib" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/container" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/link" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/simple-cache" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/react/cache" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/react/child-process" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/react/dns" />
@@ -87,6 +91,7 @@
           <root url="file://$MODULE_DIR$/vendor/doctrine/orm" />
           <root url="file://$MODULE_DIR$/vendor/elfet/pure" />
           <root url="file://$MODULE_DIR$/vendor/evenement/evenement" />
+          <root url="file://$MODULE_DIR$/vendor/fig/link-util" />
           <root url="file://$MODULE_DIR$/vendor/guzzlehttp/psr7" />
           <root url="file://$MODULE_DIR$/vendor/herrera-io/json" />
           <root url="file://$MODULE_DIR$/vendor/herrera-io/phar-update" />
@@ -98,8 +103,11 @@
           <root url="file://$MODULE_DIR$/vendor/paragonie/random_compat" />
           <root url="file://$MODULE_DIR$/vendor/phpseclib/phpseclib" />
           <root url="file://$MODULE_DIR$/vendor/psr/cache" />
+          <root url="file://$MODULE_DIR$/vendor/psr/container" />
           <root url="file://$MODULE_DIR$/vendor/psr/http-message" />
+          <root url="file://$MODULE_DIR$/vendor/psr/link" />
           <root url="file://$MODULE_DIR$/vendor/psr/log" />
+          <root url="file://$MODULE_DIR$/vendor/psr/simple-cache" />
           <root url="file://$MODULE_DIR$/vendor/react/cache" />
           <root url="file://$MODULE_DIR$/vendor/react/child-process" />
           <root url="file://$MODULE_DIR$/vendor/react/dns" />
@@ -149,6 +157,7 @@
           <root url="file://$MODULE_DIR$/vendor/doctrine/orm" />
           <root url="file://$MODULE_DIR$/vendor/elfet/pure" />
           <root url="file://$MODULE_DIR$/vendor/evenement/evenement" />
+          <root url="file://$MODULE_DIR$/vendor/fig/link-util" />
           <root url="file://$MODULE_DIR$/vendor/guzzlehttp/psr7" />
           <root url="file://$MODULE_DIR$/vendor/herrera-io/json" />
           <root url="file://$MODULE_DIR$/vendor/herrera-io/phar-update" />
@@ -160,8 +169,11 @@
           <root url="file://$MODULE_DIR$/vendor/paragonie/random_compat" />
           <root url="file://$MODULE_DIR$/vendor/phpseclib/phpseclib" />
           <root url="file://$MODULE_DIR$/vendor/psr/cache" />
+          <root url="file://$MODULE_DIR$/vendor/psr/container" />
           <root url="file://$MODULE_DIR$/vendor/psr/http-message" />
+          <root url="file://$MODULE_DIR$/vendor/psr/link" />
           <root url="file://$MODULE_DIR$/vendor/psr/log" />
+          <root url="file://$MODULE_DIR$/vendor/psr/simple-cache" />
           <root url="file://$MODULE_DIR$/vendor/react/cache" />
           <root url="file://$MODULE_DIR$/vendor/react/child-process" />
           <root url="file://$MODULE_DIR$/vendor/react/dns" />
@@ -200,10 +212,12 @@
       <library name="PHARS">
         <CLASSES>
           <root url="phar://$MODULE_DIR$/vendor/twig/twig/test/Twig/Tests/Loader/Fixtures/phar/phar-sample.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/symfony/phpunit-bridge/bin/.phpunit/phpunit-5.7/tests/_files/phpunit-example-extension/tools/phpunit.d/phpunit-example-extension-1.0.0.phar/" />
           <root url="phar://$MODULE_DIR$/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Tests/Fixtures/includes/ProjectWithXsdExtensionInPhar.phar/" />
         </CLASSES>
         <SOURCES>
           <root url="phar://$MODULE_DIR$/vendor/twig/twig/test/Twig/Tests/Loader/Fixtures/phar/phar-sample.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/symfony/phpunit-bridge/bin/.phpunit/phpunit-5.7/tests/_files/phpunit-example-extension/tools/phpunit.d/phpunit-example-extension-1.0.0.phar/" />
           <root url="phar://$MODULE_DIR$/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Tests/Fixtures/includes/ProjectWithXsdExtensionInPhar.phar/" />
         </SOURCES>
       </library>

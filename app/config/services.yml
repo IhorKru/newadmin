@@ -7,15 +7,15 @@ services:
       api.adk:
           class: AppBundle\Services\adkService
           calls:
-            - [setContainer, ["@service_container"]]
+            - [setContainer, ['@service_container']]
       gen.campaign:
           class: AppBundle\Services\ecampService
           calls:
-            - [setContainer, ["@service_container"]]
+            - [setContainer, ['@service_container']]
       all.stats:
           class: AppBundle\Services\statsService
           calls:
-            - [setContainer, ["@service_container"]]
+            - [setContainer, ['@service_container']]
 #    service_name:
 #        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+#        arguments: ['@another_service_name', "plain_value", "%parameter_name%"]

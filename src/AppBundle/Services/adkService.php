@@ -133,7 +133,7 @@ class adkService extends PublisherController
             }// get content and remove handles
             curl_multi_close($mh);
         #3b. Parsing xml responce
-            /*$z = new XMLReader();
+            $z = new XMLReader();
             $categoriesarray = array();
             $emailsarray = array();
             $querybatch = $em ->createQuery('SELECT MAX(c.id) FROM AppBundle:CampaignInputDetails c');
@@ -292,8 +292,8 @@ class adkService extends PublisherController
                         $z->next('email');//got to next  error
                     }
                 }
-            }*/
-        try {
+            }
+        /*try {
             $xmlresponse = array();
             $xmlerror = array();
             $subcreative = array();
@@ -447,6 +447,6 @@ class adkService extends PublisherController
 
         } catch (Error $ce) {
 
-        }
+        }*/
     }
 }

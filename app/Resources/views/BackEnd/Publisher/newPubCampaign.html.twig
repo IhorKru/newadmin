@@ -191,7 +191,7 @@
                     data: $form.serialize(),
                     timeout: 1000
                 });
-            }
+            };
             formSub();
             var emailstosend = document.getElementById("campaign_input_numemails").value; //getting count of emails to be sent out
             var timeOutId = 0;
@@ -220,7 +220,7 @@
                                     $("#progress_bar").attr("style", "width: " + progress);
                                     $("#progress_bar").attr("aria-valuenow", progress);
                                     document.getElementById("progress_bar").innerHTML = "Running - " + progress;
-                                    if(prevprogress == progress && prevprogress != '0%' && progress >= '98%' || progress == '100%'){
+                                    if(prevprogress != '0%' && progress >= '98%' || progress == '100%'){
                                         $("#progress_bar").attr("style", "width: 100%");
                                         $("#progress_bar").attr("aria-valuenow", "100%");
                                         document.getElementById("progress_bar").innerHTML = "Completed - 100% - " + (Number(currcount) - Number(initcount)) + " emails";
@@ -237,29 +237,29 @@
                                                         timeOutId = setTimeout(cdAjax, 1000);
                                                     }
                                                 },
-                                                error: function(result) {
-                                                    console.log('error');
+                                                error: function(response) {
+                                                    console.log(response);
                                                 }
                                             });
-                                        }
+                                        };
                                         cdAjax();
                                     } else {
                                         timeOutId = setTimeout(ajaxFn, 1000);//set frequnecy of updating progress bar
                                     }
                                     prevprogress = progress;
                                 },
-                                error: function(result) {
-                                    console.log('error');
+                                error: function(response) {
+                                    console.log(response);
                                 }
                             });
-                        }
+                        };
                         ajaxFn();
                     },
-                    error: function(result) {
-                        console.log('error');
+                    error: function(response) {
+                        console.log(response);
                     }
                 });
-            }
+            };
             initCamp();
         });
         //js for progress bar to be shown

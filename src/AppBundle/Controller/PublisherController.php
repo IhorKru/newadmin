@@ -8,31 +8,28 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\AppBundle;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Entity\CampaignInputDetails;
 use AppBundle\Entity\Template;
-use AppBundle\Entity\cpcInputDetails;
 use AppBundle\Entity\PartnerDetails;
 use AppBundle\Form\CampaignInputType;
-use AppBundle\Form\cpcInputType;
 use AppBundle\Form\NewEmailType;
 use AppBundle\Form\newPartnerType;
 use Symfony\Component\Process\Process;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use DateTime;
 
 class PublisherController extends Controller
 {
     /**
      * @Route("/pubmaster/{slug}", name="pubmaster", defaults={"slug" = 2}, requirements={"slug": "\d+"})
+     * @param $slug
+     * @return Response
      */
-    public function pubmasterAction(Request $request, $slug)
+    public function pubmasterAction($slug)
     {
         //getting slug value
         $table = $this->setTablePropsTwo($slug)[0];
@@ -47,7 +44,7 @@ class PublisherController extends Controller
         $em = $this ->getDoctrine() ->getManager(); //getting data for stats
         //getting data for
         $statsdata = $em->getRepository('AppBundle:StatsDaily')->calculateStats($table,$where0,$where1,$where2,$where3);
-
+        $emaildata = array();
         for ($i = 0; $i < 7; $i++) {
             $gperiod=strftime($format,$timestamp);
             if ($slug == 1) {
@@ -69,14 +66,14 @@ class PublisherController extends Controller
         $emaildata = array_reverse($emaildata);
         return $this->render('BackEnd/Publisher/pubMasterDash.twig', ['statsdata' => $statsdata, 'period' => $period, 'emaildata' => $emaildata]);
         //return $emaildata;
-
     }
 
     /**
      * @Route("/campaignsdash/{slug}", name="campaignsdash", defaults={"slug" = 2})
+     * @param $slug
+     * @return Response
      */
-    public function campaignsdashAction(Request $request, $slug){
-        $em = $this ->getDoctrine() ->getManager();
+    public function campaignsdashAction($slug){
         $revenue = 0;
         $table = $this->setTableProps($slug)[0];
         $where0 = $this->setTableProps($slug)[1];
@@ -116,20 +113,26 @@ class PublisherController extends Controller
 
     /**
      * @Route("/subscriberdash/{slug}", name="subscriberdash", defaults={"slug" = false})
+     * @param $slug
+     * @return Response
      */
-    public function subscribersdashAction(Request $request, $slug){
+    public function subscribersdashAction($slug){
         return $this->render('BackEnd/Publisher/pubSubscrDash.twig',['daily'=>$slug,'weekly'=>$slug,'monthly'=>$slug,'yearly'=>$slug]);
     }
 
     /**
      * @Route("/partnerdash/{slug}", name="partnerdash", defaults={"slug" = false})
+     * @param $slug
+     * @return Response
      */
-    public function partnerdashAction(Request $request, $slug){
+    public function partnerdashAction($slug){
         return $this->render('BackEnd/Publisher/pubPartnerDash.html.twig',['daily'=>$slug,'weekly'=>$slug,'monthly'=>$slug,'yearly'=>$slug]);
     }
 
     /**
      * @Route("/newpubcampaign", name="newpubcampaign")
+     * @param Request $request
+     * @return Response
      */
     public function emailcampaignsAction(Request $request)
     {
@@ -169,9 +172,13 @@ class PublisherController extends Controller
             $newCampaign ->setTrafficType($traffic_type);
             $newCampaign ->setPartnername($partner);
             $newCampaign ->setGeo($geo);
+            /** @noinspection PhpUndefinedVariableInspection */
             $newCampaign ->setResourcename($app_id);
+            /** @noinspection PhpUndefinedVariableInspection */
             $newCampaign ->setTemplatename($templateid);
+            /** @noinspection PhpUndefinedVariableInspection */
             $newCampaign ->setLink1($link1);
+            /** @noinspection PhpUndefinedVariableInspection */
             $newCampaign ->setLink2($link2);
             $newCampaign ->setTimezone($timezone);
             $newCampaign ->setDatetosend($datedepf);
@@ -209,7 +216,7 @@ class PublisherController extends Controller
      * @Route("/bar", name="progbar")
      * @Method({"GET", "POST"})
      */
-    public function ajaxProcessAction(Request $request)
+    public function ajaxProcessAction()
     {
         $count = $this->getDoctrine()->getManager()->getRepository('AppBundle:Subscribers')->findMaxRow();
         return new Response($count);
@@ -219,7 +226,7 @@ class PublisherController extends Controller
      * @Route("/campstats", name="campstats")
      * @Method({"GET", "POST"})
      */
-    public function campaignStatsAction(Request $request) {
+    public function campaignStatsAction() {
         $em = $this ->getDoctrine() ->getManager();
         //getting campaigns per resource
         $resourcestats = $em->getRepository('AppBundle:Campaigns')->campaignsPerResource();
@@ -249,6 +256,8 @@ class PublisherController extends Controller
 
     /**
      * @Route("/newemailtempl", name="newemailtempl")
+     * @param Request $request
+     * @return Response
      */
     public function newemailtemplAction(Request $request){
         $newTemplate = new Template();
@@ -272,8 +281,10 @@ class PublisherController extends Controller
             $newTemplate ->setHtmlText($htmlText);
             $em->persist($newTemplate);
             $em->flush();
-            return $this->render('BackEnd/newEmailTempl.html.twig',[
-                'form'=>$form->createView()
+            $tabledata = $this->getDoctrine()->getRepository('AppBundle:Template')->temaplteDetailsTable();//getting data for table
+            return $this->render('BackEnd/Publisher/newEmailTempl.html.twig',[
+                'form'=>$form->createView(),
+                'tabledata'=>$tabledata
             ]);
         }
         $tabledata = $this->getDoctrine()->getRepository('AppBundle:Template')->temaplteDetailsTable();//getting data for table
@@ -285,6 +296,8 @@ class PublisherController extends Controller
 
     /**
      * @Route("/newpubnetwork", name="newpubnetwork")
+     * @param Request $request
+     * @return Response
      */
     public function newadnetworkAction(Request $request){
         $newPartner = new PartnerDetails();

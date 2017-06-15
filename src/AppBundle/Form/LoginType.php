@@ -43,7 +43,7 @@ class LoginType extends AbstractType
     }
 
     /**
-     * @param OptionsResolverInterface $resolver
+     * @param OptionsResolver $resolver
      */
     public function configureOptions(OptionsResolver $resolver) {
         $resolver->setDefaults(array(

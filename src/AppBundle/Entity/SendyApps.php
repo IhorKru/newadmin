@@ -148,7 +148,7 @@ class SendyApps
      *
      * @ORM\Column(name="complaint_setup", type="integer")
      */
-    private $camplaintSetup;
+    private $complaintSetup;
 
     /**
      * @var string
@@ -569,7 +569,7 @@ class SendyApps
      */
     public function setCamplaintSetup($complaintSetup)
     {
-        $this->camplaintSetup = $complaintSetup;
+        $this->complaintSetup = $complaintSetup;
 
         return $this;
     }
@@ -798,16 +798,6 @@ class SendyApps
     public function getReportsOnly()
     {
         return $this->reportsOnly;
-    }
-
-    /**
-     * Get camplaintSetup
-     *
-     * @return integer
-     */
-    public function getCamplaintSetup()
-    {
-        return $this->camplaintSetup;
     }
 
     /**

@@ -5,7 +5,6 @@ namespace AppBundle\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Console\Input\InputArgument;
 
 class adkCommand extends ContainerAwareCommand
@@ -32,7 +31,6 @@ class adkCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $request = Request::createFromGlobals();
         $adkcampaign = $this->getContainer()->get('api.adk');
         $numcampaigns = $input->getArgument('numcampaigns');
         $timezone = $input->getArgument('timezone');

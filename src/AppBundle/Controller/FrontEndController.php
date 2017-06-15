@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\AppBundle;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -13,8 +12,9 @@ class FrontEndController extends Controller
 {
     /**
      * @Route("/", name="index")
+     * @return Response
      */
-    public function indexAction (Request $request) {
+    public function indexAction () {
         return $this->render('FrontEnd/index.html.twig');
     }
 }

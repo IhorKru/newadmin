@@ -8,11 +8,8 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\AppBundle;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Entity\newAdOfferDetails;
 use AppBundle\Form\newAdOfferType;
@@ -20,7 +17,6 @@ use AppBundle\Entity\PartnerDetails;
 use AppBundle\Form\newPartnerType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use DateTime;
 
 class AdvertiserController extends Controller
@@ -28,22 +24,26 @@ class AdvertiserController extends Controller
 
     /**
      * @Route("/adsdashboard/{slug}", name="adsdashboard", defaults={"slug" = false}, requirements={"slug": "\d+"})
+     * @param $slug
+     * @return Response
      */
-    public function adDashboardAction (Request $request, $slug) {
+    public function adDashboardAction ($slug) {
         return $this->render('BackEnd/Advertiser/adMasterDash.html.twig');
     }
 
     /**
      * @Route("/adsoffersdashboard", name="adsoffersdashboard", defaults={"slug" = false}, requirements={"slug": "\d+"})
+     * @param $slug
+     * @return Response
      */
-    public function adsoffersdashboardAction (Request $request, $slug) {
+    public function adsoffersdashboardAction ($slug) {
         return $this->render('BackEnd/Advertiser/adOfferDash.html.twig');
     }
 
     /**
      * @Route("/adoffers", name="adoffers")
      */
-    public function adOfferAction (Request $request) {
+    public function adOfferAction () {
         $tabledata = $this->getDoctrine()->getRepository('AppBundle:newAdOfferDetails')->offerDetailsTable();//getting data for table
         return $this->render('BackEnd/Advertiser/adOffers.html.twig', [
             'tabledata' =>$tabledata
@@ -52,6 +52,8 @@ class AdvertiserController extends Controller
 
     /**
      * @Route("/newadnetwork", name="newadnetwork")
+     * @param Request $request
+     * @return Response
      */
     public function newAdNetworkAction (Request $request) {
         $em = $this ->getDoctrine() ->getManager();
@@ -92,6 +94,8 @@ class AdvertiserController extends Controller
 
     /**
      * @Route("/newoffer", name="newoffer")
+     * @param Request $request
+     * @return Response
      */
     public function newOfferAction (Request $request) {
         $em = $this ->getDoctrine() ->getManager();

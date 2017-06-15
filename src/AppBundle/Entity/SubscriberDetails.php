@@ -408,7 +408,7 @@ class SubscriberDetails
      */
     public function addAddressdetail(\AppBundle\Entity\SubscriberAddress $addressdetail)
     {
-        $this->addressdetails[] = $addressdetail;
+        $this->addressdetail[] = $addressdetail;
 
         return $this;
     }
@@ -420,7 +420,7 @@ class SubscriberDetails
      */
     public function removeAddressdetail(\AppBundle\Entity\SubscriberAddress $addressdetail)
     {
-        $this->addressdetails->removeElement($addressdetail);
+        $this->addressdetail->removeElement($addressdetail);
     }
 
     /**

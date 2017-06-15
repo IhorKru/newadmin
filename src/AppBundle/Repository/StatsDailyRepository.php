@@ -63,7 +63,7 @@ class StatsDailyRepository extends EntityRepository
             -> andwhere($where2)
         ;
         $cntUnsubsAddLp = $qb5 ->getQuery() ->getSingleScalarResult();
-            $ratiounsubscrperiod = $this->calulateChange($cntUnsubsAddCp, $cntUnsubsAddLp);//%change
+            $ratiousubscrperiod = $this->calulateChange($cntUnsubsAddCp, $cntUnsubsAddLp);//%change
         //emails sent current period
         $qb6 = $em->createQueryBuilder();
         $qb6
@@ -125,9 +125,9 @@ class StatsDailyRepository extends EntityRepository
             'countsubscr' => $cntSubscribers,
             'ratiototalsubsc' => $ratiototalsubsc,
             'cntsubscrperiod' => $cntSubsAddCp,
-            'rationsubscrperiod' => $ratiosubscrperiod,
+            'ratiosubscrperiod' => $ratiosubscrperiod,
             'cntunsubscribers' => $cntUnsubsAddCp,
-            'rationsubscrperiod' => $ratiounsubscrperiod,
+            'ratiousubscrperiod' => $ratiousubscrperiod,
             'cntemailssentperiod' => $cntEmailsSentCp,
             'ratioemailssent' => $ratioemailssent,
             'cntclicksperiod' => $cntPaidClicksCp,

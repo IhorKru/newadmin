@@ -2,30 +2,26 @@
 
 namespace AppBundle\Services;
 
-use AppBundle\Controller\AdminController;
+use AppBundle\Controller\PublisherController;
 use AppBundle\Entity\Campaigns;
 use AppBundle\Entity\Lists;
 use AppBundle\Entity\SubscriberAddress;
-use AppBundle\Entity\SendyApps;
 use AppBundle\Entity\SubscriberDetails;
 use AppBundle\Entity\SubscriberOptInDetails;
 use AppBundle\Entity\SubscriberOptOutDetails;
 use AppBundle\Entity\Subscribers;
-use AppBundle\Entity\Template;
 use DateTime;
 
-class ecampService extends AdminController
+class ecampService extends PublisherController
 {
-    private $geo;
     private $app_id;
     private $templateid;
     private $numcampaigns;
     private $link1;
-    private $link2;
     private $timezone;
     private $depdate;
 
-    public function ecampServiceAction($geo, $app_id, $templateid, $numcampaigns, $link1, $link2, $timezone, $depdate)
+    public function ecampServiceAction($app_id, $numcampaigns, $link1, $timezone, $depdate)
     {
         #DEFININF VARIABLES
             $subscriber = new SubscriberDetails();
@@ -36,10 +32,8 @@ class ecampService extends AdminController
             $subscriber ->getOptindetails() ->add($optindetails);
             $subscriber ->getOptoutdetails() ->add($optoutdetails);
         #SETTING UP REPOSITORIES
-            $app = new SendyApps();
-                $apprepo = $this->getDoctrine()->getRepository('AppBundle:SendyApps');
-            $template = new Template();
-                $templaterepo = $this->getDoctrine()->getRepository('AppBundle:Template');
+            $apprepo = $this->getDoctrine()->getRepository('AppBundle:SendyApps');
+            $templaterepo = $this->getDoctrine()->getRepository('AppBundle:Template');
             $em = $this ->getDoctrine() ->getManager();
         #SELECTING SUBSCRIBERS ELIGIBLE FOR CAMPAIGN WHICH ARE
             ##-not unsubscribed from that specifict app
@@ -88,8 +82,6 @@ class ecampService extends AdminController
         if (is_array($subscribers)) {
             ###extracting required global data for campaign
                 $app = $apprepo ->findOneBy(['id' => $app_id]);
-                    $sendyfrom = $app ->getFromname();
-                    $sendyfromemail = $app ->getFromemail();
             ###creating email template
                 $template = $templaterepo->findOneBy(['app' => $app_id]);
                 $preemail = $template->getHtmlText();

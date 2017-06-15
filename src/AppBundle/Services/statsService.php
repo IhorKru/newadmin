@@ -15,7 +15,6 @@ use Symfony\Component\Validator\Constraints\Date;
 
 class statsService extends Controller
 {
-
     //CUSTOM PHP FUNCTIONS USED IN THIS CLASS
     public function checkNull($value)
     {

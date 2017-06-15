@@ -27,6 +27,7 @@ class ApiController extends Controller
     //redirect to offer
     /**
      * @Route("/api")
+     * @param Request $request
      */
     public function apiAction (Request $request) {
         //select url to be redirected to

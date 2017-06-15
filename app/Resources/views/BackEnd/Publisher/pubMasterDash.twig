@@ -47,7 +47,7 @@
             <span class="count_bottom">
                 <i class="green">
                     <i class="fa fa-sort-asc"></i>
-                    {{ statsdata.rationsubscrperiod|number_format(1, '.', ',') }}%
+                    {{ statsdata.ratiosubscrperiod|number_format(1, '.', ',') }}%
                 </i> From
                     {% if period == 'daily' %}
                         Yesterday
@@ -77,7 +77,7 @@
             <span class="count_bottom">
                 <i class="green">
                     <i class="fa fa-sort-asc">
-                        </i>{{ statsdata.rationsubscrperiod|number_format(1, '.', ',') }}%
+                        </i>{{ statsdata.ratiousubscrperiod|number_format(1, '.', ',') }}%
                 </i> From
                     {% if period == 'daily' %}
                         Yesterday
@@ -494,7 +494,7 @@
                                       '{{ rsc.period }}'
                                   {% endif %}
                               {% endfor %}
-                          ],
+                          ]
                     }],
                     yAxis: [{
                         type: 'value'

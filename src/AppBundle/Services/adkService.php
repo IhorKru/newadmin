@@ -8,23 +8,17 @@
 
 namespace AppBundle\Services;
 
-use AppBundle\Controller\AdminController;
 use AppBundle\Controller\PublisherController;
 use AppBundle\Entity\Campaigns;
 use AppBundle\Entity\Lists;
-use AppBundle\Entity\Subscriber;
 use AppBundle\Entity\SubscriberAddress;
-use AppBundle\Entity\SubscriberADKCampaign;
 use AppBundle\Entity\SubscriberADKCampErrors;
 use AppBundle\Entity\SubscriberDetails;
 use AppBundle\Entity\SubscriberOptInDetails;
 use AppBundle\Entity\SubscriberOptOutDetails;
 use AppBundle\Entity\Subscribers;
-use AppBundle\Repository\ListsRepository;
 use DateTime;
 use XMLReader;
-use DOMDocument;
-use DoctrineExtensions\Query\Mysql\Date;
 use SimpleXMLElement;
 use Symfony\Component\DomCrawler\Crawler;
 
@@ -73,13 +67,11 @@ class adkService extends PublisherController
                 #processing first level batch
                 foreach ($subscribersB as $subscriberBS) {
                     $xml = '';
-                    $query = '';
                     foreach ($subscriberBS as $subscriber) {
                         $email = $subscriber ->getEmailaddress();
                         $gender = $subscriber ->getGender();
                         $isocountry = $address ->getIsocountrycode();
                         $metrocode = $address ->getRefgeoid();
-                        $state = $address ->getCity();
                         $postalcode = $address ->getPostalcode();
 
                         $md5_email = md5(strtolower($email));
@@ -135,7 +127,6 @@ class adkService extends PublisherController
         #3b. Parsing xml responce
             $z = new XMLReader();
             $categoriesarray = array();
-            $emailsarray = array();
             $querybatch = $em ->createQuery('SELECT MAX(c.id) FROM AppBundle:CampaignInputDetails c');
             $curbatch = $querybatch->getSingleScalarResult();
             //$result variable contains full xml responce and $xmlbatch varibale contains batches of 500 responces
@@ -153,7 +144,7 @@ class adkService extends PublisherController
                         $errorrecipient = $email_hashes[ (string)$node->recipient ];
                         #pusshing errors to db
                         $errordetails = new SubscriberADKCampErrors();
-                        $errordetails ->setErrornum($errornum);
+                        $errordetails ->setErrornum((string)$errornum);
                         $errordetails ->setErrordesc($errordesc);
                         $errordetails ->setRequestid($requestid);
                         $errordetails ->setRecipient($errorrecipient);
@@ -238,7 +229,6 @@ class adkService extends PublisherController
                             $newList ->setTotalRecords('0');
                             $em->persist($newList); //persisting data to list table
                             $em->flush($newList);
-                            $latestlist = new Lists();
                             $latestlist = $em->getRepository('AppBundle:Lists')->selectLatestList();
                             #selecting subscribers
                             while ($z->name === 'email') {
@@ -277,7 +267,7 @@ class adkService extends PublisherController
                             $sendyoffer ->setFromName($appfromname);
                             $sendyoffer ->setFromEmail($appfromemail);
                             $sendyoffer ->setReplyTo($appreplytoemail);
-                            $sendyoffer ->setTitle("[Name,fallback=], ".$sendytitle);
+                            $sendyoffer ->setTitle("[Name,fallback=], ".(string)$sendytitle);
                             $sendyoffer ->setHtmlText($body);
                             $sendyoffer ->setToSendLists($latestlist[0]->getId());
                             $sendyoffer ->setWysiwyg('1');

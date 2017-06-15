@@ -309,19 +309,19 @@
                 max: 40,
                 sort: 'ascending',
                 data:
-                    [{
+                    [
                         {% for rsc in resourcestats %}
-                        {% if loop.last == false %}
-                        {{ "value:" }} {{ rsc.campaigns }},
-                        {{ "name:" }} '{{ rsc.appName|trim('.com') }}'
-                        {{ "}, {" }}
-                        {% else %}
-                        {{ "value:" }} {{ rsc.campaigns }},
-                        {{ "name:" }}  '{{ rsc.appName|trim('.com') }}'
-                {% endif %}
-                {% endfor %}
+                            {% if loop.last == false %}
+                                {{ "value:" }} {{ rsc.campaigns }},
+                                {{ "name:" }} '{{ rsc.appName|trim('.com') }}'
+                                {{ "}, {" }}
+                            {% else %}
+                                {{ "value:" }} {{ rsc.campaigns }},
+                                {{ "name:" }}  '{{ rsc.appName|trim('.com') }}'
+                            {% endif %}
+                        {% endfor %}
+                    ]
             }]
-        }]
         });
 
         /*Emails per Resource */
@@ -396,20 +396,20 @@
                         }
                     }
                 },
-                data: [{
+                data: [
                     {% for rsc in resourceemails %}
-                    {% if loop.last == false %}
-                    {{ "value:" }} {{ rsc.countsubscr }},
-                    {{ "name:" }} '{{ rsc.appName|trim('.com') }}'
-                    {{ "}, {" }}
-                    {% else %}
-                    {{ "value:" }} {{ rsc.countsubscr }},
-                    {{ "name:" }}  '{{ rsc.appName|trim('.com') }}'
-                {% endif %}
-                {% endfor %}
+                        {% if loop.last == false %}
+                            {{ "value:" }} {{ rsc.countsubscr }},
+                            {{ "name:" }} '{{ rsc.appName|trim('.com') }}'
+                            {{ "}, {" }}
+                        {% else %}
+                            {{ "value:" }} {{ rsc.countsubscr }},
+                            {{ "name:" }}  '{{ rsc.appName|trim('.com') }}'
+                        {% endif %}
+                    {% endfor %}
+                    ]
             }]
-        }]
-        })
+        });
 
         /*
          Total limit of emails

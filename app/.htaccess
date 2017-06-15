@@ -5,3 +5,25 @@
     Order deny,allow
     Deny from all
 </IfModule>
+<IfModule mod_expires.c>
+    # Enable expirations
+    ExpiresActive On
+    # Default directive
+    ExpiresDefault "access plus 1 week"
+    # My favicon
+    ExpiresByType image/x-icon "access plus 1 week"
+    # Images
+    ExpiresByType image/gif "access plus 1 week"
+    ExpiresByType image/png "access plus 1 week"
+    ExpiresByType image/jpg "access plus 1 week"
+    ExpiresByType image/jpeg "access plus 1 week"
+    # CSS
+    ExpiresByType text/css "access 1 week"
+    # Javascript
+    ExpiresByType application/javascript "access plus 1 week"
+</IfModule>
+<IfModule mod_headers.c>
+  <FilesMatch ".(js|css|xml|gz|html)$">
+    Header append Vary: Accept-Encoding
+  </FilesMatch>
+</IfModule>

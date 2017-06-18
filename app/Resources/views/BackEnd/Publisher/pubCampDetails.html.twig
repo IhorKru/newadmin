@@ -50,7 +50,7 @@
 
 {% block custjs %}
     <!-- ECharts -->
-    <script src="{{ asset('resources/vendors/echarts/build/dist/echarts-all.js')}}"></script>
+    <script src="{{ asset('resources/vendors/echartsn/echarts.min.js')}}"></script>
     <!-- this is an extract from echart.html -->
     <script>
         {% if partnername is defined %}
@@ -258,7 +258,6 @@
                 fontFamily: 'Arial, Verdana, sans-serif'
             }
         };
-
         /*Campaigns per Resource */
         var echartPieCollapse = echarts.init(document.getElementById('echart_pie2'), theme);
         echartPieCollapse.setOption({
@@ -269,14 +268,13 @@
             legend: {
                 x: 'center',
                 y: 'bottom',
-                data:
-                    [
+                data: [
                         {% for rsc in resourcestats %}
-                        {% if loop.last == false %}
-                        '{{ rsc.appName|trim('.com') }}',
-                        {% else %}
-                        '{{ rsc.appName|trim('.com') }}'
-                        {% endif %}
+                            {% if loop.last == false %}
+                                '{{ rsc.appName|trim('.com') }}',
+                            {% else %}
+                                '{{ rsc.appName|trim('.com') }}'
+                            {% endif %}
                         {% endfor %}
                     ]
             },
@@ -308,8 +306,7 @@
                 x: '50%',
                 max: 40,
                 sort: 'ascending',
-                data:
-                    [
+                data: [{
                         {% for rsc in resourcestats %}
                             {% if loop.last == false %}
                                 {{ "value:" }} {{ rsc.campaigns }},
@@ -318,16 +315,14 @@
                             {% else %}
                                 {{ "value:" }} {{ rsc.campaigns }},
                                 {{ "name:" }}  '{{ rsc.appName|trim('.com') }}'
-                            {% endif %}
+                        {% endif %}
                         {% endfor %}
-                    ]
+                }]
             }]
         });
-
         /*Emails per Resource */
-        var echartDonut = echarts.init(document.getElementById('echart_donut'), theme);
-        echartDonut.setOption
-        ({
+        var echartDonut = echarts.init(document.getElementById('echart_donut'));
+        echartDonut.setOption({
             tooltip: {
                 trigger: 'item',
                 formatter: "{a} <br/>{b} : {c} ({d}%)"
@@ -338,11 +333,11 @@
                 y: 'bottom',
                 data: [
                     {% for rsc in resourceemails %}
-                    {% if loop.last == false %}
-                    '{{ rsc.appName|trim('.com') }}',
-                    {% else %}
-                    '{{ rsc.appName|trim('.com') }}'
-                    {% endif %}
+                        {% if loop.last == false %}
+                            '{{ rsc.appName|trim('.com') }}',
+                        {% else %}
+                            '{{ rsc.appName|trim('.com') }}'
+                        {% endif %}
                     {% endfor %}
                 ]
             },
@@ -396,44 +391,39 @@
                         }
                     }
                 },
-                data: [
+                data: [{
                     {% for rsc in resourceemails %}
-                        {% if loop.last == false %}
-                            {{ "value:" }} {{ rsc.countsubscr }},
-                            {{ "name:" }} '{{ rsc.appName|trim('.com') }}'
-                            {{ "}, {" }}
-                        {% else %}
-                            {{ "value:" }} {{ rsc.countsubscr }},
-                            {{ "name:" }}  '{{ rsc.appName|trim('.com') }}'
-                        {% endif %}
-                    {% endfor %}
-                    ]
+                    {% if loop.last == false %}
+                    {{ "value:" }} {{ rsc.countsubscr }},
+                    {{ "name:" }} '{{ rsc.appName|trim('.com') }}',
+                    {{ "}, {" }}
+                    {% else %}
+                    {{ "value:" }} {{ rsc.countsubscr }},
+                    {{ "name:" }}  '{{ rsc.appName|trim('.com') }}'
+                {% endif %}
+                {% endfor %}
+            }]
             }]
         });
-
-        /*
-         Total limit of emails
-         */
-        var echartGauge = echarts.init(document.getElementById('echart_guage'), theme);
-
+        /*Total limit of emails*/
+        var echartGauge = echarts.init(document.getElementById('echart_guage'));
         echartGauge.setOption({
             tooltip : {
                 formatter: "{a} <br/>{b} : {c}%"
             },
             toolbox: {
                 show : false,
-                feature : {
+                feature: {
                     mark : {show: true},
                     restore : {show: true},
                     saveAsImage : {show: true}
                 }
             },
-            series : [
+            series: [
                 {
-                    name:'Daily Email limit',
-                    type:'gauge',
+                    name: 'Daily Email limit',
+                    type: 'gauge',
                     center : ['50%', '50%'],
-                    radius : [0, '75%'],
                     startAngle: 140,
                     endAngle : -140,
                     min: 0,

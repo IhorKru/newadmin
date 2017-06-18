@@ -124,6 +124,7 @@ class adkService extends PublisherController
                 curl_multi_remove_handle($mh, $c);
             }// get content and remove handles
             curl_multi_close($mh);
+            unset($subscribers);
         #3b. Parsing xml responce
             $z = new XMLReader();
             $categoriesarray = array();
@@ -152,6 +153,7 @@ class adkService extends PublisherController
                         $em->persist($errordetails);
                         $em->flush();
                     }
+                    unset($node);
                     $z->next('error');//got to next  error
                 }
                 $z->close();
@@ -229,6 +231,7 @@ class adkService extends PublisherController
                             $newList ->setTotalRecords('0');
                             $em->persist($newList); //persisting data to list table
                             $em->flush($newList);
+                            unset($newList);
                             $latestlist = $em->getRepository('AppBundle:Lists')->selectLatestList();
                             #selecting subscribers
                             while ($z->name === 'email') {
@@ -257,6 +260,7 @@ class adkService extends PublisherController
                                     $sendySubscriber ->setConfirmed('1');
                                     $sendySubscriber ->setMessageID('testmessage');
                                     $em->persist($sendySubscriber);
+                                    unset($sendySubscriber);
                                 }
                                 $z->next('email');//got to next  error
                             }
@@ -277,8 +281,10 @@ class adkService extends PublisherController
                             $sendyoffer ->setBatchId($curbatch);
                             $em->persist($sendyoffer); //persisting data to campaign table
                             $em->flush(); //pushing data to db
+                            unset($sendyoffer);
                             break;
                         }
+                        unset($node);
                         $z->next('email');//got to next  error
                     }
                 }
@@ -348,6 +354,7 @@ class adkService extends PublisherController
                             } else {
                                 $app = $adkcategory ->getAppId();
                             }
+
                             $appdetails = $sendyappdetails->findOneBy(['id' => $app]);
                             $appname = $appdetails->getAppName();
                             $appfromname = $appdetails ->getFromName();
@@ -364,6 +371,7 @@ class adkService extends PublisherController
                                     'sentemail' => $appfromemail,
                                     'resourcename' => $appname));
                             };
+
                             #creating subscriber lists
                             $newList = new Lists();
                             $newList ->setUserid('1');

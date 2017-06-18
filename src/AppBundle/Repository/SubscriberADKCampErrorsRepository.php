@@ -10,5 +10,9 @@ namespace AppBundle\Repository;
  */
 class SubscriberADKCampErrorsRepository extends \Doctrine\ORM\EntityRepository
 {
-
+    public function findMaxRow() {
+        return $this->getEntityManager()
+            ->createQuery('SELECT max(s.id) FROM AppBundle:SubscriberADKCampErrors s')
+            ->getSingleScalarResult();
+    }
 }

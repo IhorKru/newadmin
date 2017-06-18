@@ -218,8 +218,14 @@ class PublisherController extends Controller
      */
     public function ajaxProcessAction()
     {
-        $count = $this->getDoctrine()->getManager()->getRepository('AppBundle:Subscribers')->findMaxRow();
-        return new Response($count);
+        $barresp = array();
+        $cntsubscr = $this->getDoctrine()->getManager()->getRepository('AppBundle:Subscribers')->findMaxRow();
+        $cnterrors = $this->getDoctrine()->getManager()->getRepository('AppBundle:SubscriberADKCampErrors')->findMaxRow();
+        array_push($barresp,$cntsubscr);
+        array_push($barresp,$cnterrors);
+        $response = new Response(json_encode($barresp));
+        $response->headers->set('Content-Type', 'application/json');
+        return $response;
     }
 
     /**

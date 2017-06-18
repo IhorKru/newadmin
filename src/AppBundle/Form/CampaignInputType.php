@@ -51,7 +51,8 @@ class CampaignInputType extends AbstractType {
                 'placeholder' => 'Select User Geo',
                 'attr' => [
                     'class' => 'select2_multiple form-control'
-                ]])
+                ]
+            ])
             ->add('resourcename', EntityType::class, [
                 'label' => false,
                 'required' => true,
@@ -72,7 +73,8 @@ class CampaignInputType extends AbstractType {
                 'choice_label' => 'template_name',
                 'attr' => [
                     'class' => 'form-control'
-                ]])
+                ]
+            ])
             ->add('numemails', TextType::class, [
                 'label' => false,
                 'required' => true,
@@ -81,7 +83,8 @@ class CampaignInputType extends AbstractType {
                     'placeholder' => 'Number of Campaigns',
                     'class' => 'form-control',
                     'id'=> "ex3"
-                    ]])
+                    ]
+            ])
             ->add('timezone', TimezoneType::class, [
                 'label' => false,
                 'required' => true,

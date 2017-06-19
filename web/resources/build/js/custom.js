@@ -81,7 +81,7 @@ $(document).ready(function() {
                 $SIDEBAR_MENU.find('li').removeClass('active active-sm');
                 $SIDEBAR_MENU.find('li ul').slideUp();
             }
-            
+
             $li.addClass('active');
 
             $('ul:first', $li).slideDown(function() {
@@ -108,11 +108,12 @@ $(document).ready(function() {
     // check active menu
     $SIDEBAR_MENU.find('a[href="' + CURRENT_URL + '"]').parent('li').addClass('current-page');
 
-    $SIDEBAR_MENU.find('a').filter(function () {
+    //this peace of script is responcible for expanding dashboards
+    /*$SIDEBAR_MENU.find('a').filter(function () {
         return this.href == CURRENT_URL;
     }).parent('li').addClass('current-page').parents('ul').slideDown(function() {
         setContentHeight();
-    }).parent().addClass('active');
+    }).parent().addClass('active');*/
 
     // recompute content when resizing
     $(window).smartresize(function(){  

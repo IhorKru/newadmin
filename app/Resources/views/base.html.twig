@@ -19,7 +19,7 @@
         <!-- /Yandex.Metrika counter -->
         <script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter44763925 = new Ya.Metrika({ id:44763925, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/44763925?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
     </head>
-    <body class="nav-sm">
+    <body class="nav-md">
         <div class="container body">
             <div class="main_container">
                 <div class="col-md-3 left_col menu_fixed">
@@ -28,20 +28,8 @@
                             <a href="{{ path('pubmaster') }}" class="site_title"><i class="fa fa-user-circle"></i> <span>Mediaff Admin</span></a>
                         </div>
                         <div class="clearfix"></div>
-
-                        <!-- menu profile quick info
-                        <div class="profile clearfix">
-                            <div class="profile_pic">
-                                <img src="{{ asset('resources/images/img.jpg') }}" alt="..." class="img-circle profile_img">
-                            </div>
-                            <div class="profile_info">
-                                <span>Welcome,</span>
-                                <h2>Mediaff Admin</h2>
-                            </div>
-                        </div>
-                        
                         <!-- /menu profile quick info -->
-                        <br />
+                        <br/>
                         <!-- sidebar menu -->
                         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                             <div class="menu_section">
@@ -97,25 +85,6 @@
                                 </ul>
                             </div>
                         </div>
-                        <!-- /sidebar menu -->
-
-                        <!-- /menu footer buttons
-                        <div class="sidebar-footer hidden-small">
-                            <a data-toggle="tooltip" data-placement="top" title="Settings">
-                                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                            </a>
-                            <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-                            </a>
-                            <a data-toggle="tooltip" data-placement="top" title="Lock">
-                                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-                            </a>
-                            <a data-toggle="tooltip" data-placement="top" title="Logout">
-                                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-                            </a>
-                        </div>
-                        <!-- /menu footer buttons -->
-
                     </div>
                 </div>
                 <!-- top navigation -->
@@ -210,7 +179,7 @@
                     {% block body %}{% endblock %}
                 </div>
                 <!-- /page content -->
-                <!-- footer -->
+                <!-- footer
                 <footer>
                     <div class="pull-right">
                         Powered by <a href="{{ path('pubmaster') }}">Mediaff.com</a>
@@ -226,7 +195,7 @@
             <!-- Bootstrap JS -->
             <script src="{{ asset('resources/vendors/bootstrap/js/bootstrap.min.js') }}"></script>
             <!-- Custom Theme Scripts -->
-            <script src="{{ asset('resources/build/js/custom.min.js')}}"></script>
+            <script src="{{ asset('resources/build/js/custom.js')}}"></script>
             <!-- Yandex.Metrika counter -->
         {% block custjs %} {% endblock %}
 

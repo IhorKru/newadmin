@@ -174,7 +174,7 @@ class StatsDailyRepository extends EntityRepository
         $qb
             -> select('DISTINCT ca.datecreated AS DateCreated,
                               COUNT(DISTINCT c.id) AS CountCampaigns,
-                              COUNT(s.id) AS CountEmails,
+                              COUNT(DISTINCT s.id) AS CountEmails,
                               c.opens AS CountOpens,
                               SUM(s.bounced) AS CountBounces,
                               SUM(s.bounce_soft) AS CountBouncesS,

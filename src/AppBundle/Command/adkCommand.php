@@ -37,5 +37,4 @@ class adkCommand extends ContainerAwareCommand
         $depdate = $input->getArgument('datedep');
         $adkcampaign-> adkServiceAction($numcampaigns, $timezone, $depdate);
     }
-
 }

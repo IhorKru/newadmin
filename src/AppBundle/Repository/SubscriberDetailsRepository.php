@@ -7,6 +7,8 @@ use Doctrine\ORM\EntityRepository;
 class SubscriberDetailsRepository extends EntityRepository
 {
     public function campEligibilityCalc($numcampaigns) {
+        $conn = $this->getEntityManager()->getConnection();
+        $conn->getConfiguration()->setSQLLogger(null);
         //$em = $this ->getDoctrine() ->getManager();
         ####selecting users that did not opt out from mailing resource
         /*$qb0 = $this->getEntityManager()->createQueryBuilder();

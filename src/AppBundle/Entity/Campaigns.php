@@ -208,6 +208,13 @@ class Campaigns
     private $batch_id;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="category_id", type="integer", nullable=true)
+     */
+    private $category_id;
+
+    /**
      * Get id
      *
      * @return integer
@@ -855,4 +862,28 @@ class Campaigns
         return $this->batch_id;
     }
 
+
+    /**
+     * Set categoryId
+     *
+     * @param integer $categoryId
+     *
+     * @return Campaigns
+     */
+    public function setCategoryId($categoryId)
+    {
+        $this->category_id = $categoryId;
+
+        return $this;
+    }
+
+    /**
+     * Get categoryId
+     *
+     * @return integer
+     */
+    public function getCategoryId()
+    {
+        return $this->category_id;
+    }
 }

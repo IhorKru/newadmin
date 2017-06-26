@@ -17,6 +17,7 @@ use AppBundle\Entity\SubscriberDetails;
 use AppBundle\Entity\SubscriberOptInDetails;
 use AppBundle\Entity\SubscriberOptOutDetails;
 use AppBundle\Entity\Subscribers;
+use AppBundle\Entity\SendyApps;
 use DateTime;
 use XMLReader;
 use SimpleXMLElement;
@@ -53,99 +54,105 @@ class adkService extends PublisherController
             $templaterepo = $this->getDoctrine()->getRepository('AppBundle:Template');
             $adkcategoryrepo = $this->getDoctrine() ->getRepository('AppBundle:RefADKCategoryDetails');
             $sendyappdetails = $this->getDoctrine() ->getRepository('AppBundle:SendyApps');
-        # 2a. Selecting users, eligible for email campaign
-            # which are:
-            # subscribers that did not opt out
-            # subscribers that did not receive email from Mediaff for the last 7 days
-            # subscribers that never received email from mediaff
-        $subscribers = $this->getDoctrine()->getRepository('AppBundle:SubscriberDetails')->campEligibilityCalc($numcampaigns);
-        #2b crunching big array of data onto arrays of 500 emails as per ADK requirement
-            if (is_array($subscribers)) {
-                $subscribersB = array_chunk($subscribers, 500, true);
-            } # creating array of api requests to ADK
-            if(is_array($subscribersB)) {
-                #processing first level batch
-                foreach ($subscribersB as $subscriberBS) {
-                    $xml = '';
-                    foreach ($subscriberBS as $subscriber) {
-                        $email = $subscriber ->getEmailaddress();
-                        $gender = $subscriber ->getGender();
-                        $isocountry = $address ->getIsocountrycode();
-                        $metrocode = $address ->getRefgeoid();
-                        $postalcode = $address ->getPostalcode();
-                        $md5_email = md5(strtolower($email));
-                        $email_hashes[$md5_email] = $email;
-                        $email_domain = strtolower(preg_replace('/.*\@/','',$email));
-                        $xml .= "<email>"
-                            . "<recipient>$md5_email</recipient>"
-                            . "<list>$list_id</list>"
-                            . "<domain>$email_domain</domain>"
-                            . "<countrycode>$isocountry</countrycode>"
-                            . "<metrocode>$metrocode</metrocode>"
-                            . "<postalcode>$postalcode</postalcode>"
-                            . "<gender>$gender</gender>"
-                            . "<test>0</test>"//setting up if all clicks will be test ones or real ones
-                            . "</email>";
-                    }
-                    #preparing xml string
-                    $xml = '<request>' . $xml . '</request>';
-                    $request = urlencode($xml);
-                    $query  = 'Accept-Encoding: gzip' .'&';
-                    $query .= 'token=' . $token . '&';
-                    $query .= 'subid=' . $sub_id . '&';
-                    $query .= 'idomain=' . $idomain . '&';
-                    $query .= 'cdomain=' . $cdomain . '&';
-                    $query .= 'request=' . $request .'&';
-                    $query .= 'test=0';//setting up if all clicks will be test ones or real ones
-                    array_push($xmlarray, $query);
+            $campighdetails = $this->getDoctrine() ->getRepository('AppBundle:Campaigns');
+        # 2a. Creating sub batches for
+            $batcharray = array(); # master sub batch
+            $batchsize = 5000;
+            if($numcampaigns > $batchsize) {
+                $cntbatch = round($numcampaigns/$batchsize,0,PHP_ROUND_HALF_DOWN);
+                $rmd = $numcampaigns % $batchsize;
+                for($x = 0; $x < $cntbatch; $x++) {
+                    array_push($batcharray, $batchsize);
+                }
+                array_push($batcharray,$rmd);
+            } else {
+                $cntbatch = 1;
+                $batchsize = $numcampaigns;
+                for($x = 0; $x < $cntbatch; $x++) {
+                    array_push($batcharray, $batchsize);
                 }
             }
-            //batching $xmlarray onto smaller arrays
-            $xmlarrayB = array_chunk($xmlarray, 2, true);
-            foreach ($xmlarrayB as $xmlarrayBA) {
-                $curly = array(); // array of curl handles
-                $result = array(); // data to be returned
-                $mh = curl_multi_init(); // multi handle
-                foreach ($xmlarrayBA as $id => $d) {
-                    $curly[$id] = curl_init();
-                    curl_setopt($curly[$id], CURLOPT_URL, $url);
-                    curl_setopt($curly[$id], CURLOPT_POST, true);
-                    curl_setopt($curly[$id], CURLOPT_POSTFIELDS, $d);
-                    curl_setopt($curly[$id], CURLOPT_RETURNTRANSFER, true);
-                    curl_setopt($curly[$id], CURLOPT_TIMEOUT, 60);
-                    curl_setopt($curly[$id], CURLOPT_SSLVERSION, 3);
-                    curl_multi_add_handle($mh, $curly[$id]);
-                } // query data for each of sub queries on the $xmlarray
-                $running = null; // execute the handles
-                do {
-                    curl_multi_exec($mh, $running);
-                    curl_multi_select($mh);
-                } while($running > 0);
-                foreach($curly as $id => $c) {
-                    $result[$id] = curl_multi_getcontent($c);
-                    curl_multi_remove_handle($mh, $c);
-                }// get content and remove handles
-                $active = null;
-                //execute the handles
-                curl_multi_close($mh);
-            }
-            file_put_contents('adk.xml', $xmlarray);
-        #3a. Fletting $result array
-        //$fresult = $this->array_flatten($result);
-        //file_put_contents('adk.xml', $fresult);
-        #3b. Parsing xml responce
-        try {
-            $xmlresponse = array();
-            $xmlerror = array();
-            $subcreative = array();
-            $querybatch = $em ->createQuery('SELECT MAX(c.id) FROM AppBundle:CampaignInputDetails c');
-            $curbatch = $querybatch->getSingleScalarResult();
-            //going into each specific details
-            foreach ($result as $id => $xmlbatch) {
-                $xml = new SimpleXMLElement($xmlbatch);
-                #parsing errors
-                foreach ($xml->error as $xmlerror) {
-                    if(isset($xmlerror ->recipient)) {
+        # 2b selecting users and crunching big array of data onto arrays of 500 emails as per ADK requirement
+            foreach ($batcharray as $sizecnt) {
+                $subscribers = $this->getDoctrine()->getRepository('AppBundle:SubscriberDetails')->campEligibilityCalc($sizecnt);
+                if (is_array($subscribers)) {
+                    $subscribersB = array_chunk($subscribers, 500, true);
+                } # creating array of api requests to ADK
+                if (is_array($subscribersB)) {
+                    #processing first level batch
+                    foreach ($subscribersB as $subscriberBS) {
+                        $xml = '';
+                        foreach ($subscriberBS as $subscriber) {
+                            $email = $subscriber->getEmailaddress();
+                            $gender = $subscriber->getGender();
+                            $isocountry = $address->getIsocountrycode();
+                            $metrocode = $address->getRefgeoid();
+                            $postalcode = $address->getPostalcode();
+                            $md5_email = md5(strtolower($email));
+                            $email_hashes[$md5_email] = $email;
+                            $email_domain = strtolower(preg_replace('/.*\@/', '', $email));
+                            $xml .= "<email>"
+                                . "<recipient>$md5_email</recipient>"
+                                . "<list>$list_id</list>"
+                                . "<domain>$email_domain</domain>"
+                                . "<countrycode>$isocountry</countrycode>"
+                                . "<metrocode>$metrocode</metrocode>"
+                                . "<postalcode>$postalcode</postalcode>"
+                                . "<gender>$gender</gender>"
+                                . "<test>0</test>"//setting up if all clicks will be test ones or real ones
+                                . "</email>";
+                        }
+                        #preparing xml string
+                        $xml = '<request>' . $xml . '</request>';
+                        $request = urlencode($xml);
+                        $query = 'Accept-Encoding: gzip' . '&';
+                        $query .= 'token=' . $token . '&';
+                        $query .= 'subid=' . $sub_id . '&';
+                        $query .= 'idomain=' . $idomain . '&';
+                        $query .= 'cdomain=' . $cdomain . '&';
+                        $query .= 'request=' . $request . '&';
+                        $query .= 'test=0';//setting up if all clicks will be test ones or real ones
+                        array_push($xmlarray, $query);
+                    }
+                }
+                //batching $xmlarray onto smaller arrays
+                $resultarray = array();
+                $xmlarrayB = array_chunk($xmlarray, 2, true);
+                foreach ($xmlarrayB as $xmlarrayBA) {
+                    $curly = array(); // array of curl handles
+                    $result = array(); // data to be returned
+                    $mh = curl_multi_init(); // multi handle
+                    foreach ($xmlarrayBA as $id => $d) {
+                        $curly[$id] = curl_init();
+                        curl_setopt($curly[$id], CURLOPT_URL, $url);
+                        curl_setopt($curly[$id], CURLOPT_POST, true);
+                        curl_setopt($curly[$id], CURLOPT_POSTFIELDS, $d);
+                        curl_setopt($curly[$id], CURLOPT_RETURNTRANSFER, true);
+                        curl_setopt($curly[$id], CURLOPT_TIMEOUT, 60);
+                        curl_setopt($curly[$id], CURLOPT_SSLVERSION, 3);
+                        curl_multi_add_handle($mh, $curly[$id]);
+                    } // query data for each of sub queries on the $xmlarray
+                    $running = null; // execute the handles
+                    do {
+                        curl_multi_exec($mh, $running);
+                        curl_multi_select($mh);
+                    } while ($running > 0);
+                    foreach ($curly as $id => $c) {
+                        $result[$id] = curl_multi_getcontent($c);
+                        curl_multi_remove_handle($mh, $c);
+                    }// get content and remove handles
+                    $active = null;
+                    //execute the handles
+                    curl_multi_close($mh);
+                }
+                //file_put_contents('adkresult.xml',$result);
+                ## parsing responces
+                $querybatch = $em ->createQuery('SELECT MAX(c.id) FROM AppBundle:CampaignInputDetails c');
+                $curbatch = $querybatch->getSingleScalarResult();
+                foreach ($result as $id => $xmlbatch) {
+                    # parsing errors
+                    $xml = new SimpleXMLElement($xmlbatch);
+                    foreach ($xml->error as $xmlerror) {
                         $errornum = $xmlerror->num;
                         $errordesc = $xmlerror->str;
                         $requestid = $xmlerror->requestid;
@@ -160,51 +167,40 @@ class adkService extends PublisherController
                         $em->persist($errordetails);
                         $em->flush();
                     }
-                }
-                $em->flush(); //Persist objects that did not make up an entire batch
-                $em->clear();
-                #parsing valid responces
-                #extracting all category ids from xml doc
-                $categoriesarray = array();
-                foreach ($xml->email as $xmlresponse) {
-                    $categoryid = $xmlresponse ->categoryid;
-                    if(!in_array((string)$categoryid, $categoriesarray)){
-                        array_push($categoriesarray,(string)$categoryid);
-                    }
-                }
-                #extracting data from xml based on the category id
-                foreach ($categoriesarray as $category) {
+                    # parsing emails
                     foreach ($xml->email as $xmlresponse) {
-                        $categoryid = $xmlresponse ->categoryid;
-                        if((string)$categoryid == $category) {
+                        $categoryid = $xmlresponse->categoryid;
+                        $campaign = new Campaigns();
+                        $campaign = $this->getDoctrine()->getRepository('AppBundle:Campaigns')->campSearch((string)$categoryid);
+                        //var_dump($campaign);
+                        if(count($campaign) == 0) {
                             #creating campaign details
-                            foreach($xmlresponse->creative as $creative) {
-                                $sendyfrom = $creative->friendlyfrom;
-                                $friendlyfrom = $creative->friendlyfrom;
-                                $sendytitle = $creative->subject;
-                                $body = $creative->body;
-                                $body = substr($body,2,-3);
-                                if(substr($body,0,6) == '<html>') {
-                                    $bodyconv = (string)$body;
-                                    $crawler = new Crawler($bodyconv);
-                                    $link = $crawler->filterXPath('//a/@href')->text();
-                                    //$textbody = $subcreative->textbody;
-                                    //$htmlcreativelength = $subcreative->htmlcreativelength;
-                                    //$textcreativelength = $subcreative->textcreativelength;
-                                };
-                            }
+                            $creative = $xmlresponse ->creative;
+                            $sendyfrom = $creative->friendlyfrom;
+                            $friendlyfrom = $creative->friendlyfrom;
+                            $sendytitle = $creative->subject;
+                            $body = $creative->body;
+                            $body = substr($body,2,-3);
+                            if(substr($body,0,6) == '<html>') {
+                                $bodyconv = (string)$body;
+                                $crawler = new Crawler($bodyconv);
+                                $link = $crawler->filterXPath('//a/@href')->text();
+                                //$textbody = $subcreative->textbody;
+                                //$htmlcreativelength = $subcreative->htmlcreativelength;
+                                //$textcreativelength = $subcreative->textcreativelength;
+                            };
                             $adkcategory = $adkcategoryrepo->findOneBy(['categoryid' => $categoryid]);
                             if(is_null($adkcategory)) {
-                                $app = '8';
+                                $appid = '8';
                             } else {
-                                $app = $adkcategory ->getAppId();
+                                $appid = $adkcategory ->getAppId();
                             }
-
-                            $appdetails = $sendyappdetails->findOneBy(['id' => $app]);
-                            $appname = $appdetails->getAppName();
-                            $appfromname = $appdetails ->getFromName();
-                            $appfromemail = $appdetails ->getFromEmail();
-                            $appreplytoemail = $appdetails ->getReplyTo();
+                            $app = new SendyApps();
+                            $app = $sendyappdetails->findOneBy(['id' => $appid]);
+                            $appname = $app->getAppName();
+                            $appfromname = $app ->getFromName();
+                            $appfromemail = $app ->getFromEmail();
+                            $appreplytoemail = $app ->getReplyTo();
                             //creating email template for old adk templates
                             if(substr($body,0,6) == '<html>') {
                                 $template = $templaterepo->findOneBy(['app' => $app]);
@@ -216,7 +212,6 @@ class adkService extends PublisherController
                                     'sentemail' => $appfromemail,
                                     'resourcename' => $appname));
                             };
-
                             #creating subscriber lists
                             $newList = new Lists();
                             $newList ->setUserid('1');
@@ -235,33 +230,28 @@ class adkService extends PublisherController
                             $latestlist = new Lists();
                             $latestlist = $em->getRepository('AppBundle:Lists')->selectLatestList();
                             #selecting subscribers
-                            foreach ($xml->email as $xmlresponse) {
-                                $categoryid = $xmlresponse ->categoryid;
-                                if((string)$categoryid == $category) {
-                                    $adksubscremail = $email_hashes[(string)$xmlresponse->recipient];
-                                    $subscriber = $ent->findOneByEmailaddress($adksubscremail);
-                                    $firstname = $subscriber ->getFirstName();
-                                    $lastname = $subscriber ->getLastName();
-                                    $subscriptiondate = $optindetails ->getOptindate();
-                                    #setting properties for each subscriber
-                                    $sendySubscriber = new Subscribers();
-                                    $sendySubscriber ->setUserid('1');
-                                    $sendySubscriber ->setEmailaddress($adksubscremail);
-                                    $sendySubscriber ->setName($firstname);
-                                    $sendySubscriber ->setCustomFields($lastname.'%s%');
-                                    $sendySubscriber ->setList($latestlist[0]);
-                                    $sendySubscriber ->setUnsubscribed('0');
-                                    $sendySubscriber ->setBounced('0');
-                                    $sendySubscriber ->setBounceSoft('0');
-                                    $sendySubscriber ->setComplaint('0');
-                                    $sendySubscriber ->setLastCampaign(strtotime($depdate));
-                                    $sendySubscriber ->setTimestamp(new DateTime());
-                                    $sendySubscriber ->setJoinDate($subscriptiondate);
-                                    $sendySubscriber ->setConfirmed('1');
-                                    $sendySubscriber ->setMessageID('testmessage');
-                                    $em->persist($sendySubscriber);
-                                }
-                            }
+                            $adksubscremail = $email_hashes[(string)$xmlresponse->recipient];
+                            $subscriber = $ent->findOneByEmailaddress($adksubscremail);
+                            $firstname = $subscriber ->getFirstName();
+                            $lastname = $subscriber ->getLastName();
+                            $subscriptiondate = $optindetails ->getOptindate();
+                            #setting properties for each subscriber
+                            $sendySubscriber = new Subscribers();
+                            $sendySubscriber ->setUserid('1');
+                            $sendySubscriber ->setEmailaddress($adksubscremail);
+                            $sendySubscriber ->setName($firstname);
+                            $sendySubscriber ->setCustomFields($lastname.'%s%');
+                            $sendySubscriber ->setList($latestlist[0]);
+                            $sendySubscriber ->setUnsubscribed('0');
+                            $sendySubscriber ->setBounced('0');
+                            $sendySubscriber ->setBounceSoft('0');
+                            $sendySubscriber ->setComplaint('0');
+                            $sendySubscriber ->setLastCampaign(strtotime($depdate));
+                            $sendySubscriber ->setTimestamp(new DateTime());
+                            $sendySubscriber ->setJoinDate($subscriptiondate);
+                            $sendySubscriber ->setConfirmed('1');
+                            $sendySubscriber ->setMessageID('testmessage');
+                            $em->persist($sendySubscriber);
                             #pusshing campaign details into DB
                             $sendyoffer = new Campaigns();
                             $sendyoffer ->setUserid('1');
@@ -277,20 +267,39 @@ class adkService extends PublisherController
                             $sendyoffer ->setSendDate(strtotime($depdate));
                             $sendyoffer ->setTimezone($timezone);
                             $sendyoffer ->setBatchId($curbatch);
+                            $sendyoffer ->setCategoryId((string)$categoryid);
                             $em->persist($sendyoffer); //persisting data to campaign table
                             $em->flush(); //pushing data to db
-                            break;
-                        }
+                        } else {
+                            //extracting list from campaign
+                            $latestlist = $em->getRepository('AppBundle:Lists')->findOneBy(array('id' => $campaign[0]->getLists()));
+                            $adksubscremail = $email_hashes[(string)$xmlresponse->recipient];
+                            $subscriber = $ent->findOneByEmailaddress($adksubscremail);
+                            $firstname = $subscriber ->getFirstName();
+                            $lastname = $subscriber ->getLastName();
+                            $subscriptiondate = $optindetails ->getOptindate();
+                            #setting properties for each subscriber
+                            $sendySubscriber = new Subscribers();
+                            $sendySubscriber ->setUserid('1');
+                            $sendySubscriber ->setEmailaddress($adksubscremail);
+                            $sendySubscriber ->setName($firstname);
+                            $sendySubscriber ->setCustomFields($lastname.'%s%');
+                            $sendySubscriber ->setList($latestlist);
+                            $sendySubscriber ->setUnsubscribed('0');
+                            $sendySubscriber ->setBounced('0');
+                            $sendySubscriber ->setBounceSoft('0');
+                            $sendySubscriber ->setComplaint('0');
+                            $sendySubscriber ->setLastCampaign(strtotime($depdate));
+                            $sendySubscriber ->setTimestamp(new DateTime());
+                            $sendySubscriber ->setJoinDate($subscriptiondate);
+                            $sendySubscriber ->setConfirmed('1');
+                            $sendySubscriber ->setMessageID('testmessage');
+                            $em ->persist($sendySubscriber);
+                            $em ->flush($sendySubscriber);
+                        };
                     }
                 }
             }
-        } catch (Exception $e) {
-
-        } catch (ErrorException $er) {
-
-        } catch (Error $ce) {
-
-        }
     }
     function array_flatten($array) {
         if (!is_array($array)) {

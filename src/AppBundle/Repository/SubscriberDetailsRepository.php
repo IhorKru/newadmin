@@ -6,6 +6,10 @@ use Doctrine\ORM\EntityRepository;
 
 class SubscriberDetailsRepository extends EntityRepository
 {
+    # which are:
+    # subscribers that did not opt out
+    # subscribers that did not receive email from Mediaff for the last 360 days
+    # subscribers that never received email from mediaff
     public function campEligibilityCalc($numcampaigns) {
         $conn = $this->getEntityManager()->getConnection();
         $conn->getConfiguration()->setSQLLogger(null);
@@ -27,12 +31,12 @@ class SubscriberDetailsRepository extends EntityRepository
             ->andwhere('send.complaint <> 1')
             ->andwhere('s.emailaddress = send.emailaddress');
         ####selecting users that did not end up in ADK campaign error list
-        /*$qb2 = $this->getEntityManager()->createQueryBuilder();
+        $qb2 = $this->getEntityManager()->createQueryBuilder();
         $qb2
             -> select('adkerr')
             -> from('AppBundle\Entity\SubscriberADKCampErrors', 'adkerr')
             -> andwhere('s.emailaddress = adkerr.recipient')
-        ;*/
+        ;
         ####primary query to select users for future campaigns
         $qb = $this->getEntityManager()->createQueryBuilder();
         $qb
@@ -40,10 +44,11 @@ class SubscriberDetailsRepository extends EntityRepository
             -> from('AppBundle\Entity\SubscriberDetails', 's')
             -> where($qb->expr()->not($qb->expr()->exists($qb1->getDQL())))
             //-> andWhere($qb->expr()->not($qb->expr()->exists($qb0->getDQL())))
-            //-> andWhere($qb->expr()->not($qb->expr()->exists($qb2->getDQL())))
+            -> andWhere($qb->expr()->not($qb->expr()->exists($qb2->getDQL())))
             -> setMaxResults($numcampaigns)
         ;
         $subscribers = $qb->getQuery()->getResult();
+        $this->getEntityManager()->clear();
         return $subscribers;
     }
 }

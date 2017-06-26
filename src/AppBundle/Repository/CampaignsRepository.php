@@ -31,4 +31,29 @@ class CampaignsRepository extends EntityRepository
         $resourceemails = $qb ->getQuery() ->getArrayResult();
         return $resourceemails;
     }
+
+    public function campSearch($categoryid) {
+        return $this->getEntityManager()
+            ->createQuery('SELECT c 
+                                FROM AppBundle:Campaigns c
+                                WHERE c.sent = :empty
+                                      AND c.category_id = :categoryid')
+            ->setParameter('empty', '')
+            ->setParameter('categoryid', $categoryid)
+            ->setMaxResults('1')
+            ->getResult();
+
+        /*$qb = $this->getEntityManager()->createQueryBuilder();
+        $qb
+            -> select('c')
+            -> from('AppBundle\Entity\Campaigns', 'c')
+            -> where('c.category_id = :categoryid')
+            -> andwhere('c.sent = :empty')
+            -> setParameter('categoryid', $categoryid)
+            -> setParameter('empty', '')
+            -> setMaxResults('1')
+        ;
+        $campaign = $qb->getQuery()->getResult();
+        return $campaign;*/
+    }
 }

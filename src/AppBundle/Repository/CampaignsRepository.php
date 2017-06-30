@@ -13,7 +13,8 @@ class CampaignsRepository extends EntityRepository
                                 WHERE c.sent = :empty
                                 GROUP BY a.appName')
             ->setParameter('empty', '')
-            ->getArrayResult();
+            ->getArrayResult()
+            ->getConnection()->close();
     }
 
     public function emailsPerResource() {
@@ -32,28 +33,18 @@ class CampaignsRepository extends EntityRepository
         return $resourceemails;
     }
 
-    public function campSearch($categoryid) {
+    public function campSearch($categoryid, $curbatch) {
         return $this->getEntityManager()
             ->createQuery('SELECT c 
                                 FROM AppBundle:Campaigns c
                                 WHERE c.sent = :empty
-                                      AND c.category_id = :categoryid')
+                                      AND c.category_id = :categoryid
+                                      AND c.batch_id = :curbatch')
             ->setParameter('empty', '')
             ->setParameter('categoryid', $categoryid)
+            ->setParameter('curbatch', $curbatch)
             ->setMaxResults('1')
-            ->getResult();
-
-        /*$qb = $this->getEntityManager()->createQueryBuilder();
-        $qb
-            -> select('c')
-            -> from('AppBundle\Entity\Campaigns', 'c')
-            -> where('c.category_id = :categoryid')
-            -> andwhere('c.sent = :empty')
-            -> setParameter('categoryid', $categoryid)
-            -> setParameter('empty', '')
-            -> setMaxResults('1')
-        ;
-        $campaign = $qb->getQuery()->getResult();
-        return $campaign;*/
+            ->getResult()
+            ->getConnection()->close();
     }
 }

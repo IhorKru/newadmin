@@ -115,6 +115,7 @@ class adkService extends PublisherController
                         array_push($xmlarray, $query);
                     }
                 }
+                //file_put_contents('sample.xml', $xmlarray);
                 //batching $xmlarray onto smaller arrays
                 $resultarray = array();
                 $xmlarrayB = array_chunk($xmlarray, 2, true);
@@ -164,14 +165,14 @@ class adkService extends PublisherController
                         $errordetails ->setRequestid($requestid);
                         $errordetails ->setRecipient($errorrecipient);
                         $errordetails ->setDatemodified(new DateTime());
-                        $em->persist($errordetails);
-                        $em->flush();
+                        $em ->persist($errordetails);
+                        $em ->flush();
                     }
                     # parsing emails
                     foreach ($xml->email as $xmlresponse) {
                         $categoryid = $xmlresponse->categoryid;
                         $campaign = new Campaigns();
-                        $campaign = $this->getDoctrine()->getRepository('AppBundle:Campaigns')->campSearch((string)$categoryid);
+                        $campaign = $this->getDoctrine()->getRepository('AppBundle:Campaigns')->campSearch((string)$categoryid, $curbatch);
                         //var_dump($campaign);
                         if(count($campaign) == 0) {
                             #creating campaign details

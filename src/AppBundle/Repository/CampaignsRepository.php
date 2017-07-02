@@ -13,8 +13,7 @@ class CampaignsRepository extends EntityRepository
                                 WHERE c.sent = :empty
                                 GROUP BY a.appName')
             ->setParameter('empty', '')
-            ->getArrayResult()
-            ->getConnection()->close();
+            ->getArrayResult();
     }
 
     public function emailsPerResource() {
@@ -44,7 +43,6 @@ class CampaignsRepository extends EntityRepository
             ->setParameter('categoryid', $categoryid)
             ->setParameter('curbatch', $curbatch)
             ->setMaxResults('1')
-            ->getResult()
-            ->getConnection()->close();
+            ->getResult();
     }
 }

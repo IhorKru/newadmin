@@ -9,7 +9,6 @@ use Symfony\Component\Console\Input\InputArgument;
 
 class adkCommand extends ContainerAwareCommand
 {
-
     protected function configure()
     {
         $this
@@ -23,12 +22,11 @@ class adkCommand extends ContainerAwareCommand
             // the "--help" option
             ->setHelp('Command initiates request to ADK')
             //arguements that will be passed to below execute function
-            ->addArgument('numcampaigns', InputArgument::REQUIRED, 'Number of campaigns')
-            ->addArgument('timezone', InputArgument::REQUIRED, 'Timezone')
+            ->addArgument('numcampaigns', InputArgument::REQUIRED, 'Number of emails in a batch')
+            ->addArgument('timezone', InputArgument::REQUIRED, 'Timezone campaign is to be sent')
             ->addArgument('datedep', InputArgument::REQUIRED, 'Date/Time campaign is to be sent')
         ;
     }
-
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $adkcampaign = $this->getContainer()->get('api.adk');

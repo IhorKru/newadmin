@@ -205,6 +205,7 @@ class PublisherController extends Controller
             } else {
                 $getcampaign = $this->get('gen.campaign');
                 $subscriberst = $getcampaign -> ecampServiceAction($geo, $app_id, $templateid, $numcampaigns, $link1, $link2, $timezone, $depdate);
+                echo "not adk partner";
             }
         }
         return $this->render('BackEnd/Publisher/newPubCampaign.html.twig',[

@@ -205,6 +205,7 @@
                     success: function(response) {
                         initusers = response[0];
                         initerrors = response[1];
+                        console.log(response);
                         var ajaxFn = function() {
                             var currcount = "0%";
                             $.ajax({

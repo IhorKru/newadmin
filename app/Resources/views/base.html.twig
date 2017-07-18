@@ -179,14 +179,6 @@
                     {% block body %}{% endblock %}
                 </div>
                 <!-- /page content -->
-                <!-- footer
-                <footer>
-                    <div class="pull-right">
-                        Powered by <a href="{{ path('pubmaster') }}">Mediaff.com</a>
-                    </div>
-                    <div class="clearfix"></div>
-                </footer>
-                <!-- footer -->
             </div>
         </div>
         {% block javascripts %}
@@ -197,7 +189,7 @@
             <!-- Custom Theme Scripts -->
             <script src="{{ asset('resources/build/js/custom.min.js')}}"></script>
             <!-- Yandex.Metrika counter -->
-        {% block custjs %} {% endblock %}
+            {% block custjs %} {% endblock %}
 
         {% endblock %}
     </body>

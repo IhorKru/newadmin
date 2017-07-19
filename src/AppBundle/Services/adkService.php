@@ -327,7 +327,7 @@ class adkService extends PublisherController
                     }
                 }
             }
+            unlink('adkresult.xml');
         }
-        unlink('adkresult.xml');
     }
 }

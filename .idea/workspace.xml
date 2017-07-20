@@ -1,0 +1,2106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SPLITTER_PROPORTION" value="0.45443037" />
+    <option name="SCOPE_TYPE" value="4" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="533be764-92cd-42e7-83ba-8ad60a9da57e" name="Default" comment="updated e-chars link on campaigns dash">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/vendors/Chart.js-master/package-lock.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/vendors/animate.css/package-lock.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/vendors/bootstrap-datetimepicker/package-lock.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/vendors/dropzone-4.3.0/package-lock.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/rebar.xml" afterPath="$PROJECT_DIR$/.idea/rebar.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../sendy.co/.idea/sendy_co.iml" afterPath="$PROJECT_DIR$/../sendy.co/.idea/sendy_co.iml" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <executablePath>composer</executablePath>
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <expand>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="MySQL_AWS_Mediaff" type="e3449647:DbNodeDescriptor" />
+      </path>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="MySQL_AWS_Mediaff" type="e3449647:DbNodeDescriptor" />
+        <item name="mediaff_mysql" type="e3449647:DbNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OPEN_IN_BROWSER" value="true" />
+    <option name="OUTPUT_DIRECTORY" value="$USER_HOME$/Desktop" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="mediaff_admin" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="FrontEndController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/FrontEndController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="19" column="1" lean-forward="false" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+              <folding>
+                <element signature="e#40#85#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>$emailsarray</find>
+      <find>where</find>
+      <find>setTablePropsTwo</find>
+      <find>rationsubscrperiod</find>
+      <find>block</find>
+      <find>child_menu</find>
+      <find>display: block;</find>
+      <find>ul:first</find>
+      <find>active</find>
+      <find>slideDown</find>
+      <find>setContentHeight</find>
+      <find>nav.child_menu</find>
+      <find>fa-chevron-down</find>
+      <find>ul.nav.child_menu</find>
+      <find>$SIDEBAR_MENU.find</find>
+      <find>nav-sm</find>
+      <find>nav-md</find>
+      <find>.nav-md</find>
+      <find>.nav-md .container.body .col-md-3.left_col</find>
+      <find>victoriajakin@rediffmail.com</find>
+      <find>3Ed3e51df8f588139fb210d898c5964c3f</find>
+      <find>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;</find>
+      <find>break</find>
+      <find>herrera</find>
+      <find>adkAction2</find>
+      <find>$xmlarray</find>
+      <find>$xmlarrayB</find>
+      <find>twig</find>
+      <find>php</find>
+      <find>ERROR</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>mediazmj_mediabayprod</replace>
+      <replace>'</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/src/AppBundle/Form</dir>
+      <dir>$PROJECT_DIR$/web/resources/build/css</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/AppBundle/Form/NewEmailType.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Form/newPartnerType.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Services/ecampService.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Services/statsService.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/BackEnd/login.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/BackEnd/Advertiser/newAdNetwork.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/BackEnd/Publisher/newEmailTempl.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/BackEnd/Publisher/newPubNetwork.html.twig" />
+        <option value="$PROJECT_DIR$/app/.htaccess" />
+        <option value="$PROJECT_DIR$/app/Resources/views/BackEnd/Publisher/pubMasterDash.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Form/CampaignInputType.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/BackEnd/Publisher/pubCampDetails.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Repository/SubscriberADKCampErrorsRepository.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Repository/StatsDailyRepository.php" />
+        <option value="$PROJECT_DIR$/web/.htaccess" />
+        <option value="$PROJECT_DIR$/src/.htaccess" />
+        <option value="$PROJECT_DIR$/web/resources/build/js/custom.min.js" />
+        <option value="$PROJECT_DIR$/web/resources/build/js/custom.js" />
+        <option value="$PROJECT_DIR$/web/resources/build/css/custom.css" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Campaigns.php" />
+        <option value="$PROJECT_DIR$/adk.xml" />
+        <option value="$PROJECT_DIR$/result1.xml" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Repository/SubscriberDetailsRepository.php" />
+        <option value="dbtable:/6520eb17/1b666920-d20d-4358-a0fa-d27e73b17e43/mediaff_mysql.stats_daily" />
+        <option value="$PROJECT_DIR$/.ebextensions/environmentsetup.config" />
+        <option value="$PROJECT_DIR$/../sendy.co/.ebextensions/environmentsetup.config" />
+        <option value="$PROJECT_DIR$/../sendy.co/.elasticbeanstalk/config.yml" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/1b666920-d20d-4358-a0fa-d27e73b17e43/console_5.sql" />
+        <option value="dbtable:/6520eb17/1b666920-d20d-4358-a0fa-d27e73b17e43/mediaff_mysql.01_subscriberdetails" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/1b666920-d20d-4358-a0fa-d27e73b17e43/console.sql" />
+        <option value="dbtable:/6520eb17/1b666920-d20d-4358-a0fa-d27e73b17e43/mediaff_mysql.01_subscriberdetails_f" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/607a2c3f-ba08-4853-bbb9-29358373416d/console.sql" />
+        <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
+        <option value="$PROJECT_DIR$/app/config/services.yml" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Services/adkService2.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Repository/CampaignsRepository.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Command/adkCommand.php" />
+        <option value="$PROJECT_DIR$/app/config/config_dev.yml" />
+        <option value="$PROJECT_DIR$/web/app.php" />
+        <option value="$PROJECT_DIR$/web/app_dev.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/BackEnd/phpversion.html.twig.html" />
+        <option value="$PROJECT_DIR$/app/Resources/views/BackEnd/phpversion.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/BackEnd/phpversion.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/PublisherController.php" />
+        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Services/adkService.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/BackEnd/Publisher/newPubCampaign.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/BackEnd/Publisher/pubCampDash.html.twig" />
+        <option value="$PROJECT_DIR$/var/logs/prod.log" />
+        <option value="$PROJECT_DIR$/var/logs/dev.log" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBowerSettings">
+    <node-interpreter value="project" />
+    <exe-path>/usr/local/bin/bower</exe-path>
+    <config-path />
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>false</service-enabled>
+    <exe-path />
+    <annotation-enable>false</annotation-enable>
+    <other-services-enabled>false</other-services-enabled>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/web/resources/vendors/Chart.js-master/node_modules" />
+    <handled-path value="$PROJECT_DIR$/web/resources/vendors/animate.css/node_modules" />
+    <handled-path value="$PROJECT_DIR$/web/resources/vendors/bootstrap-datetimepicker/node_modules" />
+    <handled-path value="$PROJECT_DIR$/web/resources/vendors/dropzone-4.3.0/node_modules" />
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="PhpWebServerValidation" path_to_validation_script="$PROJECT_DIR$/" selected_validation_type="LOCAL" web_path_to_validation_script="$PROJECT_DIR$/" />
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP 7">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-cache-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/sensiolabs/security-checker" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/deployer/deployer" />
+      <path value="$PROJECT_DIR$/vendor/deployer/phar-update" />
+      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-apcu" />
+      <path value="$PROJECT_DIR$/vendor/jdorn/sql-formatter" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/vendor/symfony/swiftmailer-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php56" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-util" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/phpunit-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
+      <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/vendor/sensio/distribution-bundle" />
+      <path value="$PROJECT_DIR$/vendor/incenteev/composer-parameter-handler" />
+      <path value="$PROJECT_DIR$/vendor/sensio/generator-bundle" />
+      <path value="$PROJECT_DIR$/vendor/beberlei/DoctrineExtensions" />
+      <path value="$PROJECT_DIR$/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/symfony/symfony" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/psr/link" />
+      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/fig/link-util" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit-mock-objects" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-token-stream" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/dbunit" />
+      <path value="$PROJECT_DIR$/vendor/prewk/xml-string-streamer" />
+      <path value="$PROJECT_DIR$/vendor/pimple/pimple" />
+      <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
+    </include_path>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1681" />
+    <option name="y" value="23" />
+    <option name="width" value="1919" />
+    <option name="height" value="986" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Mediaff" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mediaff" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Mediaff" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mediaff" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Mediaff" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mediaff" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="js.eslint.eslintPackage" value="" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL&#10;Oracle&#10;PostgreSQL" />
+    <property name="full.screen.before.presentation.mode" value="false" />
+    <property name="settings.editor.selected.configurable" value="Erlang External Tools" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/SQL Dialects" value="SQL92" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/var/logs/prod.log&#10;/Applications/MAMP/htdocs/mediaff/var/logs/dev.log&#10;/Applications/MAMP/htdocs/mediaff/app/Resources/views/FrontEnd/frontend.html.twig&#10;/Applications/MAMP/htdocs/mediaff/.elasticbeanstalk/config.yml&#10;/Applications/MAMP/htdocs/mediaff/.gitignore&#10;/Applications/MAMP/htdocs/mediaff/app/config/parameters.yml&#10;/Applications/MAMP/htdocs/mediaff/vendor/beberlei/DoctrineExtensions/tests/Query/Mysql/BitCountTest.php&#10;/Applications/MAMP/htdocs/mediaff/var/bootstrap.php.cache&#10;/Applications/MAMP/htdocs/sendy.co/.elasticbeanstalk/config.yml" />
+    <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;null&#9;null&#10;phpunit&#9;ACTION&#9;PhpUnitNewGroup" />
+    <property name="javascript.nodejs.core.library.configured.version" value="6.9.4" />
+  </component>
+  <component name="Push.Settings">
+    <excluded-roots>
+      <path value="$PROJECT_DIR$/../finsensitive.com" />
+      <path value="$PROJECT_DIR$/../mediaff.com" />
+      <path value="$PROJECT_DIR$/../sendy.co" />
+    </excluded-roots>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/AppBundle/Services" />
+      <recent name="$PROJECT_DIR$/../sendy_2.1.2.8" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="C:\MAMP\htdocs\mediaff_admin\.ebextensions" />
+      <recent name="C:\MAMP\htdocs\mediaff_admin" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web/resources/vendors/echartsn" />
+      <recent name="$PROJECT_DIR$/app/Resources/views/BackEnd/Publisher" />
+      <recent name="$PROJECT_DIR$/app/Resources/views/Testing" />
+      <recent name="$PROJECT_DIR$/app/Resources/views/BackEnd/Forms" />
+      <recent name="$PROJECT_DIR$/app/Resources/views/BackEnd/Advertiser" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.adkService.php">
+    <configuration name="PublisherController.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/src/AppBundle/Controller/PublisherController.php" />
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+    </configuration>
+    <configuration default="true" type="CodeceptionConfigurationType" factoryName="Codeception">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="ErlangApplicationRunConfiguration" factoryName="Erlang Application" show_console_on_std_err="false" show_console_on_std_out="false">
+      <option name="debugOptions">
+        <ErlangDebugOptions>
+          <option name="autoUpdateModulesNotToInterpret" value="true" />
+          <option name="modulesNotToInterpret">
+            <set />
+          </option>
+        </ErlangDebugOptions>
+      </option>
+      <option name="erlFlags" value="" />
+      <option name="moduleAndFunction" value="" />
+      <option name="params" value="" />
+      <option name="useTestCodePath" value="false" />
+      <option name="workDirectory" />
+      <module />
+      <method />
+    </configuration>
+    <configuration default="true" type="ErlangUnitRunConfigurationType" factoryName="Erlang Eunit" show_console_on_std_err="false" show_console_on_std_out="false">
+      <option name="debugOptions">
+        <ErlangDebugOptions>
+          <option name="autoUpdateModulesNotToInterpret" value="true" />
+          <option name="modulesNotToInterpret">
+            <set />
+          </option>
+        </ErlangDebugOptions>
+      </option>
+      <option name="workDirectory" />
+      <module />
+      <option name="functionNames">
+        <set />
+      </option>
+      <option name="kind" value="MODULE" />
+      <option name="moduleNames">
+        <set />
+      </option>
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpSpecConfigurationType" factoryName="PHPSpec">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="RebarEunitRunConfigurationType" factoryName="Erlang Rebar Eunit" show_console_on_std_err="false" show_console_on_std_out="false">
+      <option name="command" value="eunit" />
+      <option name="skipDependencies" value="true" />
+      <module />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+    <configuration name="adkService.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://ec2-52-204-232-125.compute-1.amazonaws.com/src/AppBundle/Services/adkService.php" />
+    <configuration name="mediaff" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner directory="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="sendy.co" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner directory="$PROJECT_DIR$/../sendy.co" />
+    </configuration>
+    <list size="4">
+      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.adkService.php" />
+      <item index="1" class="java.lang.String" itemvalue="PHP Script.PublisherController.php" />
+      <item index="2" class="java.lang.String" itemvalue="PHPUnit.mediaff" />
+      <item index="3" class="java.lang.String" itemvalue="PHPUnit.sendy.co" />
+    </list>
+    <recent_temporary>
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="PHPUnit.mediaff" />
+        <item index="1" class="java.lang.String" itemvalue="PHPUnit.sendy.co" />
+        <item index="2" class="java.lang.String" itemvalue="PHP Script.PublisherController.php" />
+        <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.adkService.php" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="StructuralSearchPlugin">
+    <searchConfiguration name="user defined" created="1494222812407" text="pagination" recursive="true" caseInsensitive="true" type="PHP" history="1" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="533be764-92cd-42e7-83ba-8ad60a9da57e" name="Default" comment="" />
+      <created>1483458385955</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1483458385955</updated>
+      <workItem from="1483458388247" duration="5969000" />
+      <workItem from="1483521175841" duration="8219000" />
+      <workItem from="1483530798989" duration="25986000" />
+      <workItem from="1483571287932" duration="7000000" />
+      <workItem from="1483606788399" duration="53830000" />
+      <workItem from="1483790945742" duration="16037000" />
+      <workItem from="1483900849454" duration="87786000" />
+      <workItem from="1484034709895" duration="1404000" />
+      <workItem from="1484036481166" duration="979000" />
+      <workItem from="1484078765665" duration="7187000" />
+      <workItem from="1484135312901" duration="4308000" />
+      <workItem from="1484147333107" duration="18022000" />
+      <workItem from="1484301261683" duration="4265000" />
+      <workItem from="1484311080475" duration="37766000" />
+      <workItem from="1484520264680" duration="1166000" />
+      <workItem from="1484551604644" duration="2839000" />
+      <workItem from="1484628571160" duration="1948000" />
+      <workItem from="1484653850398" duration="594000" />
+      <workItem from="1484723337553" duration="598000" />
+      <workItem from="1484738328592" duration="16189000" />
+      <workItem from="1484886843880" duration="5747000" />
+      <workItem from="1484907535494" duration="5400000" />
+      <workItem from="1485147816086" duration="614000" />
+      <workItem from="1485148735757" duration="7717000" />
+      <workItem from="1485233309734" duration="41000" />
+      <workItem from="1485233553815" duration="1758000" />
+      <workItem from="1485235447444" duration="794000" />
+      <workItem from="1485236584645" duration="1815000" />
+      <workItem from="1485238433534" duration="1791000" />
+      <workItem from="1485240527795" duration="41000" />
+      <workItem from="1485240589339" duration="40000" />
+      <workItem from="1485244161330" duration="56000" />
+      <workItem from="1485522971998" duration="192000" />
+      <workItem from="1485706759376" duration="30000" />
+      <workItem from="1486545818633" duration="23000" />
+      <workItem from="1486546029560" duration="9262000" />
+      <workItem from="1486625567650" duration="1860000" />
+      <workItem from="1486627754629" duration="6162000" />
+      <workItem from="1486634703996" duration="8693000" />
+      <workItem from="1486656271061" duration="4984000" />
+      <workItem from="1487171740426" duration="263000" />
+      <workItem from="1487172021729" duration="14583000" />
+      <workItem from="1487323280531" duration="19469000" />
+      <workItem from="1487353682929" duration="1524000" />
+      <workItem from="1487421562464" duration="7211000" />
+      <workItem from="1487577935118" duration="17348000" />
+      <workItem from="1487606204804" duration="8410000" />
+      <workItem from="1487664978921" duration="3856000" />
+      <workItem from="1487672180438" duration="2555000" />
+      <workItem from="1487691859966" duration="5691000" />
+      <workItem from="1487758964688" duration="4801000" />
+      <workItem from="1487855460232" duration="23705000" />
+      <workItem from="1487937539898" duration="17338000" />
+      <workItem from="1488044574521" duration="213000" />
+      <workItem from="1488053376112" duration="14883000" />
+      <workItem from="1488204880913" duration="2190000" />
+      <workItem from="1488209143689" duration="31949000" />
+      <workItem from="1488371809565" duration="4066000" />
+      <workItem from="1488376561933" duration="13378000" />
+      <workItem from="1488443403800" duration="20031000" />
+      <workItem from="1488551166047" duration="2678000" />
+      <workItem from="1488553867269" duration="8118000" />
+      <workItem from="1488793740463" duration="12235000" />
+      <workItem from="1488816368838" duration="3007000" />
+      <workItem from="1488874082878" duration="25048000" />
+      <workItem from="1488902675318" duration="37252000" />
+      <workItem from="1489054187514" duration="11910000" />
+      <workItem from="1489068511583" duration="131000" />
+      <workItem from="1489068665098" duration="14067000" />
+      <workItem from="1489143523440" duration="18138000" />
+      <workItem from="1489392911567" duration="2837000" />
+      <workItem from="1489395904647" duration="237000" />
+      <workItem from="1489396251743" duration="29865000" />
+      <workItem from="1489498456216" duration="7156000" />
+      <workItem from="1489505740674" duration="80000" />
+      <workItem from="1489505880217" duration="7827000" />
+      <workItem from="1489569554047" duration="41828000" />
+      <workItem from="1489762848878" duration="14211000" />
+      <workItem from="1489997730887" duration="3359000" />
+      <workItem from="1490003238226" duration="418000" />
+      <workItem from="1490014121677" duration="709000" />
+      <workItem from="1490018922373" duration="7925000" />
+      <workItem from="1490082871554" duration="1666000" />
+      <workItem from="1490084562574" duration="17231000" />
+      <workItem from="1490103669564" duration="24396000" />
+      <workItem from="1490168814093" duration="7978000" />
+      <workItem from="1490176885826" duration="3508000" />
+      <workItem from="1490181959071" duration="9921000" />
+      <workItem from="1490194616354" duration="2306000" />
+      <workItem from="1490198336093" duration="19649000" />
+      <workItem from="1490255771223" duration="7938000" />
+      <workItem from="1490264382758" duration="12777000" />
+      <workItem from="1490278477784" duration="14206000" />
+      <workItem from="1490343449356" duration="37000" />
+      <workItem from="1490343615688" duration="41000" />
+      <workItem from="1490343685940" duration="7913000" />
+      <workItem from="1490353402386" duration="15076000" />
+      <workItem from="1490598980250" duration="1594000" />
+      <workItem from="1490601979294" duration="5345000" />
+      <workItem from="1490607373173" duration="19336000" />
+      <workItem from="1490684516989" duration="6812000" />
+      <workItem from="1490691888625" duration="17577000" />
+      <workItem from="1490737723763" duration="1032000" />
+      <workItem from="1490777319465" duration="16323000" />
+      <workItem from="1490857460881" duration="28623000" />
+      <workItem from="1490944553079" duration="12134000" />
+      <workItem from="1490962085678" duration="23784000" />
+      <workItem from="1491143446918" duration="1436000" />
+      <workItem from="1491203316992" duration="1000000" />
+      <workItem from="1491204484400" duration="6098000" />
+      <workItem from="1491214781458" duration="483000" />
+      <workItem from="1491215426615" duration="561000" />
+      <workItem from="1491216139874" duration="3259000" />
+      <workItem from="1491219752777" duration="2110000" />
+      <workItem from="1491222292392" duration="782000" />
+      <workItem from="1491223221914" duration="549000" />
+      <workItem from="1491224417951" duration="1564000" />
+      <workItem from="1491227763332" duration="6479000" />
+      <workItem from="1491305176457" duration="22000" />
+      <workItem from="1491305501569" duration="9830000" />
+      <workItem from="1491318018634" duration="9764000" />
+      <workItem from="1491377599574" duration="3914000" />
+      <workItem from="1491385655793" duration="1279000" />
+      <workItem from="1491389670675" duration="13505000" />
+      <workItem from="1491418211415" duration="2719000" />
+      <workItem from="1491421192265" duration="1116000" />
+      <workItem from="1491461734065" duration="730000" />
+      <workItem from="1491472896237" duration="795000" />
+      <workItem from="1491474931482" duration="27850000" />
+      <workItem from="1491556020721" duration="26238000" />
+      <workItem from="1491795259295" duration="18875000" />
+      <workItem from="1491998158425" duration="368000" />
+      <workItem from="1492013305060" duration="1279000" />
+      <workItem from="1492014752511" duration="733000" />
+      <workItem from="1492068318832" duration="4200000" />
+      <workItem from="1492246912551" duration="1501000" />
+      <workItem from="1492249137924" duration="3059000" />
+      <workItem from="1492278612159" duration="7827000" />
+      <workItem from="1492715523004" duration="1601000" />
+      <workItem from="1492767135194" duration="3096000" />
+      <workItem from="1492777362897" duration="9132000" />
+      <workItem from="1492883411234" duration="2824000" />
+      <workItem from="1492929932963" duration="7464000" />
+      <workItem from="1493051578838" duration="612000" />
+      <workItem from="1493060211532" duration="1420000" />
+      <workItem from="1493066835944" duration="5000" />
+      <workItem from="1493124227853" duration="1710000" />
+      <workItem from="1493126114189" duration="1851000" />
+      <workItem from="1493128073804" duration="2050000" />
+      <workItem from="1493130154853" duration="1816000" />
+      <workItem from="1493132933461" duration="811000" />
+      <workItem from="1493149736864" duration="1452000" />
+      <workItem from="1493230434123" duration="918000" />
+      <workItem from="1493232988311" duration="1822000" />
+      <workItem from="1493234860901" duration="1667000" />
+      <workItem from="1493382264757" duration="53000" />
+      <workItem from="1493382391223" duration="630000" />
+      <workItem from="1493389708094" duration="563000" />
+      <workItem from="1493407398946" duration="998000" />
+      <workItem from="1493409259566" duration="567000" />
+      <workItem from="1493451362557" duration="583000" />
+      <workItem from="1493454235706" duration="1831000" />
+      <workItem from="1493456542769" duration="1884000" />
+      <workItem from="1493458520270" duration="349000" />
+      <workItem from="1493460463904" duration="1932000" />
+      <workItem from="1493462641000" duration="32000" />
+      <workItem from="1493462691578" duration="51000" />
+      <workItem from="1493462760216" duration="1793000" />
+      <workItem from="1493464620667" duration="879000" />
+      <workItem from="1493476989021" duration="5000" />
+      <workItem from="1493557022051" duration="568000" />
+      <workItem from="1493721355863" duration="526000" />
+      <workItem from="1493793619401" duration="1770000" />
+      <workItem from="1493795691002" duration="84000" />
+      <workItem from="1493817138217" duration="1064000" />
+      <workItem from="1493821512787" duration="1823000" />
+      <workItem from="1493823396854" duration="1765000" />
+      <workItem from="1493825557914" duration="2144000" />
+      <workItem from="1493833334060" duration="912000" />
+      <workItem from="1493835140615" duration="1787000" />
+      <workItem from="1493837302310" duration="2314000" />
+      <workItem from="1493839659211" duration="2037000" />
+      <workItem from="1493841871887" duration="1005000" />
+      <workItem from="1493906607395" duration="1750000" />
+      <workItem from="1493908607304" duration="1660000" />
+      <workItem from="1493910602509" duration="1284000" />
+      <workItem from="1493955521905" duration="567000" />
+      <workItem from="1493957963450" duration="495000" />
+      <workItem from="1493990614400" duration="695000" />
+      <workItem from="1493992651435" duration="1213000" />
+      <workItem from="1493996848014" duration="1828000" />
+      <workItem from="1493998787361" duration="1943000" />
+      <workItem from="1494000765694" duration="1441000" />
+      <workItem from="1494002670869" duration="1840000" />
+      <workItem from="1494004588612" duration="1834000" />
+      <workItem from="1494006522154" duration="891000" />
+      <workItem from="1494008897938" duration="334000" />
+      <workItem from="1494046996914" duration="1044000" />
+      <workItem from="1494056263896" duration="759000" />
+      <workItem from="1494058186592" duration="1023000" />
+      <workItem from="1494060622632" duration="19000" />
+      <workItem from="1494061390589" duration="1223000" />
+      <workItem from="1494063250165" duration="1441000" />
+      <workItem from="1494065563018" duration="768000" />
+      <workItem from="1494067660484" duration="626000" />
+      <workItem from="1494079390565" duration="1449000" />
+      <workItem from="1494082214912" duration="963000" />
+      <workItem from="1494134049316" duration="517000" />
+      <workItem from="1494136900708" duration="378000" />
+      <workItem from="1494146711481" duration="550000" />
+      <workItem from="1494149897980" duration="1421000" />
+      <workItem from="1494151731671" duration="1714000" />
+      <workItem from="1494153743245" duration="1654000" />
+      <workItem from="1494155786065" duration="929000" />
+      <workItem from="1494161606842" duration="3200000" />
+      <workItem from="1494165276815" duration="1298000" />
+      <workItem from="1494167454259" duration="1576000" />
+      <workItem from="1494170431670" duration="1693000" />
+      <workItem from="1494172289326" duration="2028000" />
+      <workItem from="1494174362753" duration="1892000" />
+      <workItem from="1494176973488" duration="1268000" />
+      <workItem from="1494178838325" duration="990000" />
+      <workItem from="1494216942949" duration="1080000" />
+      <workItem from="1494218981119" duration="1169000" />
+      <workItem from="1494221000542" duration="1244000" />
+      <workItem from="1494222960934" duration="2384000" />
+      <workItem from="1494225457622" duration="1321000" />
+      <workItem from="1494227366344" duration="1705000" />
+      <workItem from="1494229688359" duration="1649000" />
+      <workItem from="1494231974161" duration="1077000" />
+      <workItem from="1494233807963" duration="1396000" />
+      <workItem from="1494235676271" duration="883000" />
+      <workItem from="1494237616473" duration="2056000" />
+      <workItem from="1494239761128" duration="822000" />
+      <workItem from="1494246561696" duration="1367000" />
+      <workItem from="1494248431963" duration="935000" />
+      <workItem from="1494254358850" duration="1848000" />
+      <workItem from="1494256296744" duration="1992000" />
+      <workItem from="1494258378921" duration="1205000" />
+      <workItem from="1494260304942" duration="1754000" />
+      <workItem from="1494262293119" duration="1531000" />
+      <workItem from="1494264127530" duration="1394000" />
+      <workItem from="1494302528396" duration="1759000" />
+      <workItem from="1494304743837" duration="1482000" />
+      <workItem from="1494309807008" duration="1523000" />
+      <workItem from="1494312165680" duration="1067000" />
+      <workItem from="1494317929018" duration="2025000" />
+      <workItem from="1494320145162" duration="1773000" />
+      <workItem from="1494321986267" duration="1855000" />
+      <workItem from="1494336271329" duration="783000" />
+      <workItem from="1494413263750" duration="1571000" />
+      <workItem from="1494415098756" duration="1727000" />
+      <workItem from="1494417245325" duration="460000" />
+      <workItem from="1494419130526" duration="721000" />
+      <workItem from="1494421038631" duration="362000" />
+      <workItem from="1494421427208" duration="1818000" />
+      <workItem from="1494423286634" duration="1753000" />
+      <workItem from="1494425153388" duration="2260000" />
+      <workItem from="1494428641854" duration="2052000" />
+      <workItem from="1494430926390" duration="1274000" />
+      <workItem from="1494473026312" duration="908000" />
+      <workItem from="1494518540282" duration="408000" />
+      <workItem from="1494570363859" duration="271000" />
+      <workItem from="1494580581434" duration="947000" />
+      <workItem from="1494598667441" duration="613000" />
+      <workItem from="1494651145059" duration="1697000" />
+      <workItem from="1494652906234" duration="186000" />
+      <workItem from="1494653111905" duration="1679000" />
+      <workItem from="1494654957738" duration="2261000" />
+      <workItem from="1494663775672" duration="2016000" />
+      <workItem from="1494665847872" duration="1882000" />
+      <workItem from="1494667840509" duration="1879000" />
+      <workItem from="1494669781845" duration="795000" />
+      <workItem from="1494672370585" duration="1493000" />
+      <workItem from="1494674246084" duration="307000" />
+      <workItem from="1494675631211" duration="493000" />
+      <workItem from="1494676236409" duration="512000" />
+      <workItem from="1494676809353" duration="22000" />
+      <workItem from="1494676834079" duration="106000" />
+      <workItem from="1494676943002" duration="311000" />
+      <workItem from="1494677583935" duration="639000" />
+      <workItem from="1494678566283" duration="1591000" />
+      <workItem from="1494680476082" duration="1818000" />
+      <workItem from="1494682376714" duration="1861000" />
+      <workItem from="1494684289604" duration="1919000" />
+      <workItem from="1494686296158" duration="2190000" />
+      <workItem from="1494688523674" duration="2325000" />
+      <workItem from="1494691109421" duration="1749000" />
+      <workItem from="1494693001461" duration="1821000" />
+      <workItem from="1494694877429" duration="1804000" />
+      <workItem from="1494696914746" duration="1250000" />
+      <workItem from="1494698779423" duration="1398000" />
+      <workItem from="1494700364632" duration="195000" />
+      <workItem from="1494700620038" duration="843000" />
+      <workItem from="1494701576135" duration="1480000" />
+      <workItem from="1494703449313" duration="1219000" />
+      <workItem from="1494736355516" duration="1508000" />
+      <workItem from="1494738208545" duration="1464000" />
+      <workItem from="1494740561621" duration="1548000" />
+      <workItem from="1494742479556" duration="1794000" />
+      <workItem from="1494744414091" duration="1774000" />
+      <workItem from="1494746310367" duration="1854000" />
+      <workItem from="1494748242068" duration="2119000" />
+      <workItem from="1494750648084" duration="1331000" />
+      <workItem from="1494752610897" duration="1597000" />
+      <workItem from="1494841675750" duration="254000" />
+      <workItem from="1494849778951" duration="1450000" />
+      <workItem from="1494863407373" duration="1761000" />
+      <workItem from="1494865749865" duration="1879000" />
+      <workItem from="1494867774013" duration="2298000" />
+      <workItem from="1494904240472" duration="1331000" />
+      <workItem from="1494906425471" duration="463000" />
+      <workItem from="1494910125455" duration="588000" />
+      <workItem from="1494912442645" duration="190000" />
+      <workItem from="1494915836931" duration="644000" />
+      <workItem from="1494917448127" duration="310000" />
+      <workItem from="1494919466690" duration="1408000" />
+      <workItem from="1494931737560" duration="612000" />
+      <workItem from="1494932986326" duration="798000" />
+      <workItem from="1494935291630" duration="1118000" />
+      <workItem from="1494938933348" duration="842000" />
+      <workItem from="1494942482232" duration="1579000" />
+      <workItem from="1494944802380" duration="478000" />
+      <workItem from="1494949944685" duration="953000" />
+      <workItem from="1494950911117" duration="299000" />
+      <workItem from="1494951243041" duration="46000" />
+      <workItem from="1494951361338" duration="1917000" />
+      <workItem from="1494955257408" duration="2158000" />
+      <workItem from="1494957512335" duration="1782000" />
+      <workItem from="1494959318625" duration="1788000" />
+      <workItem from="1494961141152" duration="1788000" />
+      <workItem from="1494989940968" duration="1478000" />
+      <workItem from="1494997858028" duration="386000" />
+      <workItem from="1495000661263" duration="430000" />
+      <workItem from="1495002559635" duration="117000" />
+      <workItem from="1495011061882" duration="565000" />
+      <workItem from="1495041359335" duration="559000" />
+      <workItem from="1495077661854" duration="1568000" />
+      <workItem from="1495079354108" duration="1150000" />
+      <workItem from="1495083065392" duration="335000" />
+      <workItem from="1495093365237" duration="410000" />
+      <workItem from="1495101135999" duration="114000" />
+      <workItem from="1495105171341" duration="975000" />
+      <workItem from="1495161421571" duration="711000" />
+      <workItem from="1495167877588" duration="698000" />
+      <workItem from="1495170513480" duration="150000" />
+      <workItem from="1495189614572" duration="1172000" />
+      <workItem from="1495191811600" duration="377000" />
+      <workItem from="1495193677686" duration="666000" />
+      <workItem from="1495195594644" duration="286000" />
+      <workItem from="1495259242198" duration="1169000" />
+      <workItem from="1495261223593" duration="1652000" />
+      <workItem from="1495268924290" duration="796000" />
+      <workItem from="1495273931074" duration="1599000" />
+      <workItem from="1495282107834" duration="1181000" />
+      <workItem from="1495346698460" duration="647000" />
+      <workItem from="1495350101474" duration="1153000" />
+      <workItem from="1495351923394" duration="965000" />
+      <workItem from="1495353878489" duration="1118000" />
+      <workItem from="1495355790683" duration="1037000" />
+      <workItem from="1495358062313" duration="1486000" />
+      <workItem from="1495359883832" duration="1271000" />
+      <workItem from="1495361699836" duration="1378000" />
+      <workItem from="1495364560109" duration="423000" />
+      <workItem from="1495365848696" duration="1706000" />
+      <workItem from="1495367758018" duration="1416000" />
+      <workItem from="1495370272159" duration="855000" />
+      <workItem from="1495375831191" duration="1876000" />
+      <workItem from="1495381833813" duration="1160000" />
+      <workItem from="1495425000739" duration="532000" />
+      <workItem from="1495432663935" duration="197000" />
+      <workItem from="1495435312171" duration="1889000" />
+      <workItem from="1495437748654" duration="1716000" />
+      <workItem from="1495439656001" duration="1526000" />
+      <workItem from="1495442340565" duration="1755000" />
+      <workItem from="1495447618019" duration="1115000" />
+      <workItem from="1495449717079" duration="1504000" />
+      <workItem from="1495451643542" duration="1420000" />
+      <workItem from="1495454134683" duration="1688000" />
+      <workItem from="1495455942386" duration="1756000" />
+      <workItem from="1495471531323" duration="152000" />
+      <workItem from="1495507364429" duration="1852000" />
+      <workItem from="1495510476410" duration="1064000" />
+      <workItem from="1495513261875" duration="1698000" />
+      <workItem from="1495515572203" duration="1076000" />
+      <workItem from="1495517557997" duration="1541000" />
+      <workItem from="1495520265489" duration="1278000" />
+      <workItem from="1495522285529" duration="963000" />
+      <workItem from="1495530557476" duration="1954000" />
+      <workItem from="1495541649826" duration="421000" />
+      <workItem from="1495601668974" duration="802000" />
+      <workItem from="1495638097617" duration="1083000" />
+      <workItem from="1495639775274" duration="1490000" />
+      <workItem from="1495641586123" duration="1800000" />
+      <workItem from="1495645650898" duration="580000" />
+      <workItem from="1495681032622" duration="171000" />
+      <workItem from="1495685492820" duration="162000" />
+      <workItem from="1495690264575" duration="970000" />
+      <workItem from="1495692351942" duration="130000" />
+      <workItem from="1495694647673" duration="1738000" />
+      <workItem from="1495696651421" duration="198000" />
+      <workItem from="1495697167796" duration="235000" />
+      <workItem from="1495699754902" duration="475000" />
+      <workItem from="1495706385344" duration="721000" />
+      <workItem from="1495708762671" duration="363000" />
+      <workItem from="1495717528085" duration="116000" />
+      <workItem from="1495727738653" duration="1067000" />
+      <workItem from="1495769969633" duration="291000" />
+      <workItem from="1495772105546" duration="398000" />
+      <workItem from="1495781201256" duration="210000" />
+      <workItem from="1495783156784" duration="402000" />
+      <workItem from="1495784992705" duration="909000" />
+      <workItem from="1495806750069" duration="1138000" />
+      <workItem from="1495808591266" duration="986000" />
+      <workItem from="1495810429381" duration="1348000" />
+      <workItem from="1495812334157" duration="1637000" />
+      <workItem from="1495815113482" duration="1248000" />
+      <workItem from="1495816920379" duration="1067000" />
+      <workItem from="1495818874312" duration="434000" />
+      <workItem from="1495821009517" duration="1699000" />
+      <workItem from="1495860165958" duration="660000" />
+      <workItem from="1495864628344" duration="911000" />
+      <workItem from="1495866545402" duration="1349000" />
+      <workItem from="1495868354944" duration="143000" />
+      <workItem from="1495868856387" duration="1000" />
+      <workItem from="1495869335167" duration="2100000" />
+      <workItem from="1495872336855" duration="1668000" />
+      <workItem from="1495874326365" duration="1373000" />
+      <workItem from="1495883850831" duration="1012000" />
+      <workItem from="1495886894369" duration="941000" />
+      <workItem from="1495889273474" duration="1476000" />
+      <workItem from="1495891900535" duration="570000" />
+      <workItem from="1495898736819" duration="734000" />
+      <workItem from="1495901170546" duration="1557000" />
+      <workItem from="1495908039386" duration="1861000" />
+      <workItem from="1495909974573" duration="961000" />
+      <workItem from="1495963333424" duration="755000" />
+      <workItem from="1495981315817" duration="1199000" />
+      <workItem from="1496040439382" duration="1125000" />
+      <workItem from="1496202267099" duration="397000" />
+      <workItem from="1496206737812" duration="472000" />
+      <workItem from="1496229633229" duration="124000" />
+      <workItem from="1496284177275" duration="360000" />
+      <workItem from="1496286717550" duration="524000" />
+      <workItem from="1496406515589" duration="172000" />
+      <workItem from="1496422173547" duration="758000" />
+      <workItem from="1496492321665" duration="1771000" />
+      <workItem from="1496494226581" duration="1592000" />
+      <workItem from="1496646860286" duration="789000" />
+      <workItem from="1496648675574" duration="1067000" />
+      <workItem from="1496677453230" duration="935000" />
+      <workItem from="1496820730076" duration="619000" />
+      <workItem from="1496907314709" duration="1240000" />
+      <workItem from="1496909617486" duration="1508000" />
+      <workItem from="1496914094288" duration="1685000" />
+      <workItem from="1496917670986" duration="552000" />
+      <workItem from="1496922994387" duration="428000" />
+      <workItem from="1496933178991" duration="336000" />
+      <workItem from="1496941401572" duration="1764000" />
+      <workItem from="1496948202181" duration="1726000" />
+      <workItem from="1497011381885" duration="1400000" />
+      <workItem from="1497015512636" duration="1674000" />
+      <workItem from="1497019857628" duration="443000" />
+      <workItem from="1497021176129" duration="1174000" />
+      <workItem from="1497022832686" duration="551000" />
+      <workItem from="1497024665618" duration="263000" />
+      <workItem from="1497036639865" duration="393000" />
+      <workItem from="1497080648479" duration="531000" />
+      <workItem from="1497082704158" duration="114000" />
+      <workItem from="1497121803122" duration="1923000" />
+      <workItem from="1497124533472" duration="1879000" />
+      <workItem from="1497126494891" duration="1138000" />
+      <workItem from="1497128339593" duration="1775000" />
+      <workItem from="1497130198271" duration="1717000" />
+      <workItem from="1497132016513" duration="1569000" />
+      <workItem from="1497133827721" duration="389000" />
+      <workItem from="1497172785575" duration="1210000" />
+      <workItem from="1497189276956" duration="417000" />
+      <workItem from="1497191876716" duration="828000" />
+      <workItem from="1497193698429" duration="627000" />
+      <workItem from="1497194989228" duration="497000" />
+      <workItem from="1497195665910" duration="141000" />
+      <workItem from="1497196974634" duration="1701000" />
+      <workItem from="1497198701065" duration="1793000" />
+      <workItem from="1497201030078" duration="277000" />
+      <workItem from="1497203829772" duration="861000" />
+      <workItem from="1497210848054" duration="668000" />
+      <workItem from="1497212241540" duration="256000" />
+      <workItem from="1497213671752" duration="1699000" />
+      <workItem from="1497251059586" duration="1002000" />
+      <workItem from="1497253507069" duration="1232000" />
+      <workItem from="1497256007475" duration="962000" />
+      <workItem from="1497257909815" duration="1789000" />
+      <workItem from="1497261875147" duration="1884000" />
+      <workItem from="1497263816923" duration="1788000" />
+      <workItem from="1497265636071" duration="125000" />
+      <workItem from="1497266392655" duration="1683000" />
+      <workItem from="1497268120443" duration="466000" />
+      <workItem from="1497271917639" duration="1569000" />
+      <workItem from="1497273796364" duration="2054000" />
+      <workItem from="1497276471968" duration="2125000" />
+      <workItem from="1497278623119" duration="1936000" />
+      <workItem from="1497282303223" duration="1446000" />
+      <workItem from="1497284117057" duration="1501000" />
+      <workItem from="1497287039480" duration="2005000" />
+      <workItem from="1497289434362" duration="678000" />
+      <workItem from="1497297203483" duration="1293000" />
+      <workItem from="1497338822845" duration="773000" />
+      <workItem from="1497340660193" duration="1323000" />
+      <workItem from="1497344672842" duration="563000" />
+      <workItem from="1497348801034" duration="1720000" />
+      <workItem from="1497350637457" duration="1778000" />
+      <workItem from="1497352453567" duration="1485000" />
+      <workItem from="1497362154528" duration="1789000" />
+      <workItem from="1497363970033" duration="1787000" />
+      <workItem from="1497365782000" duration="934000" />
+      <workItem from="1497373708342" duration="948000" />
+      <workItem from="1497380636552" duration="1969000" />
+      <workItem from="1497424824868" duration="1776000" />
+      <workItem from="1497426705501" duration="1310000" />
+      <workItem from="1497450195625" duration="1892000" />
+      <workItem from="1497452241250" duration="1499000" />
+      <workItem from="1497454092233" duration="1619000" />
+      <workItem from="1497455983140" duration="739000" />
+      <workItem from="1497468696073" duration="1201000" />
+      <workItem from="1497470646833" duration="779000" />
+      <workItem from="1497512408600" duration="1046000" />
+      <workItem from="1497514132907" duration="1287000" />
+      <workItem from="1497515623336" duration="1115000" />
+      <workItem from="1497518107787" duration="1725000" />
+      <workItem from="1497520367311" duration="1763000" />
+      <workItem from="1497522366879" duration="1643000" />
+      <workItem from="1497524215219" duration="1755000" />
+      <workItem from="1497526026176" duration="1722000" />
+      <workItem from="1497527839815" duration="1358000" />
+      <workItem from="1497529940570" duration="694000" />
+      <workItem from="1497594154070" duration="1553000" />
+      <workItem from="1497595861138" duration="1720000" />
+      <workItem from="1497597878703" duration="261000" />
+      <workItem from="1497601551295" duration="688000" />
+      <workItem from="1497611821058" duration="1575000" />
+      <workItem from="1497624008264" duration="1822000" />
+      <workItem from="1497626422646" duration="1027000" />
+      <workItem from="1497628369586" duration="466000" />
+      <workItem from="1497634153214" duration="269000" />
+      <workItem from="1497637804786" duration="1111000" />
+      <workItem from="1497639620355" duration="1148000" />
+      <workItem from="1497641468471" duration="1280000" />
+      <workItem from="1497687074984" duration="1574000" />
+      <workItem from="1497689105681" duration="1704000" />
+      <workItem from="1497691760382" duration="108000" />
+      <workItem from="1497702273456" duration="1693000" />
+      <workItem from="1497704103944" duration="1717000" />
+      <workItem from="1497705919896" duration="1080000" />
+      <workItem from="1497724879699" duration="1613000" />
+      <workItem from="1497727565878" duration="1458000" />
+      <workItem from="1497729887710" duration="1328000" />
+      <workItem from="1497731696577" duration="713000" />
+      <workItem from="1497787960064" duration="1444000" />
+      <workItem from="1497789893353" duration="1706000" />
+      <workItem from="1497791704391" duration="1210000" />
+      <workItem from="1497793822028" duration="1338000" />
+      <workItem from="1497795753817" duration="849000" />
+      <workItem from="1497798335422" duration="561000" />
+      <workItem from="1497811209593" duration="756000" />
+      <workItem from="1497813294327" duration="375000" />
+      <workItem from="1497815131666" duration="1054000" />
+      <workItem from="1497857430253" duration="1332000" />
+      <workItem from="1497859047626" duration="605000" />
+      <workItem from="1497863312994" duration="1749000" />
+      <workItem from="1497865124663" duration="1638000" />
+      <workItem from="1497866955911" duration="1736000" />
+      <workItem from="1497868906370" duration="1725000" />
+      <workItem from="1497870879653" duration="569000" />
+      <workItem from="1497877713771" duration="1614000" />
+      <workItem from="1497879600349" duration="1896000" />
+      <workItem from="1497882212507" duration="1771000" />
+      <workItem from="1497884019823" duration="2287000" />
+      <workItem from="1497887602609" duration="1167000" />
+      <workItem from="1497900590952" duration="1613000" />
+      <workItem from="1497902772175" duration="1752000" />
+      <workItem from="1497904949483" duration="1274000" />
+      <workItem from="1497945234699" duration="189000" />
+      <workItem from="1497946282337" duration="176000" />
+      <workItem from="1497948168449" duration="676000" />
+      <workItem from="1497951231341" duration="259000" />
+      <workItem from="1497960053412" duration="1692000" />
+      <workItem from="1497961863619" duration="1338000" />
+      <workItem from="1497964256048" duration="1684000" />
+      <workItem from="1497966156392" duration="1558000" />
+      <workItem from="1497967963960" duration="423000" />
+      <workItem from="1498049277199" duration="480000" />
+      <workItem from="1498065586325" duration="405000" />
+      <workItem from="1498066449143" duration="858000" />
+      <workItem from="1498070695173" duration="203000" />
+      <workItem from="1498075120318" duration="1466000" />
+      <workItem from="1498131854629" duration="1033000" />
+      <workItem from="1498140738589" duration="595000" />
+      <workItem from="1498188487118" duration="897000" />
+      <workItem from="1498201327839" duration="430000" />
+      <workItem from="1498202738642" duration="479000" />
+      <workItem from="1498203239724" duration="668000" />
+      <workItem from="1498206797319" duration="595000" />
+      <workItem from="1498219384726" duration="1665000" />
+      <workItem from="1498233017908" duration="1442000" />
+      <workItem from="1498235221891" duration="1120000" />
+      <workItem from="1498237074969" duration="1057000" />
+      <workItem from="1498238786084" duration="1322000" />
+      <workItem from="1498240676698" duration="1110000" />
+      <workItem from="1498282177408" duration="1755000" />
+      <workItem from="1498283983409" duration="1787000" />
+      <workItem from="1498285790903" duration="1776000" />
+      <workItem from="1498287598963" duration="2248000" />
+      <workItem from="1498290184148" duration="1980000" />
+      <workItem from="1498292457551" duration="269000" />
+      <workItem from="1498302064948" duration="1784000" />
+      <workItem from="1498305575313" duration="1792000" />
+      <workItem from="1498307486353" duration="1706000" />
+      <workItem from="1498309308641" duration="1771000" />
+      <workItem from="1498311243530" duration="1702000" />
+      <workItem from="1498313060618" duration="1734000" />
+      <workItem from="1498314870733" duration="1775000" />
+      <workItem from="1498316681530" duration="1618000" />
+      <workItem from="1498318495184" duration="1679000" />
+      <workItem from="1498320326269" duration="1627000" />
+      <workItem from="1498322151114" duration="1429000" />
+      <workItem from="1498324168159" duration="978000" />
+      <workItem from="1498326306177" duration="612000" />
+      <workItem from="1498367910944" duration="776000" />
+      <workItem from="1498370076024" duration="549000" />
+      <workItem from="1498372171983" duration="1500000" />
+      <workItem from="1498373798221" duration="1330000" />
+      <workItem from="1498379633814" duration="1326000" />
+      <workItem from="1498381443739" duration="1576000" />
+      <workItem from="1498383251702" duration="1723000" />
+      <workItem from="1498385071347" duration="1642000" />
+      <workItem from="1498386883929" duration="1671000" />
+      <workItem from="1498388693679" duration="1576000" />
+      <workItem from="1498390644644" duration="1703000" />
+      <workItem from="1498392459629" duration="1647000" />
+      <workItem from="1498399757794" duration="212000" />
+      <workItem from="1498402687701" duration="1017000" />
+      <workItem from="1498406150003" duration="745000" />
+      <workItem from="1498414843116" duration="478000" />
+      <workItem from="1498448254651" duration="1168000" />
+      <workItem from="1498457799034" duration="781000" />
+      <workItem from="1498459628903" duration="1094000" />
+      <workItem from="1498461463244" duration="1073000" />
+      <workItem from="1498469567503" duration="1332000" />
+      <workItem from="1498471390857" duration="1701000" />
+      <workItem from="1498473241666" duration="1182000" />
+      <workItem from="1498475456458" duration="1612000" />
+      <workItem from="1498496051337" duration="560000" />
+      <workItem from="1498560920654" duration="359000" />
+      <workItem from="1498568864358" duration="647000" />
+      <workItem from="1498573285793" duration="376000" />
+      <workItem from="1498574459170" duration="13000" />
+      <workItem from="1498585715936" duration="685000" />
+      <workItem from="1498621189136" duration="770000" />
+      <workItem from="1498643763326" duration="310000" />
+      <workItem from="1498647317550" duration="1406000" />
+      <workItem from="1498649586972" duration="622000" />
+      <workItem from="1498656305976" duration="277000" />
+      <workItem from="1498658727196" duration="595000" />
+      <workItem from="1498662824099" duration="482000" />
+      <workItem from="1498667427568" duration="844000" />
+      <workItem from="1498705927605" duration="2530000" />
+      <workItem from="1498732117494" duration="7714000" />
+      <workItem from="1498833073664" duration="2219000" />
+      <workItem from="1498967026884" duration="1597000" />
+      <workItem from="1498969968525" duration="2334000" />
+      <workItem from="1498974894206" duration="944000" />
+      <workItem from="1498977675190" duration="8276000" />
+      <workItem from="1499051379025" duration="2481000" />
+      <workItem from="1499093130057" duration="122000" />
+      <workItem from="1499141022826" duration="2050000" />
+      <workItem from="1499222754782" duration="7825000" />
+      <workItem from="1499237237832" duration="23000" />
+      <workItem from="1499239090108" duration="777000" />
+      <workItem from="1499240323403" duration="382000" />
+      <workItem from="1499404697646" duration="3713000" />
+      <workItem from="1499498394294" duration="889000" />
+      <workItem from="1499526988389" duration="286000" />
+      <workItem from="1499570054619" duration="569000" />
+      <workItem from="1499655274969" duration="1443000" />
+      <workItem from="1499746726637" duration="920000" />
+      <workItem from="1499758871128" duration="5000" />
+      <workItem from="1499760067226" duration="800000" />
+      <workItem from="1499852075471" duration="1404000" />
+      <workItem from="1499876524246" duration="140000" />
+      <workItem from="1499876667607" duration="19000" />
+      <workItem from="1499917919057" duration="3547000" />
+      <workItem from="1499940687762" duration="88000" />
+      <workItem from="1499941477432" duration="2059000" />
+      <workItem from="1499944022908" duration="29091000" />
+      <workItem from="1500102139188" duration="6217000" />
+      <workItem from="1500131453670" duration="3317000" />
+      <workItem from="1500136837450" duration="11603000" />
+      <workItem from="1500261766970" duration="16411000" />
+      <workItem from="1500353904570" duration="4696000" />
+      <workItem from="1500374214266" duration="512000" />
+      <workItem from="1500378230171" duration="61000" />
+      <workItem from="1500378293795" duration="1000" />
+      <workItem from="1500379193803" duration="453000" />
+      <workItem from="1500395828574" duration="3592000" />
+      <workItem from="1500443211395" duration="884000" />
+      <workItem from="1500446745204" duration="116000" />
+      <workItem from="1500446878958" duration="10748000" />
+      <workItem from="1500463802603" duration="174000" />
+      <workItem from="1500469865988" duration="93000" />
+      <workItem from="1500470119451" duration="292000" />
+      <workItem from="1500470664092" duration="4934000" />
+      <workItem from="1500532054511" duration="6817000" />
+      <workItem from="1500550817286" duration="1655000" />
+    </task>
+    <task id="LOCAL-00198" summary="added functionality of updating email templates for adk in case old ones is used">
+      <created>1494867821514</created>
+      <option name="number" value="00198" />
+      <option name="presentableId" value="LOCAL-00198" />
+      <option name="project" value="LOCAL" />
+      <updated>1494867821515</updated>
+    </task>
+    <task id="LOCAL-00199" summary="Added fixes for datatable viewing - some css code was missing">
+      <created>1494917534023</created>
+      <option name="number" value="00199" />
+      <option name="presentableId" value="LOCAL-00199" />
+      <option name="project" value="LOCAL" />
+      <updated>1494917534024</updated>
+    </task>
+    <task id="LOCAL-00200" summary="Added fixes for datatable viewing - some css code was missing">
+      <created>1494920189266</created>
+      <option name="number" value="00200" />
+      <option name="presentableId" value="LOCAL-00200" />
+      <option name="project" value="LOCAL" />
+      <updated>1494920189266</updated>
+    </task>
+    <task id="LOCAL-00201" summary="Added fixes for datatable viewing - some css code was missing">
+      <created>1494990952746</created>
+      <option name="number" value="00201" />
+      <option name="presentableId" value="LOCAL-00201" />
+      <option name="project" value="LOCAL" />
+      <updated>1494990952747</updated>
+    </task>
+    <task id="LOCAL-00202" summary="fixed bug on weekly stats showing incorrect data on index page&#10;fixed bug with coung of clicks&#10;fixed error of incorrect batched details in campaign details&#10;removed page loading script&#10;fixed issue of datatable loading on published section&#10;removed backdoor login functionality">
+      <created>1495456544321</created>
+      <option name="number" value="00202" />
+      <option name="presentableId" value="LOCAL-00202" />
+      <option name="project" value="LOCAL" />
+      <updated>1495456544322</updated>
+    </task>
+    <task id="LOCAL-00203" summary="regular update">
+      <created>1495508315831</created>
+      <option name="number" value="00203" />
+      <option name="presentableId" value="LOCAL-00203" />
+      <option name="project" value="LOCAL" />
+      <updated>1495508315832</updated>
+    </task>
+    <task id="LOCAL-00204" summary="Fixed incorrect data tables view on certain pages">
+      <created>1495518165006</created>
+      <option name="number" value="00204" />
+      <option name="presentableId" value="LOCAL-00204" />
+      <option name="project" value="LOCAL" />
+      <updated>1495518165006</updated>
+    </task>
+    <task id="LOCAL-00205" summary="Fixed incorrect data tables view on certain pages">
+      <created>1495522351002</created>
+      <option name="number" value="00205" />
+      <option name="presentableId" value="LOCAL-00205" />
+      <option name="project" value="LOCAL" />
+      <updated>1495522351002</updated>
+    </task>
+    <task id="LOCAL-00206" summary="Added update for security controller to land right on the default page&#10;Freed up path to index.html for the default page">
+      <created>1495638975513</created>
+      <option name="number" value="00206" />
+      <option name="presentableId" value="LOCAL-00206" />
+      <option name="project" value="LOCAL" />
+      <updated>1495638975514</updated>
+    </task>
+    <task id="LOCAL-00207" summary="Introduced default functionality for index action">
+      <created>1495641454048</created>
+      <option name="number" value="00207" />
+      <option name="presentableId" value="LOCAL-00207" />
+      <option name="project" value="LOCAL" />
+      <updated>1495641454049</updated>
+    </task>
+    <task id="LOCAL-00208" summary="Added update for security controller to land right on the default page&#10;Freed up path to index.html for the default page">
+      <created>1495641610040</created>
+      <option name="number" value="00208" />
+      <option name="presentableId" value="LOCAL-00208" />
+      <option name="project" value="LOCAL" />
+      <updated>1495641610041</updated>
+    </task>
+    <task id="LOCAL-00209" summary="Renamed and moved publisher related files">
+      <created>1495642377380</created>
+      <option name="number" value="00209" />
+      <option name="presentableId" value="LOCAL-00209" />
+      <option name="project" value="LOCAL" />
+      <updated>1495642377380</updated>
+    </task>
+    <task id="LOCAL-00210" summary="Added default lending to pubmasterdash">
+      <created>1495695518920</created>
+      <option name="number" value="00210" />
+      <option name="presentableId" value="LOCAL-00210" />
+      <option name="project" value="LOCAL" />
+      <updated>1495695518921</updated>
+    </task>
+    <task id="LOCAL-00211" summary="Removed fixed header">
+      <created>1495700761673</created>
+      <option name="number" value="00211" />
+      <option name="presentableId" value="LOCAL-00211" />
+      <option name="project" value="LOCAL" />
+      <updated>1495700761674</updated>
+    </task>
+    <task id="LOCAL-00212" summary="Chnged last campaign data to 360">
+      <created>1495783403140</created>
+      <option name="number" value="00212" />
+      <option name="presentableId" value="LOCAL-00212" />
+      <option name="project" value="LOCAL" />
+      <updated>1495783403140</updated>
+    </task>
+    <task id="LOCAL-00213" summary="First trial of new setup of data table">
+      <created>1495821864017</created>
+      <option name="number" value="00213" />
+      <option name="presentableId" value="LOCAL-00213" />
+      <option name="project" value="LOCAL" />
+      <updated>1495821864018</updated>
+    </task>
+    <task id="LOCAL-00214" summary="First trial of new setup of data table&#10;Added editor for data table - but did not setup functionality yet">
+      <created>1495821964326</created>
+      <option name="number" value="00214" />
+      <option name="presentableId" value="LOCAL-00214" />
+      <option name="project" value="LOCAL" />
+      <updated>1495821964327</updated>
+    </task>
+    <task id="LOCAL-00215" summary="Concolidated all campaigns type into 1 form&#10;Removed CPC campaign input details">
+      <created>1495873071599</created>
+      <option name="number" value="00215" />
+      <option name="presentableId" value="LOCAL-00215" />
+      <option name="project" value="LOCAL" />
+      <updated>1495873071599</updated>
+    </task>
+    <task id="LOCAL-00216" summary="Concolidate publisher campaign into a single form">
+      <created>1495889560593</created>
+      <option name="number" value="00216" />
+      <option name="presentableId" value="LOCAL-00216" />
+      <option name="project" value="LOCAL" />
+      <updated>1495889560594</updated>
+    </task>
+    <task id="LOCAL-00217" summary="Concolidate publisher campaign into a single form">
+      <created>1495890182906</created>
+      <option name="number" value="00217" />
+      <option name="presentableId" value="LOCAL-00217" />
+      <option name="project" value="LOCAL" />
+      <updated>1495890182906</updated>
+    </task>
+    <task id="LOCAL-00218" summary="XMLReader parsing">
+      <created>1497212407250</created>
+      <option name="number" value="00218" />
+      <option name="presentableId" value="LOCAL-00218" />
+      <option name="project" value="LOCAL" />
+      <updated>1497212407251</updated>
+    </task>
+    <task id="LOCAL-00219" summary="XMLReader parsing - step 1">
+      <created>1497212427262</created>
+      <option name="number" value="00219" />
+      <option name="presentableId" value="LOCAL-00219" />
+      <option name="project" value="LOCAL" />
+      <updated>1497212427262</updated>
+    </task>
+    <task id="LOCAL-00220" summary="XMLReader parsing - trial 1">
+      <created>1497264611179</created>
+      <option name="number" value="00220" />
+      <option name="presentableId" value="LOCAL-00220" />
+      <option name="project" value="LOCAL" />
+      <updated>1497264611179</updated>
+    </task>
+    <task id="LOCAL-00221" summary="XMLReader parsing - trial 2 (rollback to previous set up)">
+      <created>1497277343148</created>
+      <option name="number" value="00221" />
+      <option name="presentableId" value="LOCAL-00221" />
+      <option name="project" value="LOCAL" />
+      <updated>1497277343149</updated>
+    </task>
+    <task id="LOCAL-00222" summary="upgraded to symfony 3.3.2">
+      <created>1497353388288</created>
+      <option name="number" value="00222" />
+      <option name="presentableId" value="LOCAL-00222" />
+      <option name="project" value="LOCAL" />
+      <updated>1497353388289</updated>
+    </task>
+    <task id="LOCAL-00223" summary="Temp fix for count of emails in campaign for campdetails">
+      <created>1497426078683</created>
+      <option name="number" value="00223" />
+      <option name="presentableId" value="LOCAL-00223" />
+      <option name="project" value="LOCAL" />
+      <updated>1497426078684</updated>
+    </task>
+    <task id="LOCAL-00224" summary="Simplified creteria for camp selection">
+      <created>1497451449812</created>
+      <option name="number" value="00224" />
+      <option name="presentableId" value="LOCAL-00224" />
+      <option name="project" value="LOCAL" />
+      <updated>1497451449813</updated>
+    </task>
+    <task id="LOCAL-00225" summary="added unit testing functionality">
+      <created>1497470793042</created>
+      <option name="number" value="00225" />
+      <option name="presentableId" value="LOCAL-00225" />
+      <option name="project" value="LOCAL" />
+      <updated>1497470793042</updated>
+    </task>
+    <task id="LOCAL-00226" summary="Fixed some of the code errors and added speed enhansments into httaccess file">
+      <created>1497530381690</created>
+      <option name="number" value="00226" />
+      <option name="presentableId" value="LOCAL-00226" />
+      <option name="project" value="LOCAL" />
+      <updated>1497530381691</updated>
+    </task>
+    <task id="LOCAL-00227" summary="updated .httaccess">
+      <created>1497596465633</created>
+      <option name="number" value="00227" />
+      <option name="presentableId" value="LOCAL-00227" />
+      <option name="project" value="LOCAL" />
+      <updated>1497596465634</updated>
+    </task>
+    <task id="LOCAL-00228" summary="updated .httaccess to add comprassion functionality">
+      <created>1497597404493</created>
+      <option name="number" value="00228" />
+      <option name="presentableId" value="LOCAL-00228" />
+      <option name="project" value="LOCAL" />
+      <updated>1497597404494</updated>
+    </task>
+    <task id="LOCAL-00229" summary="updated echarts">
+      <created>1497796065385</created>
+      <option name="number" value="00229" />
+      <option name="presentableId" value="LOCAL-00229" />
+      <option name="project" value="LOCAL" />
+      <updated>1497796065386</updated>
+    </task>
+    <task id="LOCAL-00230" summary="reverted back to old campaign stats&#10;auto collapse menu bar">
+      <created>1497815499635</created>
+      <option name="number" value="00230" />
+      <option name="presentableId" value="LOCAL-00230" />
+      <option name="project" value="LOCAL" />
+      <updated>1497815499636</updated>
+    </task>
+    <task id="LOCAL-00231" summary="auto collapse menu bar&#10;updates .httaccess">
+      <created>1497878494004</created>
+      <option name="number" value="00231" />
+      <option name="presentableId" value="LOCAL-00231" />
+      <option name="project" value="LOCAL" />
+      <updated>1497878494005</updated>
+    </task>
+    <task id="LOCAL-00232" summary="maintanance">
+      <created>1498235936962</created>
+      <option name="number" value="00232" />
+      <option name="presentableId" value="LOCAL-00232" />
+      <option name="project" value="LOCAL" />
+      <updated>1498235936963</updated>
+    </task>
+    <task id="LOCAL-00233" summary="large parsing - release one - up to 1000 emails">
+      <created>1498469823561</created>
+      <option name="number" value="00233" />
+      <option name="presentableId" value="LOCAL-00233" />
+      <option name="project" value="LOCAL" />
+      <updated>1498469823561</updated>
+    </task>
+    <task id="LOCAL-00234" summary="large parsing - release one - up to 1000 emails&#10;changed health check url in environment config file">
+      <created>1498473330876</created>
+      <option name="number" value="00234" />
+      <option name="presentableId" value="LOCAL-00234" />
+      <option name="project" value="LOCAL" />
+      <updated>1498473330877</updated>
+    </task>
+    <task id="LOCAL-00235" summary="large parsing - release one - up to 1000 emails&#10;changed health check url in environment config file">
+      <created>1498476297779</created>
+      <option name="number" value="00235" />
+      <option name="presentableId" value="LOCAL-00235" />
+      <option name="project" value="LOCAL" />
+      <updated>1498476297780</updated>
+    </task>
+    <task id="LOCAL-00236" summary="sendy deploy">
+      <created>1498476327392</created>
+      <option name="number" value="00236" />
+      <option name="presentableId" value="LOCAL-00236" />
+      <option name="project" value="LOCAL" />
+      <updated>1498476327392</updated>
+    </task>
+    <task id="LOCAL-00237" summary="sendy deploy">
+      <created>1498732944059</created>
+      <option name="number" value="00237" />
+      <option name="presentableId" value="LOCAL-00237" />
+      <option name="project" value="LOCAL" />
+      <updated>1498732944059</updated>
+    </task>
+    <task id="LOCAL-00238" summary="sendy deploy">
+      <created>1498833821862</created>
+      <option name="number" value="00238" />
+      <option name="presentableId" value="LOCAL-00238" />
+      <option name="project" value="LOCAL" />
+      <updated>1498833821863</updated>
+    </task>
+    <task id="LOCAL-00239" summary="removed connection close as that one was not working with current set up">
+      <created>1498971241467</created>
+      <option name="number" value="00239" />
+      <option name="presentableId" value="LOCAL-00239" />
+      <option name="project" value="LOCAL" />
+      <updated>1498971241468</updated>
+    </task>
+    <task id="LOCAL-00240" summary="symfony update">
+      <created>1499923413512</created>
+      <option name="number" value="00240" />
+      <option name="presentableId" value="LOCAL-00240" />
+      <option name="project" value="LOCAL" />
+      <updated>1499923413513</updated>
+    </task>
+    <task id="LOCAL-00241" summary="new parser step 2">
+      <created>1500349585135</created>
+      <option name="number" value="00241" />
+      <option name="presentableId" value="LOCAL-00241" />
+      <option name="project" value="LOCAL" />
+      <updated>1500349585136</updated>
+    </task>
+    <task id="LOCAL-00242" summary="xml error handling added">
+      <created>1500364561648</created>
+      <option name="number" value="00242" />
+      <option name="presentableId" value="LOCAL-00242" />
+      <option name="project" value="LOCAL" />
+      <updated>1500364561648</updated>
+    </task>
+    <task id="LOCAL-00243" summary="composer swift mailer update">
+      <created>1500374676783</created>
+      <option name="number" value="00243" />
+      <option name="presentableId" value="LOCAL-00243" />
+      <option name="project" value="LOCAL" />
+      <updated>1500374676783</updated>
+    </task>
+    <task id="LOCAL-00244" summary="updated parsing to its functional form">
+      <created>1500435301247</created>
+      <option name="number" value="00244" />
+      <option name="presentableId" value="LOCAL-00244" />
+      <option name="project" value="LOCAL" />
+      <updated>1500435301248</updated>
+    </task>
+    <task id="LOCAL-00245" summary="updated parser">
+      <created>1500536507563</created>
+      <option name="number" value="00245" />
+      <option name="presentableId" value="LOCAL-00245" />
+      <option name="project" value="LOCAL" />
+      <updated>1500536507563</updated>
+    </task>
+    <task id="LOCAL-00246" summary="updated e-chars link on campaigns dash">
+      <created>1500546507637</created>
+      <option name="number" value="00246" />
+      <option name="presentableId" value="LOCAL-00246" />
+      <option name="project" value="LOCAL" />
+      <updated>1500546507637</updated>
+    </task>
+    <option name="localTasksCounter" value="247" />
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="mediaff - 2017.06.14 at 22h 05m 11s.xml">
+      <configuration name="mediaff" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="mediaff - 2017.06.16 at 08h 31m 56s.xml">
+      <configuration name="mediaff" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="mediaff - 2017.06.19 at 11h 10m 31s.xml">
+      <configuration name="mediaff" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="mediaff - 2017.06.19 at 11h 18m 32s.xml">
+      <configuration name="mediaff" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="mediaff - 2017.07.03 at 12h 55m 52s.xml">
+      <configuration name="mediaff" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="mediaff - 2017.07.03 at 20h 45m 44s.xml">
+      <configuration name="mediaff" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="mediaff - 2017.07.03 at 20h 47m 24s.xml">
+      <configuration name="mediaff" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="mediaff - 2017.07.05 at 12h 47m 28s.xml">
+      <configuration name="mediaff" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="sendy_co - 2017.06.14 at 22h 04m 27s.xml">
+      <configuration name="sendy.co" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="sendy_co - 2017.06.14 at 22h 04m 51s.xml">
+      <configuration name="sendy.co" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="2043433000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1681" y="23" width="1919" height="986" extended-state="0" />
+    <layout>
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13532232" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11827384" sideWeight="0.49320388" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50319827" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19837233" sideWeight="0.5106496" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18742369" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3267544" sideWeight="0.49573562" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1947497" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20504385" sideWeight="0.48935038" order="12" side_tool="false" content_ui="tabs" x="1927" y="30" width="1134" height="1042" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16471216" sideWeight="0.5067961" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32739422" sideWeight="0.49573562" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943678" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27850878" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982087" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23464912" sideWeight="0.53731346" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34537727" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31688598" sideWeight="0.4978678" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33367243" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="EXTERNAL /Applications/MAMP/htdocs/mediaff">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/../finsensitive.com" />
+      <path value="$PROJECT_DIR$/../mediaff.com" />
+      <path value="$PROJECT_DIR$/../sendy_2.1.2.7" />
+      <path value="$PROJECT_DIR$/../sendy_2.1.2.8" />
+    </ignored-roots>
+    <MESSAGE value="XMLReader parsing - step 1" />
+    <MESSAGE value="XMLReader parsing - trial 1" />
+    <MESSAGE value="XMLReader parsing - trial 2 (rollback to previous set up)" />
+    <MESSAGE value="upgraded to symfony 3.3.2" />
+    <MESSAGE value="Temp fix for count of emails in campaign for campdetails" />
+    <MESSAGE value="Simplified creteria for camp selection" />
+    <MESSAGE value="added unit testing functionality" />
+    <MESSAGE value="Fixed some of the code errors and added speed enhansments into httaccess file" />
+    <MESSAGE value="updated .httaccess" />
+    <MESSAGE value="updated .httaccess to add comprassion functionality" />
+    <MESSAGE value="updated echarts" />
+    <MESSAGE value="reverted back to old campaign stats&#10;auto collapse menu bar" />
+    <MESSAGE value="auto collapse menu bar&#10;updates .httaccess" />
+    <MESSAGE value="maintanance" />
+    <MESSAGE value="large parsing - release one - up to 1000 emails" />
+    <MESSAGE value="large parsing - release one - up to 1000 emails&#10;changed health check url in environment config file" />
+    <MESSAGE value="sendy deploy" />
+    <MESSAGE value="removed connection close as that one was not working with current set up" />
+    <MESSAGE value="symfony update" />
+    <MESSAGE value="new parser step 2" />
+    <MESSAGE value="xml error handling added" />
+    <MESSAGE value="composer swift mailer update" />
+    <MESSAGE value="updated parsing to its functional form" />
+    <MESSAGE value="updated parser" />
+    <MESSAGE value="updated e-chars link on campaigns dash" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated e-chars link on campaigns dash" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="25" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="dbDummy://dbtable:/6520eb17/607a2c3f-ba08-4853-bbb9-29358373416d/mediazmj_mysql.links" />
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Services/adkService1.php" />
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/CampaignInputDetailsRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/CampaignsRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="34" column="53" lean-forward="false" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/6520eb17/607a2c3f-ba08-4853-bbb9-29358373416d/mediazmj_mysql.lists" />
+    <entry file="file://$PROJECT_DIR$/adkresult.xml" />
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/SubscribersRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/UserRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/SubscriberAddressRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/SubscriberDetailsRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="47" column="43" lean-forward="false" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/services.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="7" column="46" lean-forward="false" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-186">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/BackEnd/Publisher/pubCampDetails.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2266">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/adkCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="18" column="34" lean-forward="false" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AdvertiserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-18">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config_prod.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config_dev.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="518">
+          <caret line="37" column="24" lean-forward="false" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AppCache.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/app_dev.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/CampaignInputType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="877">
+          <caret line="133" column="5" lean-forward="false" selection-start-line="133" selection-start-column="5" selection-end-line="133" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/6520eb17/607a2c3f-ba08-4853-bbb9-29358373416d/mediazmj_mysql.06_subscriberadkcamperrors" />
+    <entry file="dbDummy://dbtable:/6520eb17/607a2c3f-ba08-4853-bbb9-29358373416d/mediazmj_mysql.subscribers" />
+    <entry file="dbDummy://dbtable:/6520eb17/607a2c3f-ba08-4853-bbb9-29358373416d/mediazmj_mysql.07_campaigninputdetails" />
+    <entry file="dbDummy://dbtable:/6520eb17/607a2c3f-ba08-4853-bbb9-29358373416d/mediazmj_mysql.campaigns" />
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-127">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/BackEnd/phpversion.php" />
+    <entry file="file://$PROJECT_DIR$/composer.lock">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="2621" column="20" lean-forward="false" selection-start-line="2621" selection-start-column="17" selection-end-line="2621" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="12" column="16" lean-forward="false" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/BackEnd/Publisher/newPubCampaign.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="18" column="28" lean-forward="false" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6520eb17/607a2c3f-ba08-4853-bbb9-29358373416d/mediazmj_mysql.subscribers">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6520eb17/607a2c3f-ba08-4853-bbb9-29358373416d/mediazmj_mysql.campaigns">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6520eb17/607a2c3f-ba08-4853-bbb9-29358373416d/mediazmj_mysql.07_campaigninputdetails">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6520eb17/607a2c3f-ba08-4853-bbb9-29358373416d/mediazmj_mysql.06_subscriberadkcamperrors">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/PublisherController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3830">
+          <caret line="122" column="0" lean-forward="false" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Services/adkService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="199" column="42" lean-forward="false" selection-start-line="199" selection-start-column="42" selection-end-line="199" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/607a2c3f-ba08-4853-bbb9-29358373416d/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6520eb17/1b666920-d20d-4358-a0fa-d27e73b17e43/mediaff_mysql.stats_weekly">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.elasticbeanstalk/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/FrontEnd/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.ebextensions/environmentsetup.config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" column="22" lean-forward="false" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6520eb17/1b666920-d20d-4358-a0fa-d27e73b17e43/mediaff_mysql.stats_yearly">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/BackEnd/Publisher/pubCampDash.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14">
+          <caret line="175" column="54" lean-forward="false" selection-start-line="175" selection-start-column="54" selection-end-line="175" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6520eb17/1b666920-d20d-4358-a0fa-d27e73b17e43/mediaff_mysql.stats_daily">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/var/logs/dev.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/var/logs/prod.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/FrontEndController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="19" column="1" lean-forward="false" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+          <folding>
+            <element signature="e#40#85#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.ebextensions/setup.config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="35" column="12" lean-forward="true" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

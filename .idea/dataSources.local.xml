@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL_AWS_Mediaff" uuid="1b666920-d20d-4358-a0fa-d27e73b17e43">
+      <database-info product="MySQL" version="5.6.27-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.40 ( Revision: 402933ef52cad9aa82624e80acbea46e3a701ce6 )">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>mediazmj</user-name>
+      <introspection-schemas>*:mediaff_mysql,mysql</introspection-schemas>
+      <resolve-scope>mediaff_mysql:</resolve-scope>
+      <unqualified-resolve-schemas>mediaff_mysql:</unqualified-resolve-schemas>
+      <ssh-properties>
+        <enabled>true</enabled>
+        <proxy-host>ec2-54-174-87-176.compute-1.amazonaws.com</proxy-host>
+        <proxy-port>22</proxy-port>
+        <user>ec2-user</user>
+        <use-password>false</use-password>
+        <private-key-path>/Volumes/KINGSTON/keys/mediaff.ppk</private-key-path>
+      </ssh-properties>
+    </data-source>
+    <data-source name="MediaffSource" uuid="e964f448-15a5-44d8-a145-8da59308c757">
+      <database-info product="PostgreSQL" version="9.5.4" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>postgres</user-name>
+      <introspection-schemas>MediaBay:MediaBay,MediaBayProd,MediaBayTest</introspection-schemas>
+    </data-source>
+    <data-source name="MySQL_Dev_Mediaff" uuid="607a2c3f-ba08-4853-bbb9-29358373416d">
+      <database-info product="MySQL" version="5.6.35" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.40 ( Revision: 402933ef52cad9aa82624e80acbea46e3a701ce6 )">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>mediazmj</user-name>
+      <introspection-schemas>*:mediazmj_mysql</introspection-schemas>
+    </data-source>
+    <data-source name="MySQL_ITItch_Mediaff" uuid="1fc22dee-ba8c-46a6-9855-cf4921fa0ac4">
+      <database-info product="MySQL" version="5.5.54-38.7-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.40 ( Revision: 402933ef52cad9aa82624e80acbea46e3a701ce6 )">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>mediazmj</user-name>
+      <introspection-schemas>*:mediazmj_MediaBayProd</introspection-schemas>
+    </data-source>
+  </component>
+</project>

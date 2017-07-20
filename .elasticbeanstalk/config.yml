@@ -1,6 +1,6 @@
 branch-defaults:
   master:
-    environment: null
+    environment: mediaff
 environment-defaults:
   mediaff:
     branch: null

@@ -21,3 +21,4 @@ var/logs/
 .idea/dataSources/c6227ae9-2e96-421d-aef1-3a80eb926d9b/_staging_/
 .idea/dataSources/e964f448-15a5-44d8-a145-8da59308c757/_staging_/
 src/AppBundle/Services/BigData/
+!web/working/

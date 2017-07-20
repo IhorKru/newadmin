@@ -191,7 +191,7 @@ class PublisherController extends Controller
                 //closing down current session and progressing with script creation
                 $rootDir = getcwd();
                 $adk_process = new Process(
-                    'php ../bin/console app:adkaction ' . $numcampaigns . ',' . $timezone . ',' . $depdate
+                    'php ../bin/console app:adkaction ' . $numcampaigns . ', ' . $timezone . ',' . $depdate
                 );
                 $adk_process->setWorkingDirectory($rootDir);
                 $adk_process->setTimeout(null);

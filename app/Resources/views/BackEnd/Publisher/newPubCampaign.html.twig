@@ -16,7 +16,7 @@
 <div class="">
     <div class="row">
         <!-- form input mask -->
-        <div class="col-md-4 col-sm-4 col-xs-12">
+        <div class="col-md-3 col-sm-4 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
                     <h2>Campaing Details</h2>
@@ -221,7 +221,7 @@
                                     $("#progress_bar").attr("style", "width: " + progress);
                                     $("#progress_bar").attr("aria-valuenow", progress);
                                     document.getElementById("progress_bar").innerHTML = "Running - " + progress;
-                                    if(progress == '100%'){
+                                    if(progress >= '97%'){
                                         $("#progress_bar").attr("style", "width: 100%");
                                         $("#progress_bar").attr("aria-valuenow", "100%");
                                         document.getElementById("progress_bar").innerHTML = "Completed - 100% - " + (Number(curusers) - Number(initusers)) + " emails";

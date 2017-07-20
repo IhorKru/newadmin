@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="MySQL_Dev_Mediaff">
-  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.2">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.3">
     <root id="1"/>
     <schema id="2" parent="1" name="mediazmj_mysql">
       <Current>1</Current>
@@ -219,7 +219,6 @@
     <column id="78" parent="8" name="optindate">
       <Position>7</Position>
       <DataType>datetime|0</DataType>
-      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
     </column>
     <column id="79" parent="8" name="optinip">
       <Position>8</Position>
@@ -270,7 +269,6 @@
       <Position>5</Position>
       <DataType>datetime|0</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
     </column>
     <column id="90" parent="9" name="optoutip">
       <Position>6</Position>
@@ -645,7 +643,6 @@
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="169" parent="20" name="userID">
@@ -1239,7 +1236,6 @@
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="307" parent="27" name="partner_name">
@@ -1251,7 +1247,6 @@
       <Position>3</Position>
       <DataType>datetime|0</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
     </column>
     <column id="309" parent="27" name="geo">
       <Position>4</Position>
@@ -1319,7 +1314,6 @@
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>&apos;0&apos;</DefaultExpression>
     </column>
     <column id="324" parent="28" name="name">
       <Position>2</Position>
@@ -1332,7 +1326,6 @@
     <column id="326" parent="28" name="datecreated">
       <Position>4</Position>
       <DataType>datetime|0</DataType>
-      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
     </column>
     <column id="327" parent="28" name="categoryid">
       <Position>5</Position>
@@ -1364,7 +1357,6 @@
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="334" parent="29" name="status_name">
@@ -1381,7 +1373,6 @@
       <Position>4</Position>
       <DataType>datetime|0</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
     </column>
     <index id="337" parent="29" name="ref_offer_status_pkey">
       <ColNames>id</ColNames>
@@ -1400,7 +1391,6 @@
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="341" parent="30" name="partner_type_name">
@@ -1425,7 +1415,6 @@
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="346" parent="31" name="tire_name">
@@ -1447,7 +1436,6 @@
       <Position>5</Position>
       <DataType>datetime|0</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
     </column>
     <index id="350" parent="31" name="ref_tire_pkey">
       <ColNames>id</ColNames>
@@ -1466,7 +1454,6 @@
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="354" parent="32" name="emailaddress">
@@ -1500,7 +1487,6 @@
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="361" parent="33" name="traffic_type_name">
@@ -1621,7 +1607,6 @@
       <Position>19</Position>
       <DataType>datetime|0</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
     </column>
     <column id="385" parent="34" name="batches">
       <Position>20</Position>
@@ -1773,7 +1758,6 @@
       <Position>19</Position>
       <DataType>datetime|0</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
     </column>
     <column id="415" parent="35" name="batches">
       <Position>20</Position>
@@ -1925,7 +1909,6 @@
       <Position>19</Position>
       <DataType>datetime|0</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
     </column>
     <column id="445" parent="36" name="batches">
       <Position>20</Position>
@@ -2077,7 +2060,6 @@
       <Position>19</Position>
       <DataType>datetime|0</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
     </column>
     <column id="475" parent="37" name="batches">
       <Position>20</Position>
@@ -2190,12 +2172,10 @@
     <column id="498" parent="38" name="timestamp">
       <Position>13</Position>
       <DataType>datetime|0</DataType>
-      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
     </column>
     <column id="499" parent="38" name="join_date">
       <Position>14</Position>
       <DataType>datetime|0</DataType>
-      <DefaultExpression>&apos;0000-00-00 00:00:00&apos;</DefaultExpression>
     </column>
     <column id="500" parent="38" name="confirmed">
       <Position>15</Position>
